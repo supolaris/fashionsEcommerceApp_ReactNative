@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, StyleSheet, Image, StatusBar} from 'react-native';
 
-import PrimaryTitle from '../common/Texts/PrimaryTitle';
-import PrimaryDescription from '../common/Texts/PrimaryDescription';
+import PrimaryTitle from '../common/Titles/PrimaryTitle';
+import PrimaryDescription from '../common/Descriptions/PrimaryDescription';
 import StartupButton from '../common/Buttons/StartupButton';
 
 import {AppColors} from '../../constants/AppColors';

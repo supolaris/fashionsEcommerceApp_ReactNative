@@ -4,7 +4,7 @@ import {View, Text, StyleSheet, FlatList, ImageBackground} from 'react-native';
 import {AppColors} from '../../constants/AppColors';
 
 import PrimaryHeader from '../common/Headers/PrimaryHeader';
-import PrimaryTextInput from '../common/TextInput/PrimaryTextInput';
+import PrimaryTextInput from '../common/TextInputs/PrimaryTextInput';
 
 import {ProductCatagoriesData} from '../../constants/FlatlistData';
 import {AppFonts} from '../../constants/AppFonts';
@@ -88,7 +88,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: AppColors.White,
-    padding: 15,
+    paddingTop: 15,
+    paddingHorizontal: 15,
   },
   headerView: {
     alignItems: 'flex-start',
@@ -99,5 +100,6 @@ const styles = StyleSheet.create({
   },
   flatLisView: {
     flex: 1,
+    paddingBottom: 10,
   },
 });
