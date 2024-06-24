@@ -13,7 +13,7 @@ function StackNav() {
         screenOptions={{
           headerShown: false,
         }}>
-        <Stack.Screen name="Startup_Screen" component={StartupScreen} />
+        {/* <Stack.Screen name="Startup_Screen" component={StartupScreen} /> */}
         <Stack.Screen name="BottomNav" component={BottomNav} />
       </Stack.Navigator>
     </NavigationContainer>
