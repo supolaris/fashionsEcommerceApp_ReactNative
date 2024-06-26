@@ -20,6 +20,7 @@ function StackNav() {
           component={ProductDescriptonScreen}
         />
         <Stack.Screen name="Profile_Screen" component={ProfileScreen} />
+
         <Stack.Screen name="BottomNav" component={BottomNav} />
         <Stack.Screen name="Startup_Screen" component={StartupScreen} />
       </Stack.Navigator>
