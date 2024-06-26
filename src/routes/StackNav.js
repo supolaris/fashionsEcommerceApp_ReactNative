@@ -6,8 +6,10 @@ import RegisterSuccessScreen from '../screens/RegisterSuccessScreen';
 import StartupScreen from '../screens/StartupScreen';
 import LoginScreen from '../screens/LoginScreen';
 import SignUpScreen from '../screens/SignUpScreen';
-import ProfileScreen from '../screens/ProfileScreen';
+import PersonalDetailScreen from '../screens/PersonalDetailScreen';
 import ProductDescriptonScreen from '../screens/ProductDescriptonScreen';
+
+import ProfileScreen from '../screens/ProfileScreen';
 
 const Stack = createStackNavigator();
 
@@ -18,6 +20,7 @@ function StackNav() {
         screenOptions={{
           headerShown: false,
         }}>
+        <Stack.Screen name="Profile_Screen" component={ProfileScreen} />
         <Stack.Screen name="Startup_Screen" component={StartupScreen} />
         <Stack.Screen
           name="RegisterSuccess_Screen"
@@ -29,7 +32,10 @@ function StackNav() {
           name="ProductDescripton_Screen"
           component={ProductDescriptonScreen}
         />
-        <Stack.Screen name="Profile_Screen" component={ProfileScreen} />
+        <Stack.Screen
+          name="PersonalDetail_Screen"
+          component={PersonalDetailScreen}
+        />
 
         <Stack.Screen name="BottomNav" component={BottomNav} />
       </Stack.Navigator>
