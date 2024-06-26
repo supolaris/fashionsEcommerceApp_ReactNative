@@ -2,13 +2,13 @@ import React from 'react';
 
 import Startup from '../components/screenUi/Startup';
 
-import {useNavigation} from '@react-navigation/native';
+import {useAppNavigation} from '../@types/AppNavigation';
 
 const StartupScreen = () => {
-  const navigation = useNavigation();
+  const navigation = useAppNavigation();
 
   const onGetStartedPressed = () => {
-    navigation.navigate('BottomNav');
+    navigation.navigate('Login_Screen');
   };
   return <Startup onGetStartedPressed={onGetStartedPressed} />;
 };

@@ -2,8 +2,10 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 
 import BottomNav from './BottomNav';
+import RegisterSuccessScreen from '../screens/RegisterSuccessScreen';
 import StartupScreen from '../screens/StartupScreen';
 import LoginScreen from '../screens/LoginScreen';
+import SignUpScreen from '../screens/SignUpScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import ProductDescriptonScreen from '../screens/ProductDescriptonScreen';
 
@@ -16,6 +18,12 @@ function StackNav() {
         screenOptions={{
           headerShown: false,
         }}>
+        <Stack.Screen name="Startup_Screen" component={StartupScreen} />
+        <Stack.Screen
+          name="RegisterSuccess_Screen"
+          component={RegisterSuccessScreen}
+        />
+        <Stack.Screen name="SignUp_Screen" component={SignUpScreen} />
         <Stack.Screen name="Login_Screen" component={LoginScreen} />
         <Stack.Screen
           name="ProductDescripton_Screen"
@@ -24,7 +32,6 @@ function StackNav() {
         <Stack.Screen name="Profile_Screen" component={ProfileScreen} />
 
         <Stack.Screen name="BottomNav" component={BottomNav} />
-        <Stack.Screen name="Startup_Screen" component={StartupScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

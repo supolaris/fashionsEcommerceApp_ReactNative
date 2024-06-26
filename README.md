@@ -51,3 +51,9 @@ yarn add lottie-react-native
 ```bash
 npx react-native-asset
 ```
+
+# Checkbox
+
+```bash
+npm i @react-native-community/checkbox
+```
