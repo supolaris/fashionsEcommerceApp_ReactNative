@@ -3,6 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 
 import BottomNav from './BottomNav';
 import StartupScreen from '../screens/StartupScreen';
+import LoginScreen from '../screens/LoginScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import ProductDescriptonScreen from '../screens/ProductDescriptonScreen';
 
@@ -15,6 +16,7 @@ function StackNav() {
         screenOptions={{
           headerShown: false,
         }}>
+        <Stack.Screen name="Login_Screen" component={LoginScreen} />
         <Stack.Screen
           name="ProductDescripton_Screen"
           component={ProductDescriptonScreen}
