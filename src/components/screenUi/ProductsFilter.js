@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Text, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  TouchableOpacity,
+  Pressable,
+} from 'react-native';
 
 import {AppColors} from '../../constants/AppColors';
 import {AppFonts} from '../../constants/AppFonts';
@@ -10,6 +17,7 @@ import SecondaryTitle from '../common/Titles/SecondaryTitle';
 import {ProductCatagories} from '../../constants/FlatlistData';
 import {ProductSortByData} from '../../constants/FlatlistData';
 import QuaternaryButton from '../common/Buttons/QuaternaryButton';
+import Star from '../common/Star';
 
 const ProductsFilter = props => {
   const renderCatagories = ({item}) => {
@@ -80,7 +88,24 @@ const ProductsFilter = props => {
             keyExtractor={item => item.id.toString()}
           />
         </View>
+        <View style={styles.titleRatingView}>
+          <SecondaryTitle text="Rating" />
+
+          <Pressable style={styles.ratingView}>
+            <View style={styles.starsView}>
+              <Star />
+              <Star />
+              <Star />
+              <Star />
+              <Star />
+            </View>
+            <View style={styles.selectionView}>
+              <Star />
+            </View>
+          </Pressable>
+        </View>
       </View>
+
       <View style={styles.buttonView}>
         <QuaternaryButton text="Apply Now" />
       </View>
@@ -156,5 +181,22 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 10,
   },
+  sortByFlatlistView: {},
+  titleRatingView: {
+    paddingTop: 20,
+  },
+
+  ratingView: {
+    paddingTop: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  starsView: {
+    width: '80%',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  selectionView: {},
   buttonView: {},
 });

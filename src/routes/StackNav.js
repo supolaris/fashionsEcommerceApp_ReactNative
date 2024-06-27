@@ -31,16 +31,33 @@ function StackNav() {
         screenOptions={{
           headerShown: false,
         }}>
-        <Stack.Screen name="First_Screen" component={FirstScreen} />
-        <Stack.Screen name="Startup_Screen2" component={StartupScreen2} />
-        <Stack.Screen name="Startup_Screen3" component={StartupScreen3} />
-        <Stack.Screen name="Second_Screen" component={SecondScreen} />
-
-        <Stack.Screen name="Profile_Screen" component={ProfileScreen} />
         <Stack.Screen
           name="ProductsFilter_Screen"
           component={ProductsFilterScreen}
         />
+
+        <Stack.Screen name="First_Screen" component={FirstScreen} />
+        <Stack.Screen name="Second_Screen" component={SecondScreen} />
+
+        <Stack.Screen name="Startup_Screen" component={StartupScreen} />
+        <Stack.Screen name="Startup_Screen2" component={StartupScreen2} />
+        <Stack.Screen name="Startup_Screen3" component={StartupScreen3} />
+
+        <Stack.Screen name="SignUp_Screen" component={SignUpScreen} />
+        <Stack.Screen name="Login_Screen" component={LoginScreen} />
+        <Stack.Screen
+          name="RegisterSuccess_Screen"
+          component={RegisterSuccessScreen}
+        />
+
+        <Stack.Screen name="BottomNav" component={BottomNav} />
+
+        <Stack.Screen name="Profile_Screen" component={ProfileScreen} />
+        <Stack.Screen
+          name="PersonalDetail_Screen"
+          component={PersonalDetailScreen}
+        />
+
         <Stack.Screen name="CardDetail_Screen" component={CardDetailScreen} />
 
         <Stack.Screen
@@ -53,25 +70,11 @@ function StackNav() {
           component={SelectCountryScreen}
         />
 
-        <Stack.Screen name="Startup_Screen" component={StartupScreen} />
-        <Stack.Screen
-          name="RegisterSuccess_Screen"
-          component={RegisterSuccessScreen}
-        />
-        <Stack.Screen name="SignUp_Screen" component={SignUpScreen} />
-        <Stack.Screen name="Login_Screen" component={LoginScreen} />
-
-        <Stack.Screen
-          name="PersonalDetail_Screen"
-          component={PersonalDetailScreen}
-        />
         <Stack.Screen name="Products_Screen" component={ProductsScreen} />
         <Stack.Screen
           name="ProductDescripton_Screen"
           component={ProductDescriptonScreen}
         />
-
-        <Stack.Screen name="BottomNav" component={BottomNav} />
       </Stack.Navigator>
     </NavigationContainer>
   );
