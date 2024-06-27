@@ -22,6 +22,9 @@ import StartupScreen from '../screens/StartupScreen';
 import StartupScreen2 from '../screens/StartupScreen2';
 import StartupScreen3 from '../screens/StartupScreen3';
 
+import ReviewScreen from '../screens/ReviewScreen';
+import PaymentMethodScreen from '../screens/PaymentMethodScreen';
+
 const Stack = createStackNavigator();
 
 function StackNav() {
@@ -32,10 +35,10 @@ function StackNav() {
           headerShown: false,
         }}>
         <Stack.Screen
-          name="ProductsFilter_Screen"
-          component={ProductsFilterScreen}
+          name="PaymentMethod_Screen"
+          component={PaymentMethodScreen}
         />
-
+        <Stack.Screen name="Review_Screen" component={ReviewScreen} />
         <Stack.Screen name="First_Screen" component={FirstScreen} />
         <Stack.Screen name="Second_Screen" component={SecondScreen} />
 
@@ -60,6 +63,10 @@ function StackNav() {
 
         <Stack.Screen name="CardDetail_Screen" component={CardDetailScreen} />
 
+        <Stack.Screen
+          name="ProductsFilter_Screen"
+          component={ProductsFilterScreen}
+        />
         <Stack.Screen
           name="SelectLanguage_Screen"
           component={SelectLanguageScreen}

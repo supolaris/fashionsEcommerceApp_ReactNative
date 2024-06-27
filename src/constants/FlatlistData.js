@@ -314,4 +314,126 @@ export const NotificationsData = [
   },
 ];
 
+export const ReviewData = [
+  {
+    id: '1',
+    name: 'Alice Johnson',
+    message:
+      'It is a long established fact that a reader will be distracted by the readable content of a page.',
+    time: '20 June, 2024',
+    image: require('../assets/images/userImage.jpg'),
+  },
+  {
+    id: '2',
+    name: 'Bob Smith',
+    message:
+      'Contrary to popular belief, Lorem Ipsum is not simply random text.',
+    time: '21 June, 2024',
+    image: require('../assets/images/userImage.jpg'),
+  },
+  {
+    id: '3',
+    name: 'Charlie Davis',
+    message:
+      'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below',
+    time: '22 June, 2024',
+    image: require('../assets/images/userImage.jpg'),
+  },
+  {
+    id: '4',
+    name: 'Alice Johnson',
+    message:
+      'It is a long established fact that a reader will be distracted by the readable content of a page.',
+    time: '23 June, 2024',
+    image: require('../assets/images/userImage.jpg'),
+  },
+  {
+    id: '5',
+    name: 'Bob Smith',
+    message:
+      'Contrary to popular belief, Lorem Ipsum is not simply random text.',
+    time: '24 June, 2024',
+    image: require('../assets/images/userImage.jpg'),
+  },
+  {
+    id: '6',
+    name: 'Charlie Davis',
+    message:
+      'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below',
+    time: '25 June, 2024',
+    image: require('../assets/images/userImage.jpg'),
+  },
+  {
+    id: '7',
+    name: 'Alice Johnson',
+    message:
+      'It is a long established fact that a reader will be distracted by the readable content of a page.',
+    time: '26 June, 2024',
+    image: require('../assets/images/userImage.jpg'),
+  },
+  {
+    id: '8',
+    name: 'Bob Smith',
+    message:
+      'Contrary to popular belief, Lorem Ipsum is not simply random text.',
+    time: '27 June, 2024',
+    image: require('../assets/images/userImage.jpg'),
+  },
+  {
+    id: '9',
+    name: 'Charlie Davis',
+    message:
+      'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below',
+    time: '28 June, 2024',
+    image: require('../assets/images/userImage.jpg'),
+  },
+  {
+    id: '10',
+    name: 'Alice Johnson',
+    message:
+      'It is a long established fact that a reader will be distracted by the readable content of a page.',
+    time: '29 June, 2024',
+    image: require('../assets/images/userImage.jpg'),
+  },
+  {
+    id: '11',
+    name: 'Bob Smith',
+    message:
+      'Contrary to popular belief, Lorem Ipsum is not simply random text.',
+    time: '30 June, 2024',
+    image: require('../assets/images/userImage.jpg'),
+  },
+  {
+    id: '12',
+    name: 'Charlie Davis',
+    message:
+      'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below',
+    time: '1 July, 2024',
+    image: require('../assets/images/userImage.jpg'),
+  },
+];
+
 export const RatingStarData = [5, 4, 3, 2, 1];
+
+export const PaymentMethodsData = [
+  {
+    id: 1,
+    PaymentTypeName: 'Credit Card',
+    PaymentTypeImage: require('../assets/images/paymentMethod/masterCard.png'),
+  },
+  {
+    id: 2,
+    PaymentTypeName: 'Paypal',
+    PaymentTypeImage: require('../assets/images/paymentMethod/paypal.png'),
+  },
+  {
+    id: 3,
+    PaymentTypeName: 'Visa',
+    PaymentTypeImage: require('../assets/images/paymentMethod/visaCard.png'),
+  },
+  {
+    id: 4,
+    PaymentTypeName: 'Google Pay',
+    PaymentTypeImage: require('../assets/images/paymentMethod/googlePay.png'),
+  },
+];

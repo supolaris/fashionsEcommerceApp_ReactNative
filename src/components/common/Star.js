@@ -6,7 +6,7 @@ import StarIcon from 'react-native-vector-icons/AntDesign';
 const Star = () => {
   return (
     <View style={styles.container}>
-      <StarIcon style={styles.icon} name="star" size={25} color="orange" />
+      <StarIcon style={styles.icon} name="star" size={16} color="orange" />
     </View>
   );
 };
