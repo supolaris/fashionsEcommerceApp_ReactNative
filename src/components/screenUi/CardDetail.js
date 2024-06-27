@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, StyleSheet, Image} from 'react-native';
 
 import {AppColors} from '../../constants/AppColors';
 import PrimaryHeader from '../common/Headers/PrimaryHeader';
@@ -8,10 +8,26 @@ import PrimaryTitle from '../common/Titles/PrimaryTitle';
 import TertiaryTextInput from '../common/TextInputs/TertiaryTextInput';
 import SecondaryButton from '../common/Buttons/SecondaryButton';
 import TertiaryButton from '../common/Buttons/TertiaryButton';
+import {AppFonts} from '../../constants/AppFonts';
+
+import PrimaryModal from '../common/PrimaryModal';
 
 const CardDetail = props => {
   return (
     <View style={styles.container}>
+      <View>
+        <PrimaryModal
+          title="Successful!"
+          description="You have successfully send your payment"
+          buttonText="Continue Shopping"
+          animationType="Slide"
+          onModalButtonPressed={props.onModalButtonPressed}
+          transparent={true}
+          visible={props.modalVisible}
+          onRequestClose={props.onRequestClose}
+        />
+      </View>
+
       <View style={styles.detailsView}>
         <View style={styles.headerView}>
           <PrimaryHeader
@@ -49,7 +65,10 @@ const CardDetail = props => {
           <TertiaryButton text="Cancel" />
         </View>
         <View style={styles.confirmButtonView}>
-          <SecondaryButton text="Confirm" />
+          <SecondaryButton
+            onPress={props.onCardSubmitConfirmPressed}
+            text="Confirm"
+          />
         </View>
       </View>
     </View>
@@ -66,6 +85,49 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     justifyContent: 'space-between',
   },
+  // Modal
+  outerView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: AppColors.TransparentBlack,
+  },
+  innerView: {
+    height: '55%',
+    borderRadius: 20,
+    backgroundColor: 'white',
+    width: '90%',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+  },
+  iconView: {
+    backgroundColor: AppColors.Black,
+    padding: 20,
+    borderRadius: 100,
+  },
+  icon: {},
+  greenTickView: {
+    position: 'absolute',
+    left: 195,
+  },
+  greenTickImage: {
+    height: 25,
+    width: 25,
+  },
+  titleDescriptionView: {
+    alignItems: 'center',
+    width: '60%',
+  },
+  descriptionText: {
+    textAlign: 'center',
+    fontFamily: AppFonts.Regular,
+    fontSize: 16,
+    color: AppColors.GrayDescriptonText,
+  },
+  buttonView: {
+    width: '70%',
+  },
+  // Details view
   detailsView: {},
   headerView: {
     paddingBottom: 10,
