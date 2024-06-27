@@ -9,6 +9,8 @@ import SignUpScreen from '../screens/SignUpScreen';
 import ProductDescriptonScreen from '../screens/ProductDescriptonScreen';
 import PersonalDetailScreen from '../screens/PersonalDetailScreen';
 
+import SelectCountryScreen from '../screens/SelectCountryScreen';
+
 import ProfileScreen from '../screens/ProfileScreen';
 
 const Stack = createStackNavigator();
@@ -20,6 +22,10 @@ function StackNav() {
         screenOptions={{
           headerShown: false,
         }}>
+        <Stack.Screen
+          name="SelectCountry_Screen"
+          component={SelectCountryScreen}
+        />
         <Stack.Screen name="Profile_Screen" component={ProfileScreen} />
         <Stack.Screen name="Startup_Screen" component={StartupScreen} />
         <Stack.Screen

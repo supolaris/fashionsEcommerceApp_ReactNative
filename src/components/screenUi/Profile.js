@@ -25,7 +25,6 @@ import ShieldIcon from 'react-native-vector-icons/Ionicons';
 import BookIcon from 'react-native-vector-icons/SimpleLineIcons';
 
 const height = Dimensions.get('window').height;
-const widht = Dimensions.get('window').width;
 
 const Profile = props => {
   return (
@@ -47,7 +46,9 @@ const Profile = props => {
       {/* Main Detail View */}
       <View style={styles.mainDetailView}>
         {/* personal details */}
-        <TouchableOpacity style={styles.iconTitleArrowView}>
+        <TouchableOpacity
+          style={styles.iconTitleArrowView}
+          onPress={props.onPersonalDetailsPressed}>
           <View style={styles.descriptiveIconView}>
             <UserIcon name="user" size={25} color={AppColors.Black} />
           </View>
@@ -109,10 +110,8 @@ const Profile = props => {
 
       {/* Secondary Detail View */}
       <View style={styles.secondaryDetailView}>
-        {/* personal details */}
-        <TouchableOpacity
-          style={styles.iconTitleArrowView}
-          onPress={props.onPersonalDetailsPressed}>
+        {/* FAQs */}
+        <TouchableOpacity style={styles.iconTitleArrowView}>
           <View style={styles.descriptiveIconView}>
             <IIcon name="infocirlceo" size={25} color={AppColors.Black} />
           </View>
@@ -121,7 +120,7 @@ const Profile = props => {
           </View>
         </TouchableOpacity>
 
-        {/* Orders */}
+        {/* Privacy Policy */}
         <TouchableOpacity style={styles.iconTitleArrowView}>
           <View style={styles.descriptiveIconView}>
             <ShieldIcon
@@ -135,7 +134,7 @@ const Profile = props => {
           </View>
         </TouchableOpacity>
 
-        {/* Favourites */}
+        {/* Terms & Conditions */}
         <TouchableOpacity style={styles.iconTitleArrowView}>
           <View style={styles.descriptiveIconView}>
             <BookIcon name="notebook" size={25} color={AppColors.Black} />
