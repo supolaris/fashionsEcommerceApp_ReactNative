@@ -6,8 +6,8 @@ import RegisterSuccessScreen from '../screens/RegisterSuccessScreen';
 import StartupScreen from '../screens/StartupScreen';
 import LoginScreen from '../screens/LoginScreen';
 import SignUpScreen from '../screens/SignUpScreen';
-import PersonalDetailScreen from '../screens/PersonalDetailScreen';
 import ProductDescriptonScreen from '../screens/ProductDescriptonScreen';
+import PersonalDetailScreen from '../screens/PersonalDetailScreen';
 
 import ProfileScreen from '../screens/ProfileScreen';
 

@@ -3,8 +3,16 @@ import {View, Text} from 'react-native';
 
 import Profile from '../components/screenUi/Profile';
 
+import {useAppNavigation} from '../@types/AppNavigation';
+
 const ProfileScreen = () => {
-  return <Profile />;
+  const navigation = useAppNavigation();
+
+  const onPersonalDetailsPressed = () => {
+    navigation.navigate('PersonalDetail_Screen');
+  };
+
+  return <Profile onPersonalDetailsPressed={onPersonalDetailsPressed} />;
 };
 
 export default ProfileScreen;

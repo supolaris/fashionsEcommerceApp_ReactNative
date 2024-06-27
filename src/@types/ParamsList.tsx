@@ -5,5 +5,6 @@ export type StackParmList = {
   ProductDescripton_Screen: undefined;
   Profile_Screen: undefined;
   Startup_Screen: undefined;
+  PersonalDetail_Screen: undefined;
   BottomNav: undefined;
 };
