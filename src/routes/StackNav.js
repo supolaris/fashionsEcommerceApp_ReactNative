@@ -9,10 +9,10 @@ import SignUpScreen from '../screens/SignUpScreen';
 import ProductDescriptonScreen from '../screens/ProductDescriptonScreen';
 import PersonalDetailScreen from '../screens/PersonalDetailScreen';
 import SelectLanguageScreen from '../screens/SelectLanguageScreen';
-
+import ProductsScreen from '../screens/ProductsScreen';
 import SelectCountryScreen from '../screens/SelectCountryScreen';
-
 import ProfileScreen from '../screens/ProfileScreen';
+import CardDetailScreen from '../screens/CardDetailScreen';
 
 const Stack = createStackNavigator();
 
@@ -23,10 +23,13 @@ function StackNav() {
         screenOptions={{
           headerShown: false,
         }}>
+        <Stack.Screen name="CardDetail_Screen" component={CardDetailScreen} />
+        <Stack.Screen name="Products_Screen" component={ProductsScreen} />
         <Stack.Screen
           name="SelectLanguage_Screen"
           component={SelectLanguageScreen}
         />
+
         <Stack.Screen
           name="SelectCountry_Screen"
           component={SelectCountryScreen}

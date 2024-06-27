@@ -24,24 +24,24 @@ import QuinaryTitle from '../common/Titles/QuinaryTitle';
 
 const height = Dimensions.get('window').height;
 
-const ProductDescription = props => {
+const ProductDescription = ({item, ...props}) => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.imageView}>
         <Image
           resizeMode="cover"
           style={styles.image}
-          source={require('../../assets/images/productImage.png')}
+          source={item.ProductImage}
         />
       </View>
       <View style={styles.detailView}>
         <View style={styles.nameDescriptionCounterView}>
           <View style={styles.nameDescriptionView}>
             <View>
-              <PrimaryTitle text="Roller Rabbit" />
+              <PrimaryTitle text={item.ProductName} />
             </View>
             <View>
-              <PrimaryDescription text="Vodo Odelle Dress" />
+              <PrimaryDescription text={item.ProductDescription} />
             </View>
           </View>
           <View style={styles.counterView}>
@@ -101,8 +101,13 @@ const ProductDescription = props => {
           </View>
         </View>
         <View style={styles.priceAddToCartView}>
-          <View style={styles.priceView}>
-            <QuinaryTitle text="$254.0" />
+          <View
+            style={[
+              styles.priceView,
+              {flexDirection: 'row', alignItems: 'center'},
+            ]}>
+            <Text style={styles.dollarText}>$</Text>
+            <QuinaryTitle text={item.ProductPrice} />
           </View>
           <View style={styles.addToCartView}>
             <CartIcon
@@ -114,8 +119,6 @@ const ProductDescription = props => {
             <SecondaryTitle text="Add to cart" />
           </View>
         </View>
-
-        {/*  */}
       </View>
     </ScrollView>
   );
@@ -224,6 +227,11 @@ const styles = StyleSheet.create({
   },
   priceView: {
     width: '40%',
+  },
+  dollarText: {
+    fontSize: 25,
+    color: AppColors.White,
+    fontFamily: AppFonts.Bold,
   },
   addToCartView: {
     width: '50%',

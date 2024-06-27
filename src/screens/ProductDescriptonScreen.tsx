@@ -3,7 +3,9 @@ import {View, Text} from 'react-native';
 
 import ProductDescription from '../components/screenUi/ProductDescription';
 
-const ProductDescriptonScreen = () => {
+const ProductDescriptonScreen = ({route}) => {
+  const {item} = route.params;
+
   const [productCounter, setProductCounter] = useState(0);
 
   const onMinusIconPressed = () => {
@@ -20,6 +22,7 @@ const ProductDescriptonScreen = () => {
 
   return (
     <ProductDescription
+      item={item}
       productCounterValue={productCounter}
       onMinusIconPressed={onMinusIconPressed}
       onPlusIconPressed={onPlusIconPressed}
