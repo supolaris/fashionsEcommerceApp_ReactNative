@@ -156,6 +156,7 @@ const styles = StyleSheet.create({
     backgroundColor: AppColors.White,
     padding: 15,
     paddingTop: 40,
+    marginBottom: 65,
   },
   pictureNameEmailView: {
     marginHorizontal: 2,
@@ -180,6 +181,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     borderWidth: 0.5,
     borderRadius: 20,
+    // paddingBottom: 65,
   },
   secondaryDetailView: {
     marginBottom: 60,

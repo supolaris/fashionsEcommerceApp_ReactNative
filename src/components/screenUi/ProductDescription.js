@@ -6,6 +6,7 @@ import {
   Image,
   ScrollView,
   Dimensions,
+  TouchableOpacity,
 } from 'react-native';
 
 import {AppColors} from '../../constants/AppColors';
@@ -109,7 +110,7 @@ const ProductDescription = ({item, ...props}) => {
             <Text style={styles.dollarText}>$</Text>
             <QuinaryTitle text={item.ProductPrice} />
           </View>
-          <View style={styles.addToCartView}>
+          <TouchableOpacity style={styles.addToCartView}>
             <CartIcon
               style={styles.cartIcon}
               name="cart-outline"
@@ -117,7 +118,7 @@ const ProductDescription = ({item, ...props}) => {
               color={AppColors.Black}
             />
             <SecondaryTitle text="Add to cart" />
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
     </ScrollView>
@@ -132,7 +133,7 @@ const styles = StyleSheet.create({
     //flex: 1,
   },
   imageView: {
-    height: height,
+    height: 850,
   },
   image: {
     height: 500,

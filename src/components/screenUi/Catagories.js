@@ -1,5 +1,13 @@
 import React from 'react';
-import {View, Text, StyleSheet, FlatList, ImageBackground} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  ImageBackground,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
 
 import {AppColors} from '../../constants/AppColors';
 
@@ -9,10 +17,12 @@ import PrimaryTextInput from '../common/TextInputs/PrimaryTextInput';
 import {ProductCatagoriesData} from '../../constants/FlatlistData';
 import {AppFonts} from '../../constants/AppFonts';
 
-const Catagories = () => {
+const Catagories = props => {
   const renderCatagories = ({item}) => {
     return (
-      <View style={styles.renderContainer}>
+      <TouchableOpacity
+        onPress={props.onCatagoryPressed}
+        style={styles.renderContainer}>
         <ImageBackground
           style={styles.renderBackgroundImage}
           source={item.CatagoryPicture}
@@ -24,14 +34,14 @@ const Catagories = () => {
             </Text>
           </View>
         </ImageBackground>
-      </View>
+      </TouchableOpacity>
     );
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.headerView}>
-        <PrimaryHeader />
+        <PrimaryHeader onPress={props.onHeaderBackArrowPressed} />
       </View>
       <View style={styles.textInputView}>
         <PrimaryTextInput />
@@ -45,7 +55,7 @@ const Catagories = () => {
           keyExtractor={item => item.id.toString()}
         />
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -95,11 +105,11 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   textInputView: {
-    paddingTop: 40,
+    paddingTop: 20,
     paddingBottom: 20,
   },
   flatLisView: {
     flex: 1,
-    paddingBottom: 10,
+    paddingBottom: 90,
   },
 });

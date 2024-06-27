@@ -2,37 +2,37 @@ export const ProductCatagoriesData = [
   {
     id: 1,
     CatagoryName: 'Clothes',
-    CatagoryPicture: require('../assets/images/jewelryImage.jpg'),
+    CatagoryPicture: require('../assets/images/clothsCatagory.jpg'),
     NoOfProducts: 123,
   },
   {
     id: 2,
     CatagoryName: 'Bags',
-    CatagoryPicture: require('../assets/images/jewelryImage.jpg'),
+    CatagoryPicture: require('../assets/images/bagsCatagory.jpg'),
     NoOfProducts: 123,
   },
   {
     id: 3,
     CatagoryName: 'Shoes',
-    CatagoryPicture: require('../assets/images/jewelryImage.jpg'),
+    CatagoryPicture: require('../assets/images/shoesCatagory.jpg'),
     NoOfProducts: 123,
   },
   {
     id: 4,
     CatagoryName: 'Electronics',
-    CatagoryPicture: require('../assets/images/jewelryImage.jpg'),
+    CatagoryPicture: require('../assets/images/electronicCatagory.jpg'),
     NoOfProducts: 123,
   },
   {
     id: 5,
     CatagoryName: 'Jewelry',
-    CatagoryPicture: require('../assets/images/jewelryImage.jpg'),
+    CatagoryPicture: require('../assets/images/jewelryCatagory.jpg'),
     NoOfProducts: 123,
   },
   {
     id: 6,
     CatagoryName: 'Accessories',
-    CatagoryPicture: require('../assets/images/jewelryImage.jpg'),
+    CatagoryPicture: require('../assets/images/accessoriesCatagory.jpg'),
     NoOfProducts: 123,
   },
 ];

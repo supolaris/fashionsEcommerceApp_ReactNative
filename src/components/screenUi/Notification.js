@@ -87,6 +87,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: AppColors.White,
     paddingHorizontal: 15,
+    //paddingTop: 20,
   },
   headerView: {
     paddingTop: 10,
@@ -95,5 +96,6 @@ const styles = StyleSheet.create({
   titleView: {},
   flatListView: {
     flex: 1,
+    paddingBottom: 65,
   },
 });

@@ -16,5 +16,7 @@ export type StackParmList = {
   Startup_Screen2: undefined;
   Startup_Screen3: undefined;
 
+  Products_Screen: undefined;
+
   BottomNav: undefined;
 };

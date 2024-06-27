@@ -35,7 +35,7 @@ function StackNav() {
         <Stack.Screen name="Startup_Screen2" component={StartupScreen2} />
         <Stack.Screen name="Startup_Screen3" component={StartupScreen3} />
         <Stack.Screen name="Second_Screen" component={SecondScreen} />
-        <Stack.Screen name="Products_Screen" component={ProductsScreen} />
+
         <Stack.Screen name="Profile_Screen" component={ProfileScreen} />
         <Stack.Screen
           name="ProductsFilter_Screen"
@@ -64,6 +64,11 @@ function StackNav() {
         <Stack.Screen
           name="PersonalDetail_Screen"
           component={PersonalDetailScreen}
+        />
+        <Stack.Screen name="Products_Screen" component={ProductsScreen} />
+        <Stack.Screen
+          name="ProductDescripton_Screen"
+          component={ProductDescriptonScreen}
         />
 
         <Stack.Screen name="BottomNav" component={BottomNav} />

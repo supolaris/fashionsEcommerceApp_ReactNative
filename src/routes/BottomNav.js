@@ -5,11 +5,14 @@ import CartScreen from '../screens/CartScreen';
 import NotificationScreen from '../screens/NotificationScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 
+import CustomTabBar from '../components/common/CustomTabBar';
+
 const Tab = createBottomTabNavigator();
 
 function BottomNav() {
   return (
     <Tab.Navigator
+      tabBar={props => <CustomTabBar {...props} />}
       screenOptions={{
         headerShown: false,
       }}>
