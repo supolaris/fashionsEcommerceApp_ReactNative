@@ -13,7 +13,7 @@ const LoginScreen = () => {
 
   const onLoginPressed = () => {
     console.log('Log in pressed');
-    navigation.navigate('BottomNav');
+    navigation.navigate('Startup_Screen');
   };
 
   const onSignUpPressed = () => {

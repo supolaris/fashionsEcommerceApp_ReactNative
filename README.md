@@ -57,3 +57,9 @@ npx react-native-asset
 ```bash
 npm i @react-native-community/checkbox
 ```
+
+# Rating Stars
+
+```bash
+yarn add react-native-ratings
+```

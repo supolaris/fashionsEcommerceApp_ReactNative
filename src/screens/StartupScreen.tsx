@@ -8,7 +8,7 @@ const StartupScreen = () => {
   const navigation = useAppNavigation();
 
   const onGetStartedPressed = () => {
-    navigation.navigate('Login_Screen');
+    navigation.navigate('Startup_Screen2');
   };
   return <Startup onGetStartedPressed={onGetStartedPressed} />;
 };

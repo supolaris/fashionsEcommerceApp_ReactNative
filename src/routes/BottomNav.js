@@ -2,7 +2,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import CatagoriesScreen from '../screens/CatagoriesScreen';
 import CartScreen from '../screens/CartScreen';
-import PersonalDetailScreen from '../screens/PersonalDetailScreen';
+import NotificationScreen from '../screens/NotificationScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,10 +15,8 @@ function BottomNav() {
       }}>
       <Tab.Screen name="CatagoriesScreen" component={CatagoriesScreen} />
       <Tab.Screen name="CartScreen" component={CartScreen} />
-      <Tab.Screen
-        name="PersonalDetailScreen"
-        component={PersonalDetailScreen}
-      />
+      <Tab.Screen name="NotificationScreen" component={NotificationScreen} />
+      <Tab.Screen name="ProfileScreen" component={ProfileScreen} />
     </Tab.Navigator>
   );
 }

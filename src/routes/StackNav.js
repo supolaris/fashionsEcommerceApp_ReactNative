@@ -3,7 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 
 import BottomNav from './BottomNav';
 import RegisterSuccessScreen from '../screens/RegisterSuccessScreen';
-import StartupScreen from '../screens/StartupScreen';
+
 import LoginScreen from '../screens/LoginScreen';
 import SignUpScreen from '../screens/SignUpScreen';
 import ProductDescriptonScreen from '../screens/ProductDescriptonScreen';
@@ -15,6 +15,13 @@ import ProfileScreen from '../screens/ProfileScreen';
 import CardDetailScreen from '../screens/CardDetailScreen';
 import ProductsFilterScreen from '../screens/ProductsFilterScreen';
 
+import FirstScreen from '../screens/FirstScreen';
+import SecondScreen from '../screens/SecondScreen';
+
+import StartupScreen from '../screens/StartupScreen';
+import StartupScreen2 from '../screens/StartupScreen2';
+import StartupScreen3 from '../screens/StartupScreen3';
+
 const Stack = createStackNavigator();
 
 function StackNav() {
@@ -24,12 +31,18 @@ function StackNav() {
         screenOptions={{
           headerShown: false,
         }}>
+        <Stack.Screen name="First_Screen" component={FirstScreen} />
+        <Stack.Screen name="Startup_Screen2" component={StartupScreen2} />
+        <Stack.Screen name="Startup_Screen3" component={StartupScreen3} />
+        <Stack.Screen name="Second_Screen" component={SecondScreen} />
+        <Stack.Screen name="Products_Screen" component={ProductsScreen} />
+        <Stack.Screen name="Profile_Screen" component={ProfileScreen} />
         <Stack.Screen
           name="ProductsFilter_Screen"
           component={ProductsFilterScreen}
         />
         <Stack.Screen name="CardDetail_Screen" component={CardDetailScreen} />
-        <Stack.Screen name="Products_Screen" component={ProductsScreen} />
+
         <Stack.Screen
           name="SelectLanguage_Screen"
           component={SelectLanguageScreen}
@@ -39,7 +52,7 @@ function StackNav() {
           name="SelectCountry_Screen"
           component={SelectCountryScreen}
         />
-        <Stack.Screen name="Profile_Screen" component={ProfileScreen} />
+
         <Stack.Screen name="Startup_Screen" component={StartupScreen} />
         <Stack.Screen
           name="RegisterSuccess_Screen"
@@ -47,10 +60,7 @@ function StackNav() {
         />
         <Stack.Screen name="SignUp_Screen" component={SignUpScreen} />
         <Stack.Screen name="Login_Screen" component={LoginScreen} />
-        <Stack.Screen
-          name="ProductDescripton_Screen"
-          component={ProductDescriptonScreen}
-        />
+
         <Stack.Screen
           name="PersonalDetail_Screen"
           component={PersonalDetailScreen}

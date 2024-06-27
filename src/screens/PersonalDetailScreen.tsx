@@ -3,7 +3,10 @@ import {View, Text} from 'react-native';
 
 import PersonalDetail from '../components/screenUi/PersonalDetail';
 
+import {useAppNavigation} from '../@types/AppNavigation';
+
 const PersonalDetailScreen = () => {
+  const navigation = useAppNavigation();
   //notification variable
   const [isNotificatonEnabled, setIsNotificatonEnabled] = useState(false);
   //dark mode variables
@@ -17,7 +20,7 @@ const PersonalDetailScreen = () => {
 
   //langauge fucntion
   const onSelectLanguagePressed = () => {
-    console.log('onSelectLanguagePressed');
+    navigation.navigate('SelectLanguage_Screen');
   };
 
   //notification function

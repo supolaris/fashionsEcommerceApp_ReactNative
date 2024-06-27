@@ -214,3 +214,102 @@ export const ProductSortByData = [
     SortName: 'Top Seller',
   },
 ];
+
+export const NotificationsData = [
+  {
+    id: '1',
+    name: 'Alice Johnson',
+    message:
+      'It is a long established fact that a reader will be distracted by the readable content of a page.',
+    time: 1,
+    image: require('../assets/images/userImage.jpg'),
+  },
+  {
+    id: '2',
+    name: 'Bob Smith',
+    message:
+      'Contrary to popular belief, Lorem Ipsum is not simply random text.',
+    time: 2,
+    image: require('../assets/images/userImage.jpg'),
+  },
+  {
+    id: '3',
+    name: 'Charlie Davis',
+    message:
+      'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below',
+    time: 4,
+    image: require('../assets/images/userImage.jpg'),
+  },
+  {
+    id: '4',
+    name: 'Alice Johnson',
+    message:
+      'It is a long established fact that a reader will be distracted by the readable content of a page.',
+    time: 1,
+    image: require('../assets/images/userImage.jpg'),
+  },
+  {
+    id: '5',
+    name: 'Bob Smith',
+    message:
+      'Contrary to popular belief, Lorem Ipsum is not simply random text.',
+    time: 2,
+    image: require('../assets/images/userImage.jpg'),
+  },
+  {
+    id: '6',
+    name: 'Charlie Davis',
+    message:
+      'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below',
+    time: 4,
+    image: require('../assets/images/userImage.jpg'),
+  },
+  {
+    id: '7',
+    name: 'Alice Johnson',
+    message:
+      'It is a long established fact that a reader will be distracted by the readable content of a page.',
+    time: 1,
+    image: require('../assets/images/userImage.jpg'),
+  },
+  {
+    id: '8',
+    name: 'Bob Smith',
+    message:
+      'Contrary to popular belief, Lorem Ipsum is not simply random text.',
+    time: 2,
+    image: require('../assets/images/userImage.jpg'),
+  },
+  {
+    id: '9',
+    name: 'Charlie Davis',
+    message:
+      'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below',
+    time: 4,
+    image: require('../assets/images/userImage.jpg'),
+  },
+  {
+    id: '10',
+    name: 'Alice Johnson',
+    message:
+      'It is a long established fact that a reader will be distracted by the readable content of a page.',
+    time: 1,
+    image: require('../assets/images/userImage.jpg'),
+  },
+  {
+    id: '11',
+    name: 'Bob Smith',
+    message:
+      'Contrary to popular belief, Lorem Ipsum is not simply random text.',
+    time: 2,
+    image: require('../assets/images/userImage.jpg'),
+  },
+  {
+    id: '12',
+    name: 'Charlie Davis',
+    message:
+      'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below',
+    time: 4,
+    image: require('../assets/images/userImage.jpg'),
+  },
+];
