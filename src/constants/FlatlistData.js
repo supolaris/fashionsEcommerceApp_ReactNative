@@ -148,3 +148,69 @@ export const ShirtsData = [
     ProductImage: require('../assets/images/Products/Shirts/shirt5.jpg'),
   },
 ];
+
+export const ProductCatagories = [
+  {
+    id: 1,
+    CatagoryName: 'Dresses',
+  },
+  {
+    id: 2,
+    CatagoryName: 'Jackets',
+  },
+  {
+    id: 3,
+    CatagoryName: 'Jeans',
+  },
+  {
+    id: 4,
+    CatagoryName: 'Shoes',
+  },
+  {
+    id: 5,
+    CatagoryName: 'Bags',
+  },
+  {
+    id: 6,
+    CatagoryName: 'Clothes',
+  },
+  {
+    id: 7,
+    CatagoryName: 'Jeans',
+  },
+  {
+    id: 8,
+    CatagoryName: 'Shorts',
+  },
+  {
+    id: 9,
+    CatagoryName: 'Tops',
+  },
+  {
+    id: 10,
+    CatagoryName: 'Sneakers',
+  },
+  {
+    id: 11,
+    CatagoryName: 'Cots',
+  },
+  {
+    id: 12,
+    CatagoryName: 'Hats',
+  },
+];
+
+export const ProductSortByData = [
+  {
+    id: 1,
+    SortName: 'New Today',
+  },
+  {
+    id: 2,
+    SortName: 'New This Week',
+  },
+  {
+    id: 3,
+    SortName: 'Top Seller',
+  },
+];

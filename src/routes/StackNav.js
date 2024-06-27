@@ -13,6 +13,7 @@ import ProductsScreen from '../screens/ProductsScreen';
 import SelectCountryScreen from '../screens/SelectCountryScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import CardDetailScreen from '../screens/CardDetailScreen';
+import ProductsFilterScreen from '../screens/ProductsFilterScreen';
 
 const Stack = createStackNavigator();
 
@@ -23,6 +24,10 @@ function StackNav() {
         screenOptions={{
           headerShown: false,
         }}>
+        <Stack.Screen
+          name="ProductsFilter_Screen"
+          component={ProductsFilterScreen}
+        />
         <Stack.Screen name="CardDetail_Screen" component={CardDetailScreen} />
         <Stack.Screen name="Products_Screen" component={ProductsScreen} />
         <Stack.Screen
