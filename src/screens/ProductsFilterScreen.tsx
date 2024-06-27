@@ -7,6 +7,8 @@ const ProductsFilterScreen = () => {
   const [selectedCatagoryId, setSelectedCatagoryId] = useState(0);
   const [selectedSortById, setSelectedSortById] = useState(0);
 
+  const [selectedRating, setSelectedRating] = useState(null);
+
   const catagoryPressed = (item: any) => {
     setSelectedCatagoryId(item.id);
   };
@@ -15,12 +17,24 @@ const ProductsFilterScreen = () => {
     setSelectedSortById(item.id);
   };
 
+  const onStarPressed = (item: any) => {
+    setSelectedRating(item);
+  };
+
+  const onTouchableRadioPressed = (item: any) => {
+    setSelectedRating(item);
+  };
+
   return (
     <ProductsFilter
       selectedCatagory={selectedCatagoryId}
       catagoryPressed={catagoryPressed}
       selectedSortBy={selectedSortById}
       sortByPressed={sortByPressed}
+      //stars
+      onStarPressed={onStarPressed}
+      selectedRating={selectedRating}
+      onTouchableRadioPressed={onTouchableRadioPressed}
 
       //sort
     />

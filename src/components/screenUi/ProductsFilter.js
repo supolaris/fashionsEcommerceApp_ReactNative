@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -13,13 +13,31 @@ import {AppFonts} from '../../constants/AppFonts';
 
 import PrimaryHeader from '../common/Headers/PrimaryHeader';
 import SecondaryTitle from '../common/Titles/SecondaryTitle';
+import QuaternaryButton from '../common/Buttons/QuaternaryButton';
 
 import {ProductCatagories} from '../../constants/FlatlistData';
 import {ProductSortByData} from '../../constants/FlatlistData';
-import QuaternaryButton from '../common/Buttons/QuaternaryButton';
+import {RatingStarData} from '../../constants/FlatlistData';
 import Star from '../common/Star';
 
 const ProductsFilter = props => {
+  const [selectedRating, setSelectedRating] = useState(null);
+
+  const renderStar = (item, index) => {
+    return (
+      <View style={styles.starRow}>
+        {Array.from({length: item}).map(idx => (
+          <Pressable
+            style={styles}
+            key={idx}
+            onPress={() => props.onStarPressed(item)}>
+            <Star />
+          </Pressable>
+        ))}
+      </View>
+    );
+  };
+
   const renderCatagories = ({item}) => {
     return (
       <TouchableOpacity
@@ -88,21 +106,26 @@ const ProductsFilter = props => {
             keyExtractor={item => item.id.toString()}
           />
         </View>
-        <View style={styles.titleRatingView}>
+        <View style={styles.ratingTitleView}>
           <SecondaryTitle text="Rating" />
-
-          <Pressable style={styles.ratingView}>
-            <View style={styles.starsView}>
-              <Star />
-              <Star />
-              <Star />
-              <Star />
-              <Star />
-            </View>
-            <View style={styles.selectionView}>
-              <Star />
-            </View>
-          </Pressable>
+        </View>
+        <View style={styles.ratingView}>
+          <FlatList
+            data={RatingStarData}
+            renderItem={({item, index}) => (
+              <View style={styles.row}>
+                {renderStar(item, index)}
+                <TouchableOpacity
+                  style={[
+                    styles.radio,
+                    props.selectedRating === item && styles.selectedRadio,
+                  ]}
+                  onPress={() => props.onTouchableRadioPressed(item)}
+                />
+              </View>
+            )}
+            keyExtractor={(item, index) => index.toString()}
+          />
         </View>
       </View>
 
@@ -182,7 +205,8 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
   sortByFlatlistView: {},
-  titleRatingView: {
+  ratingView: {},
+  ratingTitleView: {
     paddingTop: 20,
   },
 
@@ -199,4 +223,46 @@ const styles = StyleSheet.create({
   },
   selectionView: {},
   buttonView: {},
+
+  //
+  label: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 10,
+  },
+  starRow: {
+    flexDirection: 'row',
+  },
+  star: {
+    fontSize: 24,
+    color: '#FFD700', // Gold color for stars
+  },
+  radio: {
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: '#ccc',
+    marginLeft: 10,
+  },
+  selectedRadio: {
+    backgroundColor: '#000',
+  },
+  button: {
+    marginTop: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    backgroundColor: '#000',
+    borderRadius: 5,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+  },
 });

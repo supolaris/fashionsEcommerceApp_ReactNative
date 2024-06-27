@@ -313,3 +313,5 @@ export const NotificationsData = [
     image: require('../assets/images/userImage.jpg'),
   },
 ];
+
+export const RatingStarData = [5, 4, 3, 2, 1];
