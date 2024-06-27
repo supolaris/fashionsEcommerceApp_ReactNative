@@ -1,9 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import PaymentMethod from '../components/screenUi/PaymentMethod';
 
 const PaymentMethodScreen = () => {
-  return <PaymentMethod />;
+  const [selectePaymentMethod, setSelectedPaymentMethod] = useState(0);
+
+  const onPaymentMethodPressed = (item: any) => {
+    setSelectedPaymentMethod(item.id);
+  };
+
+  return (
+    <PaymentMethod
+      onPaymentMethodPressed={onPaymentMethodPressed}
+      selectedPaymentMethod={selectePaymentMethod}
+    />
+  );
 };
 
 export default PaymentMethodScreen;
