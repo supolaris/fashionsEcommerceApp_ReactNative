@@ -14,7 +14,7 @@ import {AppFonts} from '../../constants/AppFonts';
 
 import PrimaryTextInput from '../common/TextInputs/PrimaryTextInput';
 
-import {SelectCountryData} from '../../constants/FlatlistData';
+import {SelectLanguageData} from '../../constants/FlatlistData';
 
 import CircleIcon from 'react-native-vector-icons/FontAwesome';
 import DotCircleIcon from 'react-native-vector-icons/FontAwesome';
@@ -24,35 +24,35 @@ import {LogBox} from 'react-native';
 
 LogBox.ignoreAllLogs(true);
 
-const SelectCountry = props => {
-  const renderSelectCountry = ({item}) => {
+const SelectLanguage = props => {
+  const renderSelectLanguage = ({item}) => {
     return (
       <TouchableOpacity
         style={[
           styles.renderTouchable,
-          props.selectedCountry === item.CountryName
+          props.selectedLanguage === item.LanguageName
             ? styles.renderSelectedTouchable
             : null,
         ]}
-        onPress={() => props.onCountryPressed(item)}>
+        onPress={() => props.onLanguagePressed(item)}>
         <View style={styles.renderImageNameView}>
           <Image
             resizeMode="cover"
             style={styles.renderImage}
-            source={item.CountryFlag}
+            source={item.LanguageImage}
           />
           <Text
             style={[
-              styles.renderCountryText,
-              props.selectedCountry === item.CountryName
-                ? styles.renderSelectedCountryText
+              styles.renderLanguageText,
+              props.selectedLanguage === item.LanguageName
+                ? styles.renderSelectedLanguageText
                 : null,
             ]}>
-            {item.CountryName}
+            {item.LanguageName}
           </Text>
         </View>
         <View style={styles.renderIconView}>
-          {props.selectedCountry === item.CountryName ? (
+          {props.selectedLanguage === item.LanguageName ? (
             <DotCircleIcon
               style={styles.renderIcon}
               name="dot-circle-o"
@@ -78,13 +78,13 @@ const SelectCountry = props => {
         <PrimaryTextInput />
       </View>
       <View style={styles.titleView}>
-        <SecondaryTitle text="Country or Region" />
+        <SecondaryTitle text="Select Language" />
       </View>
       <View style={styles.flatlistView}>
         <FlatList
           showsVerticalScrollIndicator={false}
-          data={SelectCountryData}
-          renderItem={renderSelectCountry}
+          data={SelectLanguageData}
+          renderItem={renderSelectLanguage}
           keyExtractor={item => item.id.toString()}
         />
       </View>
@@ -92,7 +92,7 @@ const SelectCountry = props => {
   );
 };
 
-export default SelectCountry;
+export default SelectLanguage;
 
 const styles = StyleSheet.create({
   renderTouchable: {
@@ -119,13 +119,13 @@ const styles = StyleSheet.create({
     width: 50,
     borderRadius: 100,
   },
-  renderCountryText: {
+  renderLanguageText: {
     paddingLeft: 15,
     fontSize: 17,
     color: AppColors.Black,
     fontFamily: AppFonts.Medium,
   },
-  renderSelectedCountryText: {
+  renderSelectedLanguageText: {
     color: AppColors.White,
   },
   renderIconView: {},

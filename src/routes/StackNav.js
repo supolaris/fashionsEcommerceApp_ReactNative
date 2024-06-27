@@ -8,6 +8,7 @@ import LoginScreen from '../screens/LoginScreen';
 import SignUpScreen from '../screens/SignUpScreen';
 import ProductDescriptonScreen from '../screens/ProductDescriptonScreen';
 import PersonalDetailScreen from '../screens/PersonalDetailScreen';
+import SelectLanguageScreen from '../screens/SelectLanguageScreen';
 
 import SelectCountryScreen from '../screens/SelectCountryScreen';
 
@@ -22,6 +23,10 @@ function StackNav() {
         screenOptions={{
           headerShown: false,
         }}>
+        <Stack.Screen
+          name="SelectLanguage_Screen"
+          component={SelectLanguageScreen}
+        />
         <Stack.Screen
           name="SelectCountry_Screen"
           component={SelectCountryScreen}
