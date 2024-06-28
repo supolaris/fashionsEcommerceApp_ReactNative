@@ -24,6 +24,7 @@ import StartupScreen3 from '../screens/StartupScreen3';
 
 import ReviewScreen from '../screens/ReviewScreen';
 import PaymentMethodScreen from '../screens/PaymentMethodScreen';
+import ProductTrackingScreen from '../screens/ProductTrackingScreen';
 
 const Stack = createStackNavigator();
 
@@ -34,6 +35,10 @@ function StackNav() {
         screenOptions={{
           headerShown: false,
         }}>
+        <Stack.Screen
+          name="ProductTracking_Screen"
+          component={ProductTrackingScreen}
+        />
         <Stack.Screen
           name="PaymentMethod_Screen"
           component={PaymentMethodScreen}
