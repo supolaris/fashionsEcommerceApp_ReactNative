@@ -23,12 +23,12 @@ import SettingIcon from 'react-native-vector-icons/Feather';
 import IIcon from 'react-native-vector-icons/AntDesign';
 import ShieldIcon from 'react-native-vector-icons/Ionicons';
 import BookIcon from 'react-native-vector-icons/SimpleLineIcons';
-
-const height = Dimensions.get('window').height;
+import TertiaryHeader from '../common/Headers/TertiaryHeader';
 
 const Profile = props => {
   return (
     <ScrollView style={styles.container}>
+      <TertiaryHeader showSettingIcon={true} />
       <View style={styles.pictureNameEmailView}>
         <View style={styles.imageView}>
           <Image
@@ -152,11 +152,9 @@ export default Profile;
 
 const styles = StyleSheet.create({
   container: {
-    height: height,
     backgroundColor: AppColors.White,
-    padding: 15,
-    paddingTop: 40,
-    marginBottom: 65,
+    paddingHorizontal: 15,
+    marginBottom: 30,
   },
   pictureNameEmailView: {
     marginHorizontal: 2,

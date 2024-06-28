@@ -21,12 +21,12 @@ const SecondaryHeader = props => {
       </TouchableOpacity>
       {props.showCartIcon == true ? (
         <TouchableOpacity
-          style={styles.searchView}
+          style={styles.cartTouchable}
           onPress={props.onCartIconPressed}>
           <CartIcon
             style={styles.icon}
             name="handbag"
-            size={28}
+            size={22}
             color={AppColors.Black}
           />
         </TouchableOpacity>
@@ -42,7 +42,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 10,
+    paddingBottom: 30,
+    paddingTop: 50,
   },
   arrowView: {
     borderRadius: 100,
@@ -50,6 +51,13 @@ const styles = StyleSheet.create({
     padding: 12,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  cartTouchable: {
+    backgroundColor: AppColors.White,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 8,
+    borderRadius: 100,
   },
   icon: {},
   searchView: {

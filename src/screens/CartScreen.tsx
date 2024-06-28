@@ -2,9 +2,12 @@ import React, {useState, useEffect} from 'react';
 
 import Cart from '../components/screenUi/Cart';
 
+import {useAppNavigation} from '../@types/AppNavigation';
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const CartScreen = () => {
+  const navigation = useAppNavigation();
   const [cartProducts, setCartProducts] = useState([]);
   const [productCounter, setProductCounter] = useState(0);
   let AsyncCartProducts;
@@ -31,12 +34,22 @@ const CartScreen = () => {
     setCartProducts(JSON.parse(AsyncCartProducts));
   };
 
+  const onCheckoutPressed = () => {
+    navigation.navigate('PaymentMethod_Screen');
+  };
+
+  const onHeaderBackArrowPressed = () => {
+    navigation.goBack();
+  };
+
   return (
     <Cart
       cartProducts={cartProducts}
       productCounterValue={productCounter}
       onMinusIconPressed={onMinusIconPressed}
       onPlusIconPressed={onPlusIconPressed}
+      onCheckoutPressed={onCheckoutPressed}
+      onHeaderBackArrowPressed={onHeaderBackArrowPressed}
     />
   );
 };

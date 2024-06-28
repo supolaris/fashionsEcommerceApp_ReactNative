@@ -4,14 +4,14 @@ import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import {AppColors} from '../../../constants/AppColors';
 
 import ArrowIcon from 'react-native-vector-icons/FontAwesome';
-import SearchIcon from 'react-native-vector-icons/AntDesign';
+import SettingIcon from 'react-native-vector-icons/Feather';
 
-const PrimaryHeader = props => {
+const TertiaryHeader = props => {
   return (
     <View style={styles.container}>
       <TouchableOpacity
         style={styles.arrowView}
-        onPress={props.onHeaderBackArrowPressed}>
+        onPress={props.onBackArrowPressed}>
         <ArrowIcon
           style={styles.icon}
           name="arrow-left"
@@ -19,12 +19,14 @@ const PrimaryHeader = props => {
           color={AppColors.White}
         />
       </TouchableOpacity>
-      {props.showSearchIcon == true ? (
-        <TouchableOpacity style={styles.searchView}>
-          <SearchIcon
+      {props.showSettingIcon == true ? (
+        <TouchableOpacity
+          style={styles.cartTouchable}
+          onPress={props.onCartIconPressed}>
+          <SettingIcon
             style={styles.icon}
-            name="search1"
-            size={28}
+            name="settings"
+            size={25}
             color={AppColors.Black}
           />
         </TouchableOpacity>
@@ -33,7 +35,7 @@ const PrimaryHeader = props => {
   );
 };
 
-export default PrimaryHeader;
+export default TertiaryHeader;
 
 const styles = StyleSheet.create({
   container: {
@@ -49,6 +51,13 @@ const styles = StyleSheet.create({
     padding: 12,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  cartTouchable: {
+    backgroundColor: AppColors.White,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 8,
+    borderRadius: 100,
   },
   icon: {},
   searchView: {

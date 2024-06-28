@@ -17,7 +17,7 @@ export default ProductPriceText;
 const styles = StyleSheet.create({
   container: {},
   text: {
-    fontSize: 18,
+    fontSize: 16,
     color: AppColors.Black,
     fontFamily: AppFonts.SemiBold,
   },

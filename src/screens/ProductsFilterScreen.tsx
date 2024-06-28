@@ -1,13 +1,19 @@
 import React, {useState} from 'react';
-import {View, Text} from 'react-native';
 
 import ProductsFilter from '../components/screenUi/ProductsFilter';
 
+import {useAppNavigation} from '../@types/AppNavigation';
+
 const ProductsFilterScreen = () => {
+  const navigation = useAppNavigation();
   const [selectedCatagoryId, setSelectedCatagoryId] = useState(0);
   const [selectedSortById, setSelectedSortById] = useState(0);
 
   const [selectedRating, setSelectedRating] = useState(null);
+
+  const onHeaderBackArrowPressed = () => {
+    navigation.goBack();
+  };
 
   const catagoryPressed = (item: any) => {
     setSelectedCatagoryId(item.id);
@@ -27,6 +33,7 @@ const ProductsFilterScreen = () => {
 
   return (
     <ProductsFilter
+      onHeaderBackArrowPressed={onHeaderBackArrowPressed}
       selectedCatagory={selectedCatagoryId}
       catagoryPressed={catagoryPressed}
       selectedSortBy={selectedSortById}
@@ -35,8 +42,6 @@ const ProductsFilterScreen = () => {
       onStarPressed={onStarPressed}
       selectedRating={selectedRating}
       onTouchableRadioPressed={onTouchableRadioPressed}
-
-      //sort
     />
   );
 };

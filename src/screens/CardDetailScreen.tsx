@@ -7,7 +7,7 @@ import {useAppNavigation} from '../@types/AppNavigation';
 const CardDetailScreen = () => {
   const navigation = useAppNavigation();
 
-  const [modalVisible, setModalVisible] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
 
   const onBackArrowPressed = () => {
     navigation.goBack();

@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, ScrollView} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  ScrollView,
+  StatusBar,
+} from 'react-native';
 
 import {AppColors} from '../../constants/AppColors';
 import {AppFonts} from '../../constants/AppFonts';
@@ -15,6 +22,11 @@ import AppleButton from '../common/Buttons/SocialButtons/AppleButton';
 const Login = props => {
   return (
     <ScrollView style={styles.container}>
+      <StatusBar
+        translucent
+        barStyle="dark-content"
+        backgroundColor="transparent"
+      />
       <View style={styles.logoImageView}>
         <Image
           style={styles.logoImage}

@@ -1,12 +1,12 @@
 import React from 'react';
-import {View, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, TouchableOpacity, Image} from 'react-native';
 
 import {AppColors} from '../../../constants/AppColors';
 
 import ArrowIcon from 'react-native-vector-icons/FontAwesome';
 import SearchIcon from 'react-native-vector-icons/AntDesign';
 
-const PrimaryHeader = props => {
+const QuaternaryHeader = props => {
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -19,13 +19,11 @@ const PrimaryHeader = props => {
           color={AppColors.White}
         />
       </TouchableOpacity>
-      {props.showSearchIcon == true ? (
-        <TouchableOpacity style={styles.searchView}>
-          <SearchIcon
-            style={styles.icon}
-            name="search1"
-            size={28}
-            color={AppColors.Black}
+      {props.showUserImage == true ? (
+        <TouchableOpacity style={styles.imageView}>
+          <Image
+            style={styles.userImage}
+            source={require('../../../assets/images/userImage.jpg')}
           />
         </TouchableOpacity>
       ) : null}
@@ -33,7 +31,7 @@ const PrimaryHeader = props => {
   );
 };
 
-export default PrimaryHeader;
+export default QuaternaryHeader;
 
 const styles = StyleSheet.create({
   container: {
@@ -51,7 +49,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   icon: {},
-  searchView: {
-    paddingTop: 5,
+  imageView: {},
+  userImage: {
+    height: 50,
+    width: 50,
+    borderRadius: 100,
   },
 });

@@ -113,7 +113,7 @@ const PaymentMethod = props => {
         />
       </View>
       <View style={styles.addCardButtonView}>
-        <DottedBorderButton text="Add Card" />
+        <DottedBorderButton text="Add Card" onPress={props.onAddCardPressed} />
       </View>
       <View style={styles.historyView}>
         <View style={styles.historyTitleView}>

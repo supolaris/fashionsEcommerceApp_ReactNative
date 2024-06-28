@@ -17,7 +17,7 @@ export default ProductDescriptionText;
 const styles = StyleSheet.create({
   container: {},
   text: {
-    fontSize: 16,
+    fontSize: 15,
     color: AppColors.GrayDescriptonText,
     fontFamily: AppFonts.Regular,
   },

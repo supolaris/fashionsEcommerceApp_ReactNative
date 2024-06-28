@@ -17,7 +17,7 @@ export default ProductNameText;
 const styles = StyleSheet.create({
   container: {},
   text: {
-    fontSize: 18,
+    fontSize: 17,
     color: AppColors.Black,
     fontFamily: AppFonts.Bold,
   },

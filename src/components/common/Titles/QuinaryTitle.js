@@ -17,7 +17,7 @@ export default QuinaryTitle;
 const styles = StyleSheet.create({
   container: {},
   text: {
-    fontSize: 25,
+    fontSize: 22,
     color: AppColors.White,
     fontFamily: AppFonts.Bold,
   },

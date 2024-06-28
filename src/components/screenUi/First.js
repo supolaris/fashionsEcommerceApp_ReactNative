@@ -6,7 +6,11 @@ import {AppColors} from '../../constants/AppColors';
 const First = () => {
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor={AppColors.Black} />
+      <StatusBar
+        translucent
+        barStyle="light-content"
+        backgroundColor="transparent"
+      />
       <ImageBackground
         source={require('../../assets/images/backgroundImage2.jpg')}
         style={styles.backgroundImage}

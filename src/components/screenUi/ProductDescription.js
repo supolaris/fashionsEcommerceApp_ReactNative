@@ -23,24 +23,27 @@ import ColorButton from '../common/Buttons/ColorButton';
 import SecondaryTitle from '../common/Titles/SecondaryTitle';
 import QuinaryTitle from '../common/Titles/QuinaryTitle';
 import SecondaryHeader from '../common/Headers/SecondaryHeader';
+import ProductNameText from '../common/Texts/ProductNameText';
+import ProductPriceText from '../common/Texts/ProductPriceText';
+import Star from '../common/Star';
 
 const height = Dimensions.get('window').height;
 
 const ProductDescription = ({item, ...props}) => {
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.headerView}>
-        <SecondaryHeader
-          showCartIcon={true}
-          onBackArrowPressed={props.onBackArrowPressed}
-          onCartIconPressed={props.onCartIconPressed}
-        />
-      </View>
       <View style={styles.imageView}>
         <Image
           resizeMode="cover"
           style={styles.image}
           source={item.ProductImage}
+        />
+      </View>
+      <View style={styles.headerView}>
+        <SecondaryHeader
+          showCartIcon={true}
+          onBackArrowPressed={props.onBackArrowPressed}
+          onCartIconPressed={props.onCartIconPressed}
         />
       </View>
       <View style={styles.detailView}>
@@ -75,8 +78,16 @@ const ProductDescription = ({item, ...props}) => {
 
         <View style={styles.startReviewStockView}>
           <View style={styles.starsReviewView}>
-            <Text>stars</Text>
-            <Text>320 reviews</Text>
+            <View style={styles.startView}>
+              <Star />
+              <Star />
+              <Star />
+              <Star />
+              <Star />
+            </View>
+            <TouchableOpacity onPress={props.onReviewPressed}>
+              <Text style={styles.reviewText}>320 Reviews</Text>
+            </TouchableOpacity>
           </View>
           <View style={styles.stockView}>
             <Text style={styles.stockAvailableText}>Available in stock</Text>
@@ -142,6 +153,13 @@ const styles = StyleSheet.create({
     height: height,
     //flex: 1,
   },
+  headerView: {
+    width: '100%',
+    paddingHorizontal: 15,
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+  },
   imageView: {
     height: 850,
   },
@@ -172,7 +190,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderRadius: 20,
-    paddingVertical: 8,
+    paddingVertical: 4,
     paddingHorizontal: 5,
     backgroundColor: AppColors.LightGray2,
   },
@@ -190,6 +208,16 @@ const styles = StyleSheet.create({
   starsReviewView: {
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  startView: {
+    flexDirection: 'row',
+  },
+  reviewText: {
+    paddingTop: 5,
+    paddingLeft: 5,
+    fontSize: 14,
+    color: AppColors.Black,
+    fontFamily: AppFonts.SemiBold,
   },
   stockView: {},
   titleSizeColorView: {
@@ -232,9 +260,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: AppColors.Black,
-    paddingHorizontal: 15,
+    paddingHorizontal: 10,
     borderRadius: 10,
-    paddingVertical: 15,
+    paddingVertical: 10,
   },
   priceView: {
     width: '40%',
@@ -251,8 +279,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: AppColors.White,
     paddingHorizontal: 15,
-    paddingTop: 10,
-    paddingBottom: 8,
+    paddingTop: 8,
+    paddingBottom: 6,
     borderRadius: 10,
   },
   cartIcon: {

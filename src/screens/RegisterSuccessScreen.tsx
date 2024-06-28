@@ -7,7 +7,7 @@ import {useAppNavigation} from '../@types/AppNavigation';
 const RegisterSuccessScreen = () => {
   const navigation = useAppNavigation();
   const onStartShoppingPressed = () => {
-    navigation.navigate('BottomNav');
+    navigation.navigate('Startup_Screen');
     console.log('onStartShoppingPressed');
   };
 

@@ -27,6 +27,8 @@ import PaymentMethodScreen from '../screens/PaymentMethodScreen';
 import ProductTrackingScreen from '../screens/ProductTrackingScreen';
 import CartScreen from '../screens/CartScreen';
 
+import HomeScreen from '../screens/HomeScreen';
+
 const Stack = createStackNavigator();
 
 function StackNav() {
@@ -36,18 +38,6 @@ function StackNav() {
         screenOptions={{
           headerShown: false,
         }}>
-        <Stack.Screen name="Products_Screen" component={ProductsScreen} />
-        <Stack.Screen name="Cart_Screen" component={CartScreen} />
-
-        <Stack.Screen
-          name="ProductTracking_Screen"
-          component={ProductTrackingScreen}
-        />
-        <Stack.Screen
-          name="PaymentMethod_Screen"
-          component={PaymentMethodScreen}
-        />
-        <Stack.Screen name="Review_Screen" component={ReviewScreen} />
         <Stack.Screen name="First_Screen" component={FirstScreen} />
         <Stack.Screen name="Second_Screen" component={SecondScreen} />
 
@@ -61,6 +51,19 @@ function StackNav() {
           name="RegisterSuccess_Screen"
           component={RegisterSuccessScreen}
         />
+        <Stack.Screen name="Products_Screen" component={ProductsScreen} />
+        <Stack.Screen name="Cart_Screen" component={CartScreen} />
+        <Stack.Screen name="Home_Screen" component={HomeScreen} />
+
+        <Stack.Screen
+          name="ProductTracking_Screen"
+          component={ProductTrackingScreen}
+        />
+        <Stack.Screen
+          name="PaymentMethod_Screen"
+          component={PaymentMethodScreen}
+        />
+        <Stack.Screen name="Review_Screen" component={ReviewScreen} />
 
         <Stack.Screen name="BottomNav" component={BottomNav} />
 

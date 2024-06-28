@@ -8,7 +8,11 @@ import QuaternaryButtonOutline from '../common/Buttons/QuaternaryButtonOutline';
 const Second = props => {
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor={AppColors.Black} />
+      <StatusBar
+        translucent
+        barStyle="light-content"
+        backgroundColor="transparent"
+      />
       <ImageBackground
         resizeMode="cover"
         source={require('../../assets/images/backgroundImage2.jpg')}

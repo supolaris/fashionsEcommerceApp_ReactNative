@@ -21,6 +21,7 @@ import DotCircleIcon from 'react-native-vector-icons/FontAwesome';
 import SecondaryTitle from '../common/Titles/SecondaryTitle';
 
 import {LogBox} from 'react-native';
+import PrimaryHeader from '../common/Headers/PrimaryHeader';
 
 LogBox.ignoreAllLogs(true);
 
@@ -74,6 +75,7 @@ const SelectLanguage = props => {
 
   return (
     <ScrollView style={styles.container}>
+      <PrimaryHeader />
       <View style={styles.textInputView}>
         <PrimaryTextInput />
       </View>
@@ -133,10 +135,9 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 10,
     backgroundColor: AppColors.White,
-    paddingTop: 15,
   },
   textInputView: {
-    paddingVertical: 20,
+    paddingBottom: 20,
     paddingLeft: 5,
   },
   titleView: {

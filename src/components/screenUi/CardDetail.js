@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: AppColors.White,
     paddingHorizontal: 20,
-    paddingVertical: 20,
+    paddingBottom: 20,
     justifyContent: 'space-between',
   },
   // Modal
@@ -129,9 +129,7 @@ const styles = StyleSheet.create({
   },
   // Details view
   detailsView: {},
-  headerView: {
-    paddingBottom: 10,
-  },
+  headerView: {},
   titleView: {
     marginBottom: -10,
   },

@@ -62,6 +62,10 @@ const ProductDescriptonScreen = ({route}) => {
     // console.log('data:' + data);
   };
 
+  const onReviewPressed = () => {
+    navigation.navigate('Review_Screen');
+  };
+
   //header function
   const onBackArrowPressed = () => {
     navigation.goBack();
@@ -78,6 +82,7 @@ const ProductDescriptonScreen = ({route}) => {
       onMinusIconPressed={onMinusIconPressed}
       onPlusIconPressed={onPlusIconPressed}
       onAddToCartPressed={onAddToCartPressed}
+      onReviewPressed={onReviewPressed}
       //header functions
       onCartIconPressed={onCartIconPressed}
       onBackArrowPressed={onBackArrowPressed}

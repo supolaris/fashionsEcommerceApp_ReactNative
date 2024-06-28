@@ -23,7 +23,7 @@ import Star from '../common/Star';
 const ProductsFilter = props => {
   const [selectedRating, setSelectedRating] = useState(null);
 
-  const renderStar = (item, index) => {
+  const renderStar = item => {
     return (
       <View style={styles.starRow}>
         {Array.from({length: item}).map(idx => (
@@ -84,7 +84,10 @@ const ProductsFilter = props => {
     <View style={styles.container}>
       <View style={styles.detailsView}>
         <View style={styles.headerView}>
-          <PrimaryHeader showSearchIcon={true} />
+          <PrimaryHeader
+            showSearchIcon={true}
+            onHeaderBackArrowPressed={props.onHeaderBackArrowPressed}
+          />
         </View>
         <SecondaryTitle text="Categories" />
         <View style={styles.catagoriesFlatlistView}>
@@ -189,13 +192,10 @@ const styles = StyleSheet.create({
     backgroundColor: AppColors.White,
     paddingHorizontal: 15,
     justifyContent: 'space-between',
-    paddingVertical: 20,
-  },
-  detailsView: {},
-
-  headerView: {
     paddingBottom: 20,
   },
+  detailsView: {},
+  headerView: {},
   catagoriesFlatlistView: {
     width: '100%',
     paddingTop: 10,

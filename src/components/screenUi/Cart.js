@@ -67,7 +67,10 @@ const Cart = props => {
     <ScrollView style={styles.container}>
       <View style={styles.headerCartView}>
         <View style={styles.headerView}>
-          <PrimaryHeader showSearchIcon={true} />
+          <PrimaryHeader
+            showSearchIcon={true}
+            onHeaderBackArrowPressed={props.onHeaderBackArrowPressed}
+          />
         </View>
         <View style={styles.cartTitleView}>
           <SecondaryTitle text="My Cart" />
@@ -91,7 +94,10 @@ const Cart = props => {
             <SecondaryTitle text="$300" />
           </View>
           <View style={styles.checkOutButtonView}>
-            <CheckOutButton text="Proceed to checkout" />
+            <CheckOutButton
+              text="Proceed to checkout"
+              onPress={props.onCheckoutPressed}
+            />
           </View>
         </View>
       </View>
@@ -132,6 +138,7 @@ const styles = StyleSheet.create({
   },
   priceText: {},
   counterView: {
+    width: '35%',
     justifyContent: 'space-around',
     flexDirection: 'row',
     alignItems: 'center',
@@ -141,6 +148,8 @@ const styles = StyleSheet.create({
     backgroundColor: AppColors.LightGray2,
   },
   productCounterText: {
+    textAlign: 'center',
+    width: '40%',
     fontSize: 14,
     paddingTop: 5,
     color: AppColors.Black,
@@ -152,18 +161,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: AppColors.White,
     paddingHorizontal: 15,
-    paddingTop: 20,
   },
   headerView: {},
   cartProductSwipperList: {
     flex: 1,
   },
   cartTitleView: {
-    paddingTop: 15,
     paddingBottom: 5,
   },
   promoTotalProductsPriceCheckoutView: {
-    paddingBottom: 50,
+    paddingBottom: 30,
   },
   promoTextView: {
     paddingTop: 30,
@@ -177,5 +184,6 @@ const styles = StyleSheet.create({
   },
   checkOutButtonView: {
     paddingTop: 10,
+    paddingBottom: 50,
   },
 });

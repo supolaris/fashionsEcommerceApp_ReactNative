@@ -16,7 +16,7 @@ const PrimaryTextInput = props => {
         color={AppColors.Black}
       />
       <TextInput
-        placeholder="Search Catagories"
+        placeholder={props.placeholder}
         placeholderTextColor={AppColors.GrayDescriptonText}
         style={styles.textInput}
         value={props.value}

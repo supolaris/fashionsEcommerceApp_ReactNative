@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, StatusBar} from 'react-native';
 
 import {AppColors} from '../../constants/AppColors';
 import {AppFonts} from '../../constants/AppFonts';
@@ -10,6 +10,11 @@ import PrimaryTitle from '../common/Titles/PrimaryTitle';
 const RegisterSuccess = props => {
   return (
     <View style={styles.container}>
+      <StatusBar
+        translucent
+        barStyle="dark-content"
+        backgroundColor="transparent"
+      />
       <View style={styles.emptyView}></View>
       <View style={styles.successDetailView}>
         <Image

@@ -98,14 +98,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: AppColors.White,
-    paddingTop: 15,
     paddingHorizontal: 15,
   },
-  headerView: {
-    alignItems: 'flex-start',
-  },
+  headerView: {},
   textInputView: {
-    paddingTop: 20,
     paddingBottom: 20,
   },
   flatLisView: {

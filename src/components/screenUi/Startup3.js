@@ -9,30 +9,27 @@ import {AppColors} from '../../constants/AppColors';
 
 const Startup3 = props => {
   return (
-    <>
-      <StatusBar barStyle="dark-content" backgroundColor="white" />
-      <View style={styles.container}>
-        <View style={styles.imageView}>
-          <Image
-            style={styles.image}
-            resizeMode="stretch"
-            source={require('../../assets/images/startupImage.jpg')}
-          />
+    <View style={styles.container}>
+      <View style={styles.imageView}>
+        <Image
+          style={styles.image}
+          resizeMode="stretch"
+          source={require('../../assets/images/startupImage3.jpg')}
+        />
+      </View>
+      <View style={styles.titleDescriptionView}>
+        <View style={styles.titleView}>
+          <PrimaryTitle text="Your Ultimate Destination for Quality Shopping" />
         </View>
-        <View style={styles.titleDescriptionView}>
-          <View style={styles.titleView}>
-            <PrimaryTitle text="Your Ultimate Destination for Quality Shopping" />
-          </View>
-          <View style={styles.descriptionView}>
-            <PrimaryDescription text="Explore a wide variety of products, tailored to your preferences" />
-          </View>
-        </View>
-
-        <View style={styles.buttonView}>
-          <StartupButton onPress={props.onGetStartedPressed} />
+        <View style={styles.descriptionView}>
+          <PrimaryDescription text="Explore a wide variety of products, tailored to your preferences" />
         </View>
       </View>
-    </>
+
+      <View style={styles.buttonView}>
+        <StartupButton onPress={props.onGetStartedPressed} />
+      </View>
+    </View>
   );
 };
 
@@ -43,6 +40,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: AppColors.White,
     padding: 15,
+    paddingTop: 50,
   },
   imageView: {
     borderRadius: 10,
@@ -50,18 +48,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   image: {
-    height: 400,
+    borderBottomRightRadius: 250,
+    height: 450,
     width: '100%',
     borderRadius: 20,
   },
   titleDescriptionView: {
-    paddingVertical: 30,
+    paddingTop: 30,
   },
   titleView: {},
   descriptionView: {
     paddingTop: 10,
   },
   buttonView: {
+    paddingTop: 5,
     alignItems: 'flex-end',
   },
 });
