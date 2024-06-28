@@ -437,3 +437,49 @@ export const PaymentMethodsData = [
     PaymentTypeImage: require('../assets/images/paymentMethod/googlePay.png'),
   },
 ];
+
+export const ProductHistoryData = [
+  {
+    id: 1,
+    ProductName: 'White Shirt',
+    ProductDescription: 'Timeless, classic',
+    ProductPrice: 185.25,
+
+    ProductImage: require('../assets/images/Products/Shirts/shirt2.jpg'),
+  },
+  {
+    id: 2,
+    ProductName: 'Oxford Shirt',
+    ProductDescription: 'Elegant, versatile',
+    ProductPrice: 200.54,
+    ProductImage: require('../assets/images/Products/Shirts/shirt4.jpg'),
+  },
+  {
+    id: 3,
+    ProductName: 'Dress Shirt',
+    ProductDescription: 'Stylish, formal',
+    ProductPrice: 220.45,
+    ProductImage: require('../assets/images/Products/Shirts/shirt1.jpg'),
+  },
+  {
+    id: 4,
+    ProductName: 'Casual Shirt',
+    ProductDescription: 'Comfortable, relaxed',
+    ProductPrice: 175.35,
+    ProductImage: require('../assets/images/Products/Shirts/shirt3.jpg'),
+  },
+  {
+    id: 5,
+    ProductName: 'Formal Shirt',
+    ProductDescription: 'Sleek, evening',
+    ProductPrice: 210.9,
+    ProductImage: require('../assets/images/Products/Shirts/shirt5.jpg'),
+  },
+  {
+    id: 6,
+    ProductName: 'Denim Shirt',
+    ProductDescription: 'Trendy, versatile',
+    ProductPrice: 195.42,
+    ProductImage: require('../assets/images/Products/Shirts/shirt5.jpg'),
+  },
+];

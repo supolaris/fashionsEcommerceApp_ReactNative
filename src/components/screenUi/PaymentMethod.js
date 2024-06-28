@@ -6,17 +6,22 @@ import {
   FlatList,
   Image,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 
 import {AppColors} from '../../constants/AppColors';
 import {AppFonts} from '../../constants/AppFonts';
 
 import SecondaryTitle from '../common/Titles/SecondaryTitle';
+import PrimaryDescription from '../common/Descriptions/PrimaryDescription';
 import PrimaryHeader from '../common/Headers/PrimaryHeader';
+import DottedBorderButton from '../common/Buttons/DottedBorderButton';
 
 import CircleIcon from 'react-native-vector-icons/Entypo';
 
 import {PaymentMethodsData} from '../../constants/FlatlistData';
+import {ProductHistoryData} from '../../constants/FlatlistData';
+import SendBadgeButton from '../common/Buttons/SendBadgeButton';
 
 const PaymentMethod = props => {
   const renderPaymentMethod = ({item}) => {
@@ -63,8 +68,37 @@ const PaymentMethod = props => {
     );
   };
 
+  const renderProductHistory = ({item}) => {
+    return (
+      <View style={styles.renderProductHistoryView}>
+        <View style={styles.renderImageNameDescriptionButtonView}>
+          <View style={styles.renderProductImageHistoryView}>
+            <Image
+              style={styles.renderProductHistoryImage}
+              source={item.ProductImage}
+            />
+          </View>
+          <View style={styles.renderNameDescriptionButtonView}>
+            <SecondaryTitle text={item.ProductName} />
+
+            <Text style={styles.descriptionText}>
+              {item.ProductDescription}
+            </Text>
+            <View style={styles.sendButtonView}>
+              <SendBadgeButton text="Send" />
+            </View>
+          </View>
+        </View>
+        <View style={styles.priceView}>
+          <Text style={styles.dollarSign}>$</Text>
+          <SecondaryTitle text={item.ProductPrice} />
+        </View>
+      </View>
+    );
+  };
+
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.headerView}>
         <PrimaryHeader />
       </View>
@@ -78,7 +112,22 @@ const PaymentMethod = props => {
           keyExtractor={item => item.id.toString()}
         />
       </View>
-    </View>
+      <View style={styles.addCardButtonView}>
+        <DottedBorderButton text="Add Card" />
+      </View>
+      <View style={styles.historyView}>
+        <View style={styles.historyTitleView}>
+          <SecondaryTitle text="History" />
+        </View>
+        <View style={styles.historyFlatlistView}>
+          <FlatList
+            data={ProductHistoryData}
+            renderItem={renderProductHistory}
+            keyExtractor={item => item.id.toString()}
+          />
+        </View>
+      </View>
+    </ScrollView>
   );
 };
 
@@ -125,6 +174,54 @@ const styles = StyleSheet.create({
     color: AppColors.White,
   },
 
+  //Product History Flatlist
+  renderProductHistoryView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginVertical: 10,
+    backgroundColor: AppColors.White,
+    borderRadius: 10,
+    padding: 10,
+    elevation: 10,
+    marginHorizontal: 5,
+    paddingRight: 15,
+  },
+  renderImageNameDescriptionButtonView: {
+    flexDirection: 'row',
+  },
+  renderProductImageHistoryView: {},
+  renderProductHistoryImage: {
+    height: 90,
+    width: 85,
+    borderRadius: 15,
+  },
+  renderNameDescriptionButtonView: {
+    paddingLeft: 15,
+    width: '53%',
+  },
+  descriptionText: {
+    //width: '100%',
+    fontSize: 14,
+    color: AppColors.GrayDescriptonText,
+    marginTop: -5,
+    paddingBottom: 5,
+    fontFamily: AppFonts.Regular,
+  },
+  sendButtonView: {
+    width: '60%',
+  },
+  priceView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  dollarSign: {
+    paddingRight: 2,
+    fontSize: 20,
+    color: AppColors.Black,
+    fontFamily: AppFonts.Bold,
+  },
+
   //main
   container: {
     flex: 1,
@@ -137,4 +234,18 @@ const styles = StyleSheet.create({
   headingView: {},
 
   paymentFlatlistView: {},
+  addCardButtonView: {
+    paddingHorizontal: 5,
+    paddingTop: 10,
+  },
+  historyView: {
+    paddingBottom: 20,
+  },
+  historyTitleView: {
+    paddingTop: 20,
+    paddingLeft: 5,
+  },
+  historyFlatlistView: {
+    //paddingBottom: 20,
+  },
 });
