@@ -47,7 +47,10 @@ const Products = props => {
 
   return (
     <ScrollView style={styles.container}>
-      <PrimaryHeader showSearchIcon={true} />
+      <PrimaryHeader
+        showSearchIcon={true}
+        onHeaderBackArrowPressed={props.onHeaderBackArrowPressed}
+      />
       <View style={styles.titleView}>
         <SecondaryTitle text="Clothes" />
       </View>

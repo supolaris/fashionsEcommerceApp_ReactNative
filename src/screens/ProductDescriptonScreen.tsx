@@ -72,7 +72,7 @@ const ProductDescriptonScreen = ({route}) => {
   };
 
   const onCartIconPressed = () => {
-    navigation.navigate('Cart_Screen');
+    navigation.navigate('CartScreen');
   };
 
   return (

@@ -126,7 +126,9 @@ const Home = props => {
         <View style={styles.topDressesTitleView}>
           <View style={styles.topDressesSeeAllView}>
             <SecondaryTitle text="Top Dresses" />
-            <PrimaryDescription text="View All" />
+            <TouchableOpacity onPress={props.onViewAllPresses}>
+              <PrimaryDescription text="View All" />
+            </TouchableOpacity>
           </View>
         </View>
         <View style={styles.topDressesFlatlistView}>

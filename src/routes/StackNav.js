@@ -28,6 +28,7 @@ import ProductTrackingScreen from '../screens/ProductTrackingScreen';
 import CartScreen from '../screens/CartScreen';
 
 import HomeScreen from '../screens/HomeScreen';
+import CatagoriesScreen from '../screens/CatagoriesScreen';
 
 const Stack = createStackNavigator();
 
@@ -63,6 +64,7 @@ function StackNav() {
           name="PaymentMethod_Screen"
           component={PaymentMethodScreen}
         />
+        <Stack.Screen name="Catagories_Screen" component={CatagoriesScreen} />
         <Stack.Screen name="Review_Screen" component={ReviewScreen} />
 
         <Stack.Screen name="BottomNav" component={BottomNav} />

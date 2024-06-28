@@ -41,7 +41,9 @@ const Catagories = props => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.headerView}>
-        <PrimaryHeader onPress={props.onHeaderBackArrowPressed} />
+        <PrimaryHeader
+          onHeaderBackArrowPressed={props.onHeaderBackArrowPressed}
+        />
       </View>
       <View style={styles.textInputView}>
         <PrimaryTextInput />
@@ -106,6 +108,6 @@ const styles = StyleSheet.create({
   },
   flatLisView: {
     flex: 1,
-    paddingBottom: 90,
+    paddingBottom: 20,
   },
 });

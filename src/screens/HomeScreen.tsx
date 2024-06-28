@@ -16,11 +16,16 @@ const HomeScreen = () => {
     setSelectedCategoryId(item.id);
   };
 
+  const onViewAllPresses = () => {
+    navigation.navigate('Catagories_Screen');
+  };
+
   return (
     <Home
       onFilterIconPressed={onFilterIconPressed}
       categoryPressed={categoryPressed}
       selectedCategory={selectedCategoryId}
+      onViewAllPresses={onViewAllPresses}
     />
   );
 };

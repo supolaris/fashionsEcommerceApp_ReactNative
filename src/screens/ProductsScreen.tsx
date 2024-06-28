@@ -10,8 +10,16 @@ const ProductsScreen = () => {
   const onProductPressed = (item: any) => {
     navigation.navigate('ProductDescripton_Screen', {item: item});
   };
+  const onHeaderBackArrowPressed = () => {
+    navigation.goBack();
+  };
 
-  return <Products onProductPressed={onProductPressed} />;
+  return (
+    <Products
+      onProductPressed={onProductPressed}
+      onHeaderBackArrowPressed={onHeaderBackArrowPressed}
+    />
+  );
 };
 
 export default ProductsScreen;

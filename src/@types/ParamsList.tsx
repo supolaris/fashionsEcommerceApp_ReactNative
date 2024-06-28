@@ -21,6 +21,7 @@ export type StackParmList = {
   PaymentMethod_Screen: undefined;
   Review_Screen: undefined;
   Home_Screen: undefined;
+  Catagories_Screen: undefined;
 
   BottomNav: undefined;
 };
