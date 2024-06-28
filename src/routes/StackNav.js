@@ -25,6 +25,7 @@ import StartupScreen3 from '../screens/StartupScreen3';
 import ReviewScreen from '../screens/ReviewScreen';
 import PaymentMethodScreen from '../screens/PaymentMethodScreen';
 import ProductTrackingScreen from '../screens/ProductTrackingScreen';
+import CartScreen from '../screens/CartScreen';
 
 const Stack = createStackNavigator();
 
@@ -35,6 +36,9 @@ function StackNav() {
         screenOptions={{
           headerShown: false,
         }}>
+        <Stack.Screen name="Products_Screen" component={ProductsScreen} />
+        <Stack.Screen name="Cart_Screen" component={CartScreen} />
+
         <Stack.Screen
           name="ProductTracking_Screen"
           component={ProductTrackingScreen}
@@ -82,7 +86,6 @@ function StackNav() {
           component={SelectCountryScreen}
         />
 
-        <Stack.Screen name="Products_Screen" component={ProductsScreen} />
         <Stack.Screen
           name="ProductDescripton_Screen"
           component={ProductDescriptonScreen}

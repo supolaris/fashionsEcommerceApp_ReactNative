@@ -1,12 +1,9 @@
-import {View, Text} from 'react-native';
 import React from 'react';
 
+import Cart from '../components/screenUi/Cart';
+
 const CartScreen = () => {
-  return (
-    <View>
-      <Text>CartScreen</Text>
-    </View>
-  );
+  return <Cart />;
 };
 
 export default CartScreen;

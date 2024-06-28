@@ -22,12 +22,20 @@ import PrimaryDescription from '../common/Descriptions/PrimaryDescription';
 import ColorButton from '../common/Buttons/ColorButton';
 import SecondaryTitle from '../common/Titles/SecondaryTitle';
 import QuinaryTitle from '../common/Titles/QuinaryTitle';
+import SecondaryHeader from '../common/Headers/SecondaryHeader';
 
 const height = Dimensions.get('window').height;
 
 const ProductDescription = ({item, ...props}) => {
   return (
     <ScrollView style={styles.container}>
+      <View style={styles.headerView}>
+        <SecondaryHeader
+          showCartIcon={true}
+          onBackArrowPressed={props.onBackArrowPressed}
+          onCartIconPressed={props.onCartIconPressed}
+        />
+      </View>
       <View style={styles.imageView}>
         <Image
           resizeMode="cover"
@@ -110,7 +118,9 @@ const ProductDescription = ({item, ...props}) => {
             <Text style={styles.dollarText}>$</Text>
             <QuinaryTitle text={item.ProductPrice} />
           </View>
-          <TouchableOpacity style={styles.addToCartView}>
+          <TouchableOpacity
+            onPress={props.onAddToCartPressed}
+            style={styles.addToCartView}>
             <CartIcon
               style={styles.cartIcon}
               name="cart-outline"

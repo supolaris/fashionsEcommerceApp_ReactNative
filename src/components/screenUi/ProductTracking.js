@@ -120,12 +120,8 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     backgroundColor: AppColors.White,
   },
-  headerView: {
-    //paddingHorizontal: 15,
-  },
-  productCodeTitleView: {
-    // paddingHorizontal: 15,
-  },
+  headerView: {},
+  productCodeTitleView: {},
   descriptonView: {
     marginTop: -10,
   },

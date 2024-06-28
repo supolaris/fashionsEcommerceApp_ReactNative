@@ -63,3 +63,15 @@ npm i @react-native-community/checkbox
 ```bash
 yarn add react-native-ratings
 ```
+
+# Async Storage
+
+```bash
+yarn add @react-native-async-storage/async-storage
+```
+
+# Swipe List View
+
+```bash
+npm install --save react-native-swipe-list-view
+```
