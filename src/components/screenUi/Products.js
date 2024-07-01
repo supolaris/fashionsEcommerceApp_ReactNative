@@ -16,11 +16,10 @@ import {AppFonts} from '../../constants/AppFonts';
 import PrimaryHeader from '../common/Headers/PrimaryHeader';
 import SecondaryTitle from '../common/Titles/SecondaryTitle';
 
-const height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;
 
 const Products = props => {
-  const renderShirts = ({item}) => {
+  const renderProducts = ({item}) => {
     return (
       <TouchableOpacity
         onPress={() => props.onProductPressed(item)}
@@ -50,15 +49,14 @@ const Products = props => {
         onHeaderBackArrowPressed={props.onHeaderBackArrowPressed}
       />
       <View style={styles.titleView}>
-        <SecondaryTitle text="Clothes" />
+        <SecondaryTitle text={props.categoryName} />
       </View>
       <View style={styles.flatlistView}>
         <FlatList
           numColumns={2}
           showsVerticalScrollIndicator={false}
-          // data={props.CatagoryApiName}
           data={props.flatListProductsData}
-          renderItem={renderShirts}
+          renderItem={renderProducts}
           keyExtractor={item => item.id.toString()}
         />
       </View>

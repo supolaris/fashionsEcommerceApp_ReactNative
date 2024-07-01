@@ -21,7 +21,7 @@ const Catagories = props => {
   const renderCatagories = ({item}) => {
     return (
       <TouchableOpacity
-        onPress={() => props.onCatagoryPressed(item.CatagoryApiName)}
+        onPress={() => props.onCatagoryPressed(item)}
         style={styles.renderContainer}>
         <ImageBackground
           style={styles.renderBackgroundImage}
@@ -46,7 +46,7 @@ const Catagories = props => {
         />
       </View>
       <View style={styles.textInputView}>
-        <PrimaryTextInput />
+        <PrimaryTextInput placeholder="Search Categories" />
       </View>
       <View style={styles.flatLisView}>
         <FlatList

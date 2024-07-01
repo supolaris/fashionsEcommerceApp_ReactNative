@@ -113,6 +113,7 @@ export const ShirtsData = [
   {
     id: 1,
     NoOfProducts: 1,
+    CategoryName: 'Shirts',
     ProductName: 'White Shirt',
     ProductDescription: 'Timeless, classic',
     ProductPrice: 185.25,
@@ -164,6 +165,7 @@ export const BagsData = [
   {
     id: 1,
     NoOfProducts: 1,
+    CategoryName: 'Bags',
     ProductName: 'Leather Bag',
     ProductDescription: 'Durable, stylish',
     ProductPrice: 150.75,
@@ -215,6 +217,7 @@ export const ShoesData = [
   {
     id: 1,
     NoOfProducts: 1,
+    CategoryName: 'Shoes',
     ProductName: 'Running Shoes',
     ProductDescription: 'Comfortable, durable',
     ProductPrice: 120.75,
@@ -266,6 +269,7 @@ export const ElectronicsData = [
   {
     id: 1,
     NoOfProducts: 1,
+    CategoryName: 'Electronics',
     ProductName: 'Smartphone',
     ProductDescription: 'Latest model',
     ProductPrice: 799.99,

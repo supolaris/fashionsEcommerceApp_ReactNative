@@ -14,23 +14,23 @@ import {ElectronicsData} from '../constants/FlatlistData';
 
 const ProductsScreen = ({route}: {route: any}) => {
   const [flatlistProductArray, setFlatlistProductArray] = useState([]);
-  const {CatagoryApiName} = route.params;
-  //Alert.alert('Warning', CatagoryApiName);
+  const {item} = route.params;
+  //Alert.alert('Warning', item.CatagoryApiName);
   const navigation = useAppNavigation();
 
   useFocusEffect(
     useCallback(() => {
-      if (CatagoryApiName === 'ShirtsData') {
+      if (item.CatagoryApiName === 'ShirtsData') {
         setFlatlistProductArray(ShirtsData);
-      } else if (CatagoryApiName === 'BagsData') {
+      } else if (item.CatagoryApiName === 'BagsData') {
         setFlatlistProductArray(BagsData);
-      } else if (CatagoryApiName === 'ShoesData') {
+      } else if (item.CatagoryApiName === 'ShoesData') {
         setFlatlistProductArray(ShoesData);
-      } else if (CatagoryApiName === 'ElectronicsData') {
+      } else if (item.CatagoryApiName === 'ElectronicsData') {
         setFlatlistProductArray(ElectronicsData);
-      } else if (CatagoryApiName === 'JewelryData') {
+      } else if (item.CatagoryApiName === 'JewelryData') {
         setFlatlistProductArray(JewelryData);
-      } else if (CatagoryApiName === 'AccessoriesData') {
+      } else if (item.CatagoryApiName === 'AccessoriesData') {
         setFlatlistProductArray(AccessoriesData);
       }
     }, []),
@@ -47,7 +47,8 @@ const ProductsScreen = ({route}: {route: any}) => {
     <Products
       onProductPressed={onProductPressed}
       onHeaderBackArrowPressed={onHeaderBackArrowPressed}
-      CatagoryApiName={CatagoryApiName}
+      CatagoryApiName={item.CatagoryApiName}
+      categoryName={item.CatagoryName}
       flatListProductsData={flatlistProductArray}
     />
   );

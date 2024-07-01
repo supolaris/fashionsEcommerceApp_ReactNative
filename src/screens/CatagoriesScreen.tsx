@@ -11,8 +11,8 @@ const CatagoriesScreen = () => {
     navigation.goBack();
   };
 
-  const onCatagoryPressed = (CatagoryApiName: any) => {
-    navigation.navigate('Products_Screen', {CatagoryApiName: CatagoryApiName});
+  const onCatagoryPressed = (item: any) => {
+    navigation.navigate('Products_Screen', {item: item});
   };
   return (
     <Catagories

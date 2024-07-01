@@ -43,19 +43,16 @@ const SignUp = props => {
       <View style={styles.textInputsView}>
         <LoginTextInput
           labelText="User Name"
-          //placeholder="Ferrin"
           value={props.usernameValue}
           onChangeText={props.usenameOnChangeText}
         />
         <LoginTextInput
           labelText="Email"
-          //placeholder="hello@example.com"
           value={props.emailValue}
           onChangeText={props.emailOnChangeText}
         />
         <LoginTextInput
           labelText="Password"
-          //placeholder="******"
           isOpenEye={props.isOpenEye}
           onEyeOpenPressed={props.onEyeOpenPressed}
           secureTextEntry={props.secureTextEntry}
@@ -65,7 +62,6 @@ const SignUp = props => {
         />
         <LoginTextInput
           labelText="Confrim Password"
-          //placeholder="******"
           isOpenEye={props.isConfirmPasswordOpenEye}
           onEyeOpenPressed={props.onConfirmPasswordEyeOpenPressed}
           secureTextEntry={props.confirmPasswordsecureTextEntry}
