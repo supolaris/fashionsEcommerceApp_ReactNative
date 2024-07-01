@@ -15,7 +15,7 @@ import {ElectronicsData} from '../constants/FlatlistData';
 const ProductsScreen = ({route}: {route: any}) => {
   const [flatlistProductArray, setFlatlistProductArray] = useState([]);
   const {item} = route.params;
-  //Alert.alert('Warning', item.CatagoryApiName);
+  // Alert.alert('Warning', item.CatagoryApiName);
   const navigation = useAppNavigation();
 
   useFocusEffect(

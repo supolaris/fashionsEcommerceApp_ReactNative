@@ -7,7 +7,7 @@ import StartupButton from '../common/Buttons/StartupButton';
 
 import {AppColors} from '../../constants/AppColors';
 
-const Startup = props => {
+const Startup = (props: any) => {
   return (
     <View style={styles.container}>
       <View style={styles.imageView}>

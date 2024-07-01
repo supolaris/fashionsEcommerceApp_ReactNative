@@ -101,6 +101,9 @@ const styles = StyleSheet.create({
     backgroundColor: AppColors.White,
     paddingHorizontal: 15,
   },
+  titleView: {
+    paddingLeft: 5,
+  },
   flatlistView: {
     flex: 1,
     width: width,
