@@ -1,5 +1,5 @@
-import React from 'react';
-import {View, StyleSheet, Image, StatusBar} from 'react-native';
+import React, {FC} from 'react';
+import {View, StyleSheet, Image} from 'react-native';
 
 import PrimaryTitle from '../common/Titles/PrimaryTitle';
 import PrimaryDescription from '../common/Descriptions/PrimaryDescription';
@@ -7,7 +7,11 @@ import StartupButton from '../common/Buttons/StartupButton';
 
 import {AppColors} from '../../constants/AppColors';
 
-const Startup = (props: any) => {
+interface Iprops {
+  onGetStartedPressed: () => void;
+}
+
+const Startup: FC<Iprops> = props => {
   return (
     <View style={styles.container}>
       <View style={styles.imageView}>
