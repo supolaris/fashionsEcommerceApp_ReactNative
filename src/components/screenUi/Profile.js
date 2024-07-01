@@ -78,7 +78,9 @@ const Profile = props => {
         </TouchableOpacity>
 
         {/* shipping */}
-        <TouchableOpacity style={styles.iconTitleArrowView}>
+        <TouchableOpacity
+          style={styles.iconTitleArrowView}
+          onPress={props.onShippingAddressPressed}>
           <View style={styles.descriptiveIconView}>
             <BusIcon name="bus-marker" size={25} color={AppColors.Black} />
           </View>

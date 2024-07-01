@@ -24,6 +24,7 @@ export type StackParmList = {
   Home_Screen: undefined;
   Catagories_Screen: undefined;
   ProfileScreen: undefined;
+  ProductTracking_Screen: undefined;
 
   BottomNav: undefined;
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, TouchableOpacity, StyleSheet, Text} from 'react-native';
 
 import {AppColors} from '../../constants/AppColors';
 import {AppFonts} from '../../constants/AppFonts';
@@ -39,53 +39,123 @@ function CustomTabBar({state, descriptors, navigation}) {
             onPress={onPress}
             style={styles.iconTexttouchable}>
             {index == 0 ? (
-              <View style={styles.iconTextView}>
-                <HomeIcon
-                  style={[
-                    styles.icon,
-                    isFocused == true ? styles.focusedStyles : null,
-                  ]}
-                  name="home"
-                  size={isFocused ? 20 : 25}
-                  color={isFocused ? AppColors.White : AppColors.Black}
-                />
-              </View>
+              <>
+                {isFocused ? (
+                  <View style={styles.focusedIconTextView}>
+                    <HomeIcon
+                      style={[
+                        styles.icon,
+                        isFocused ? styles.focusedStyles : null,
+                      ]}
+                      name="home"
+                      size={isFocused ? 20 : 25}
+                      color={isFocused ? AppColors.White : AppColors.Black}
+                    />
+                    <Text style={styles.focusedScreenTitleText}>Home</Text>
+                  </View>
+                ) : (
+                  <View style={styles.iconTextView}>
+                    <HomeIcon
+                      style={[
+                        styles.icon,
+                        isFocused ? styles.focusedStyles : null,
+                      ]}
+                      name="home"
+                      size={isFocused ? 20 : 25}
+                      color={isFocused ? AppColors.White : AppColors.Black}
+                    />
+                  </View>
+                )}
+              </>
             ) : index == 1 ? (
-              <View style={styles.iconTextView}>
-                <CartIcon
-                  style={[
-                    styles.icon,
-                    isFocused == true ? styles.focusedStyles : null,
-                  ]}
-                  name="shopping-cart"
-                  size={isFocused ? 20 : 25}
-                  color={isFocused ? AppColors.White : AppColors.Black}
-                />
-              </View>
+              <>
+                {isFocused ? (
+                  <View style={styles.focusedIconTextView}>
+                    <CartIcon
+                      style={[
+                        styles.icon,
+                        isFocused == true ? styles.focusedStyles : null,
+                      ]}
+                      name="shopping-cart"
+                      size={isFocused ? 20 : 25}
+                      color={isFocused ? AppColors.White : AppColors.Black}
+                    />
+                    <Text style={styles.focusedScreenTitleText}>Cart</Text>
+                  </View>
+                ) : (
+                  <View style={styles.iconTextView}>
+                    <CartIcon
+                      style={[
+                        styles.icon,
+                        isFocused ? styles.focusedStyles : null,
+                      ]}
+                      name="shopping-cart"
+                      size={isFocused ? 20 : 25}
+                      color={isFocused ? AppColors.White : AppColors.Black}
+                    />
+                  </View>
+                )}
+              </>
             ) : index == 2 ? (
-              <View style={styles.iconTextView}>
-                <BellIcon
-                  style={[
-                    styles.icon,
-                    isFocused == true ? styles.focusedStyles : null,
-                  ]}
-                  name="bell"
-                  size={isFocused ? 20 : 25}
-                  color={isFocused ? AppColors.White : AppColors.Black}
-                />
-              </View>
+              <>
+                {isFocused ? (
+                  <View style={styles.focusedIconTextView}>
+                    <BellIcon
+                      style={[
+                        styles.icon,
+                        isFocused ? styles.focusedStyles : null,
+                      ]}
+                      name="bell"
+                      size={isFocused ? 20 : 25}
+                      color={isFocused ? AppColors.White : AppColors.Black}
+                    />
+                    <Text style={styles.focusedScreenTitleText}>
+                      Notification
+                    </Text>
+                  </View>
+                ) : (
+                  <View style={styles.iconTextView}>
+                    <BellIcon
+                      style={[
+                        styles.icon,
+                        isFocused ? styles.focusedStyles : null,
+                      ]}
+                      name="bell"
+                      size={isFocused ? 20 : 25}
+                      color={isFocused ? AppColors.White : AppColors.Black}
+                    />
+                  </View>
+                )}
+              </>
             ) : index == 3 ? (
-              <View style={styles.iconTextView}>
-                <UserIcon
-                  style={[
-                    styles.icon,
-                    isFocused == true ? styles.focusedStyles : null,
-                  ]}
-                  name="user"
-                  size={isFocused ? 20 : 25}
-                  color={isFocused ? AppColors.White : AppColors.Black}
-                />
-              </View>
+              <>
+                {isFocused ? (
+                  <View style={styles.focusedIconTextView}>
+                    <UserIcon
+                      style={[
+                        styles.icon,
+                        isFocused ? styles.focusedStyles : null,
+                      ]}
+                      name="user"
+                      size={isFocused ? 20 : 25}
+                      color={isFocused ? AppColors.White : AppColors.Black}
+                    />
+                    <Text style={styles.focusedScreenTitleText}>Profile</Text>
+                  </View>
+                ) : (
+                  <View style={styles.iconTextView}>
+                    <UserIcon
+                      style={[
+                        styles.icon,
+                        isFocused ? styles.focusedStyles : null,
+                      ]}
+                      name="user"
+                      size={isFocused ? 20 : 25}
+                      color={isFocused ? AppColors.White : AppColors.Black}
+                    />
+                  </View>
+                )}
+              </>
             ) : null}
           </TouchableOpacity>
         );
@@ -113,6 +183,20 @@ const styles = StyleSheet.create({
   iconTexttouchable: {
     flex: 1,
     alignItems: 'center',
+  },
+  focusedIconTextView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 20,
+    backgroundColor: AppColors.LightGray2,
+  },
+  focusedScreenTitleText: {
+    paddingLeft: 3,
+    paddingRight: 6,
+    fontSize: 13,
+    color: AppColors.Black,
+    fontFamily: AppFonts.Bold,
   },
   iconTextView: {
     alignItems: 'center',

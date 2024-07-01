@@ -12,7 +12,16 @@ const ProfileScreen = () => {
     navigation.navigate('PersonalDetail_Screen');
   };
 
-  return <Profile onPersonalDetailsPressed={onPersonalDetailsPressed} />;
+  const onShippingAddressPressed = () => {
+    navigation.navigate('ProductTracking_Screen');
+  };
+
+  return (
+    <Profile
+      onPersonalDetailsPressed={onPersonalDetailsPressed}
+      onShippingAddressPressed={onShippingAddressPressed}
+    />
+  );
 };
 
 export default ProfileScreen;
