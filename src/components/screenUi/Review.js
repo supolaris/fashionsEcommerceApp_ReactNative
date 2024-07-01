@@ -15,10 +15,9 @@ import PrimaryHeader from '../common/Headers/PrimaryHeader';
 import SecondaryTitle from '../common/Titles/SecondaryTitle';
 
 import {ReviewData} from '../../constants/FlatlistData';
-import PrimaryTitle from '../common/Titles/PrimaryTitle';
 import Star from '../common/Star';
 
-const Review = () => {
+const Review = props => {
   const renderNotificaton = ({item}) => {
     return (
       <View style={styles.renderContainer}>
@@ -50,7 +49,10 @@ const Review = () => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.headerView}>
-        <PrimaryHeader showSearchIcon={true} />
+        <PrimaryHeader
+          showSearchIcon={true}
+          onHeaderBackArrowPressed={props.onHeaderBackArrowPressed}
+        />
       </View>
       <View style={styles.titleView}>
         <SecondaryTitle text="Reviews Client" />

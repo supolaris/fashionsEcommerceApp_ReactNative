@@ -20,12 +20,17 @@ const HomeScreen = () => {
     navigation.navigate('Catagories_Screen');
   };
 
+  const onUserImagePressed = () => {
+    navigation.navigate('ProfileScreen');
+  };
+
   return (
     <Home
       onFilterIconPressed={onFilterIconPressed}
       categoryPressed={categoryPressed}
       selectedCategory={selectedCategoryId}
       onViewAllPresses={onViewAllPresses}
+      onUserImagePressed={onUserImagePressed}
     />
   );
 };

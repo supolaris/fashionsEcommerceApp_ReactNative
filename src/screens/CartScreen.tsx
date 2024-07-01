@@ -9,7 +9,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const CartScreen = () => {
   const navigation = useAppNavigation();
   const [cartProducts, setCartProducts] = useState([]);
-  const [productCounter, setProductCounter] = useState(0);
   const [productNumber, setProductNumber] = useState();
 
   let AsyncCartProducts;
@@ -17,12 +16,9 @@ const CartScreen = () => {
   const onMinusIconPressed = (id: any) => {
     cartProducts.map(item => {
       if (item.id === id) {
-        let currentVal = item.NoOfProducts;
-        if (currentVal >= 1) {
-          let newNoOfProductsVal = currentVal - 1;
-          console.log('newNoOfProductsVal', newNoOfProductsVal);
-          item.NoOfProducts = newNoOfProductsVal;
-          setProductNumber(newNoOfProductsVal);
+        if (item.NoOfProducts >= 1) {
+          item.NoOfProducts--;
+          setProductNumber(item.NoOfProducts);
         } else {
           return item.NoOfProducts;
         }
@@ -31,18 +27,12 @@ const CartScreen = () => {
   };
 
   const onPlusIconPressed = (id: any) => {
-    //console.log(cartProducts)
     cartProducts.map(item => {
       if (item.id === id) {
-        let currentVal = item.NoOfProducts;
-        let newNoOfProductsVal = currentVal + 1;
-        item.NoOfProducts = newNoOfProductsVal;
-        setProductNumber(newNoOfProductsVal);
-        //console.log(item.NoOfProducts);
-        //return item.NoOfProducts++;
+        item.NoOfProducts++;
+        setProductNumber(item.NoOfProducts);
       }
     });
-    //setProductCounter(productCounter + 1);
   };
 
   useEffect(() => {
@@ -66,7 +56,7 @@ const CartScreen = () => {
   return (
     <Cart
       cartProducts={cartProducts}
-      productCounterValue={productCounter}
+      //productCounterValue={productCounter}
       onMinusIconPressed={onMinusIconPressed}
       onPlusIconPressed={onPlusIconPressed}
       onCheckoutPressed={onCheckoutPressed}

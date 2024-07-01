@@ -20,7 +20,9 @@ const QuaternaryHeader = props => {
         />
       </TouchableOpacity>
       {props.showUserImage == true ? (
-        <TouchableOpacity style={styles.imageView}>
+        <TouchableOpacity
+          onPress={props.onUserImagePressed}
+          style={styles.imageView}>
           <Image
             style={styles.userImage}
             source={require('../../../assets/images/userImage.jpg')}

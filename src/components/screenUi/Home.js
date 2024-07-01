@@ -72,7 +72,10 @@ const Home = props => {
 
   return (
     <ScrollView style={styles.container}>
-      <QuaternaryHeader showUserImage={true} />
+      <QuaternaryHeader
+        showUserImage={true}
+        onUserImagePressed={props.onUserImagePressed}
+      />
       <View style={styles.titleDescriptionView}>
         <PrimaryTitle text="Welcome," />
         <SecondaryDescription text="Our Fashion App" />
