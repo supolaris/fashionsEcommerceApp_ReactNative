@@ -23,8 +23,6 @@ import ColorButton from '../common/Buttons/ColorButton';
 import SecondaryTitle from '../common/Titles/SecondaryTitle';
 import QuinaryTitle from '../common/Titles/QuinaryTitle';
 import SecondaryHeader from '../common/Headers/SecondaryHeader';
-import ProductNameText from '../common/Texts/ProductNameText';
-import ProductPriceText from '../common/Texts/ProductPriceText';
 import Star from '../common/Star';
 
 const height = Dimensions.get('window').height;
@@ -58,17 +56,15 @@ const ProductDescription = ({item, ...props}) => {
           </View>
           <View style={styles.counterView}>
             <MinusIcon
-              onPress={props.onMinusIconPressed}
+              onPress={() => props.onMinusIconPressed(item)}
               name="minus"
               size={22}
               color={AppColors.Black}
             />
-            <Text style={styles.productCounterText}>
-              {props.productCounterValue}
-            </Text>
+            <Text style={styles.productCounterText}>{item.NoOfProducts}</Text>
 
             <PlusIcon
-              onPress={props.onPlusIconPressed}
+              onPress={() => props.onPlusIconPressed(item)}
               name="plus"
               size={20}
               color={AppColors.Black}
@@ -151,7 +147,6 @@ export default ProductDescription;
 const styles = StyleSheet.create({
   container: {
     height: height,
-    //flex: 1,
   },
   headerView: {
     width: '100%',
@@ -168,7 +163,6 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   detailView: {
-    //height: height - 250,
     justifyContent: 'space-between',
     position: 'absolute',
     bottom: 0,

@@ -1,11 +1,40 @@
-import React from 'react';
+import React, {useCallback, useState} from 'react';
+
+import {Alert} from 'react-native';
 
 import Products from '../components/screenUi/Products';
 
+import {useFocusEffect} from '@react-navigation/native';
 import {useAppNavigation} from '../@types/AppNavigation';
 
-const ProductsScreen = () => {
+import {BagsData} from '../constants/FlatlistData';
+import {ShirtsData} from '../constants/FlatlistData';
+import {ShoesData} from '../constants/FlatlistData';
+import {ElectronicsData} from '../constants/FlatlistData';
+
+const ProductsScreen = ({route}: {route: any}) => {
+  const [flatlistProductArray, setFlatlistProductArray] = useState([]);
+  const {CatagoryApiName} = route.params;
+  //Alert.alert('Warning', CatagoryApiName);
   const navigation = useAppNavigation();
+
+  useFocusEffect(
+    useCallback(() => {
+      if (CatagoryApiName === 'ShirtsData') {
+        setFlatlistProductArray(ShirtsData);
+      } else if (CatagoryApiName === 'BagsData') {
+        setFlatlistProductArray(BagsData);
+      } else if (CatagoryApiName === 'ShoesData') {
+        setFlatlistProductArray(ShoesData);
+      } else if (CatagoryApiName === 'ElectronicsData') {
+        setFlatlistProductArray(ElectronicsData);
+      } else if (CatagoryApiName === 'JewelryData') {
+        setFlatlistProductArray(JewelryData);
+      } else if (CatagoryApiName === 'AccessoriesData') {
+        setFlatlistProductArray(AccessoriesData);
+      }
+    }, []),
+  );
 
   const onProductPressed = (item: any) => {
     navigation.navigate('ProductDescripton_Screen', {item: item});
@@ -18,6 +47,8 @@ const ProductsScreen = () => {
     <Products
       onProductPressed={onProductPressed}
       onHeaderBackArrowPressed={onHeaderBackArrowPressed}
+      CatagoryApiName={CatagoryApiName}
+      flatListProductsData={flatlistProductArray}
     />
   );
 };

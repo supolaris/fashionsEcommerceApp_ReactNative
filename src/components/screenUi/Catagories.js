@@ -10,18 +10,18 @@ import {
 } from 'react-native';
 
 import {AppColors} from '../../constants/AppColors';
+import {AppFonts} from '../../constants/AppFonts';
 
 import PrimaryHeader from '../common/Headers/PrimaryHeader';
 import PrimaryTextInput from '../common/TextInputs/PrimaryTextInput';
 
 import {ProductCatagoriesData} from '../../constants/FlatlistData';
-import {AppFonts} from '../../constants/AppFonts';
 
 const Catagories = props => {
   const renderCatagories = ({item}) => {
     return (
       <TouchableOpacity
-        onPress={props.onCatagoryPressed}
+        onPress={() => props.onCatagoryPressed(item.CatagoryApiName)}
         style={styles.renderContainer}>
         <ImageBackground
           style={styles.renderBackgroundImage}

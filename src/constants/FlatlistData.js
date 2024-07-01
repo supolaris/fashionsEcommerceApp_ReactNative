@@ -1,42 +1,3 @@
-export const ProductCatagoriesData = [
-  {
-    id: 1,
-    CatagoryName: 'Clothes',
-    CatagoryPicture: require('../assets/images/clothsCatagory.jpg'),
-    NoOfProducts: 123,
-  },
-  {
-    id: 2,
-    CatagoryName: 'Bags',
-    CatagoryPicture: require('../assets/images/bagsCatagory.jpg'),
-    NoOfProducts: 123,
-  },
-  {
-    id: 3,
-    CatagoryName: 'Shoes',
-    CatagoryPicture: require('../assets/images/shoesCatagory.jpg'),
-    NoOfProducts: 123,
-  },
-  {
-    id: 4,
-    CatagoryName: 'Electronics',
-    CatagoryPicture: require('../assets/images/electronicCatagory.jpg'),
-    NoOfProducts: 123,
-  },
-  {
-    id: 5,
-    CatagoryName: 'Jewelry',
-    CatagoryPicture: require('../assets/images/jewelryCatagory.jpg'),
-    NoOfProducts: 123,
-  },
-  {
-    id: 6,
-    CatagoryName: 'Accessories',
-    CatagoryPicture: require('../assets/images/accessoriesCatagory.jpg'),
-    NoOfProducts: 123,
-  },
-];
-
 export const SelectCountryData = [
   {
     id: 1,
@@ -103,19 +64,63 @@ export const SelectLanguageData = [
   },
 ];
 
+export const ProductCatagoriesData = [
+  {
+    id: 1,
+    CatagoryName: 'Shirts',
+    CatagoryApiName: 'ShirtsData',
+    CatagoryPicture: require('../assets/images/clothsCatagory.jpg'),
+    NoOfProducts: 123,
+  },
+  {
+    id: 2,
+    CatagoryName: 'Bags',
+    CatagoryApiName: 'BagsData',
+    CatagoryPicture: require('../assets/images/bagsCatagory.jpg'),
+    NoOfProducts: 123,
+  },
+  {
+    id: 3,
+    CatagoryName: 'Shoes',
+    CatagoryApiName: 'ShoesData',
+    CatagoryPicture: require('../assets/images/shoesCatagory.jpg'),
+    NoOfProducts: 123,
+  },
+  {
+    id: 4,
+    CatagoryName: 'Electronics',
+    CatagoryApiName: 'ElectronicsData',
+    CatagoryPicture: require('../assets/images/electronicCatagory.jpg'),
+    NoOfProducts: 123,
+  },
+  {
+    id: 5,
+    CatagoryName: 'Jewelry',
+    CatagoryApiName: 'JewelryData',
+    CatagoryPicture: require('../assets/images/jewelryCatagory.jpg'),
+    NoOfProducts: 123,
+  },
+  {
+    id: 6,
+    CatagoryName: 'Accessories',
+    CatagoryApiName: '',
+    CatagoryPicture: require('../assets/images/accessoriesCatagory.jpg'),
+    NoOfProducts: 123,
+  },
+];
+
 export const ShirtsData = [
   {
     id: 1,
-    NoOfProducts: 0,
+    NoOfProducts: 1,
     ProductName: 'White Shirt',
     ProductDescription: 'Timeless, classic',
     ProductPrice: 185.25,
-
     ProductImage: require('../assets/images/Products/Shirts/shirt2.jpg'),
   },
   {
     id: 2,
-    NoOfProducts: 0,
+    NoOfProducts: 1,
     ProductName: 'Oxford Shirt',
     ProductDescription: 'Elegant, versatile',
     ProductPrice: 200.54,
@@ -123,7 +128,7 @@ export const ShirtsData = [
   },
   {
     id: 3,
-    NoOfProducts: 0,
+    NoOfProducts: 1,
     ProductName: 'Dress Shirt',
     ProductDescription: 'Stylish, formal',
     ProductPrice: 220.45,
@@ -131,7 +136,7 @@ export const ShirtsData = [
   },
   {
     id: 4,
-    NoOfProducts: 0,
+    NoOfProducts: 1,
     ProductName: 'Casual Shirt',
     ProductDescription: 'Comfortable, relaxed',
     ProductPrice: 175.35,
@@ -139,7 +144,7 @@ export const ShirtsData = [
   },
   {
     id: 5,
-    NoOfProducts: 0,
+    NoOfProducts: 1,
     ProductName: 'Formal Shirt',
     ProductDescription: 'Sleek, evening',
     ProductPrice: 210.9,
@@ -147,11 +152,164 @@ export const ShirtsData = [
   },
   {
     id: 6,
-    NoOfProducts: 0,
+    NoOfProducts: 1,
     ProductName: 'Denim Shirt',
     ProductDescription: 'Trendy, versatile',
     ProductPrice: 195.42,
     ProductImage: require('../assets/images/Products/Shirts/shirt5.jpg'),
+  },
+];
+
+export const BagsData = [
+  {
+    id: 1,
+    NoOfProducts: 1,
+    ProductName: 'Leather Bag',
+    ProductDescription: 'Durable, stylish',
+    ProductPrice: 150.75,
+    ProductImage: require('../assets/images/Products/Bags/bag1.jpg'),
+  },
+  {
+    id: 2,
+    NoOfProducts: 1,
+    ProductName: 'Canvas Tote',
+    ProductDescription: 'Spacious, casual',
+    ProductPrice: 90.5,
+    ProductImage: require('../assets/images/Products/Bags/bag2.jpg'),
+  },
+  {
+    id: 3,
+    NoOfProducts: 1,
+    ProductName: 'Backpack',
+    ProductDescription: 'Practical, versatile',
+    ProductPrice: 120.0,
+    ProductImage: require('../assets/images/Products/Bags/bag3.jpg'),
+  },
+  {
+    id: 4,
+    NoOfProducts: 1,
+    ProductName: 'Clutch',
+    ProductDescription: 'Elegant, compact',
+    ProductPrice: 80.25,
+    ProductImage: require('../assets/images/Products/Bags/bag4.jpg'),
+  },
+  {
+    id: 5,
+    NoOfProducts: 1,
+    ProductName: 'Messenger Bag',
+    ProductDescription: 'Functional, trendy',
+    ProductPrice: 135.95,
+    ProductImage: require('../assets/images/Products/Bags/bag5.jpg'),
+  },
+  {
+    id: 6,
+    NoOfProducts: 1,
+    ProductName: 'Duffel Bag',
+    ProductDescription: 'Spacious, durable',
+    ProductPrice: 110.6,
+    ProductImage: require('../assets/images/Products/Bags/bag6.jpg'),
+  },
+];
+
+export const ShoesData = [
+  {
+    id: 1,
+    NoOfProducts: 1,
+    ProductName: 'Running Shoes',
+    ProductDescription: 'Comfortable, durable',
+    ProductPrice: 120.75,
+    ProductImage: require('../assets/images/Products/Shoes/shoes1.jpg'),
+  },
+  {
+    id: 2,
+    NoOfProducts: 1,
+    ProductName: 'Dress Shoes',
+    ProductDescription: 'Elegant, formal',
+    ProductPrice: 145.5,
+    ProductImage: require('../assets/images/Products/Shoes/shoes2.jpg'),
+  },
+  {
+    id: 3,
+    NoOfProducts: 1,
+    ProductName: 'Sneakers',
+    ProductDescription: 'Casual, trendy',
+    ProductPrice: 95.0,
+    ProductImage: require('../assets/images/Products/Shoes/shoes3.jpg'),
+  },
+  {
+    id: 4,
+    NoOfProducts: 1,
+    ProductName: 'Sandals',
+    ProductDescription: 'Lightweight, airy',
+    ProductPrice: 70.25,
+    ProductImage: require('../assets/images/Products/Shoes/shoes4.jpg'),
+  },
+  {
+    id: 5,
+    NoOfProducts: 1,
+    ProductName: 'Boots',
+    ProductDescription: 'Sturdy, fashionable',
+    ProductPrice: 160.95,
+    ProductImage: require('../assets/images/Products/Shoes/shoes5.jpg'),
+  },
+  {
+    id: 6,
+    NoOfProducts: 1,
+    ProductName: 'Loafers',
+    ProductDescription: 'Comfortable, stylish',
+    ProductPrice: 130.6,
+    ProductImage: require('../assets/images/Products/Shoes/shoes6.jpg'),
+  },
+];
+
+export const ElectronicsData = [
+  {
+    id: 1,
+    NoOfProducts: 1,
+    ProductName: 'Smartphone',
+    ProductDescription: 'Latest model',
+    ProductPrice: 799.99,
+    ProductImage: require('../assets/images/Products/Electronics/electronics1.jpg'),
+  },
+  {
+    id: 2,
+    NoOfProducts: 1,
+    ProductName: 'Laptop',
+    ProductDescription: 'Lightweight',
+    ProductPrice: 1200.5,
+    ProductImage: require('../assets/images/Products/Electronics/electronics2.jpg'),
+  },
+  {
+    id: 3,
+    NoOfProducts: 1,
+    ProductName: 'Tablet',
+    ProductDescription: 'Portable',
+    ProductPrice: 450.0,
+    ProductImage: require('../assets/images/Products/Electronics/electronics3.jpg'),
+  },
+  {
+    id: 4,
+    NoOfProducts: 1,
+    ProductName: 'Smartwatch',
+    ProductDescription: 'Stylish',
+    ProductPrice: 199.99,
+    ProductImage: require('../assets/images/Products/Electronics/electronics4.jpg'),
+  },
+  {
+    id: 5,
+    NoOfProducts: 1,
+    ProductName: 'Headphones',
+    ProductDescription: 'High-quality',
+    ProductPrice: 150.95,
+    ProductImage: require('../assets/images/Products/Electronics/electronics5.jpg'),
+  },
+  {
+    id: 6,
+    NoOfProducts: 1,
+    ProductName: 'Camera',
+    ProductDescription: 'High resolution',
+    ProductPrice: 850.6,
+    ProductImage: require('../assets/images/Products/Electronics/electronics6.jpg'),
   },
 ];
 

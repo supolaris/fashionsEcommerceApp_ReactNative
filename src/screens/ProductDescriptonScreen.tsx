@@ -6,48 +6,37 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {useAppNavigation} from '../@types/AppNavigation';
 
-const ProductDescriptonScreen = ({route}) => {
-  const navigation = useAppNavigation();
+const ProductDescriptonScreen = ({route}: {route: any}) => {
   const {item} = route.params;
+  const navigation = useAppNavigation();
+  const [productNumber, setProductNumber] = useState();
 
-  //console.log('Item: ', item);
-
-  const [productCounter, setProductCounter] = useState(0);
-
-  const onMinusIconPressed = () => {
-    if (productCounter >= 1) {
-      return setProductCounter(productCounter - 1);
+  const onMinusIconPressed = (item: any) => {
+    if (item.NoOfProducts >= 1) {
+      item.NoOfProducts--;
+      setProductNumber(item.NoOfProducts);
     } else {
-      return productCounter;
+      return item.NoOfProducts;
     }
   };
 
-  const onPlusIconPressed = () => {
-    setProductCounter(productCounter + 1);
+  const onPlusIconPressed = (item: any) => {
+    item.NoOfProducts++;
+    setProductNumber(item.NoOfProducts);
   };
 
   const onAddToCartPressed = async () => {
-    //getting old products from async
-    // AsyncStorage.removeItem('CartProducts');
     const PreviousProducts = await AsyncStorage.getItem('CartProducts');
 
-    //logic
     if (PreviousProducts !== null && PreviousProducts !== '') {
-      // Converting PreviousProducts to object (parse)
       let parsedPreviousProducts = [];
       parsedPreviousProducts = JSON.parse(PreviousProducts);
 
-      // Check if parsedPreviousProducts is an array
       const previousProductsArray = Array.isArray(parsedPreviousProducts)
         ? parsedPreviousProducts
         : [parsedPreviousProducts];
 
-      // Setting up old and new products
-      //console.log('parsedPreviousProducts', previousProductsArray);
       const AllPreviousNewProducts = [...previousProductsArray, item];
-      //console.log('AllPreviousNewProducts', AllPreviousNewProducts);
-
-      // Store the updated list back to AsyncStorage
       await AsyncStorage.setItem(
         'CartProducts',
         JSON.stringify(AllPreviousNewProducts),
@@ -56,10 +45,6 @@ const ProductDescriptonScreen = ({route}) => {
       console.log('else entered');
       AsyncStorage.setItem('CartProducts', JSON.stringify(item));
     }
-
-    // const data = await AsyncStorage.getItem('CartProducts');
-
-    // console.log('data:' + data);
   };
 
   const onReviewPressed = () => {
@@ -78,12 +63,10 @@ const ProductDescriptonScreen = ({route}) => {
   return (
     <ProductDescription
       item={item}
-      productCounterValue={productCounter}
       onMinusIconPressed={onMinusIconPressed}
       onPlusIconPressed={onPlusIconPressed}
       onAddToCartPressed={onAddToCartPressed}
       onReviewPressed={onReviewPressed}
-      //header functions
       onCartIconPressed={onCartIconPressed}
       onBackArrowPressed={onBackArrowPressed}
     />

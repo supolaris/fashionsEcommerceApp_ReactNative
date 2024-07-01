@@ -24,6 +24,10 @@ const HomeScreen = () => {
     navigation.navigate('ProfileScreen');
   };
 
+  const onHomeProductPressed = (item: any) => {
+    navigation.navigate('ProductDescripton_Screen', {item: item});
+  };
+
   return (
     <Home
       onFilterIconPressed={onFilterIconPressed}
@@ -31,6 +35,7 @@ const HomeScreen = () => {
       selectedCategory={selectedCategoryId}
       onViewAllPresses={onViewAllPresses}
       onUserImagePressed={onUserImagePressed}
+      onHomeProductPressed={onHomeProductPressed}
     />
   );
 };

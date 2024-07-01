@@ -32,7 +32,7 @@ const CardDetail = props => {
         <View style={styles.headerView}>
           <PrimaryHeader
             showSearchIcon={false}
-            onPress={props.onBackArrowPressed}
+            onHeaderBackArrowPressed={props.onBackArrowPressed}
           />
         </View>
 

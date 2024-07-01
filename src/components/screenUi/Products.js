@@ -13,10 +13,8 @@ import {
 import {AppColors} from '../../constants/AppColors';
 import {AppFonts} from '../../constants/AppFonts';
 
-import SecondaryTitle from '../common/Titles/SecondaryTitle';
-
-import {ShirtsData} from '../../constants/FlatlistData';
 import PrimaryHeader from '../common/Headers/PrimaryHeader';
+import SecondaryTitle from '../common/Titles/SecondaryTitle';
 
 const height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;
@@ -36,7 +34,7 @@ const Products = props => {
         </View>
         <View style={styles.renderProductDetailView}>
           <Text style={styles.renderProductName}>{item.ProductName}</Text>
-          <Text style={styles.renderProductDescription}>
+          <Text numberOfLines={1} style={styles.renderProductDescription}>
             {item.ProductDescription}
           </Text>
           <Text style={styles.renderProductPrice}>${item.ProductPrice}</Text>
@@ -58,7 +56,8 @@ const Products = props => {
         <FlatList
           numColumns={2}
           showsVerticalScrollIndicator={false}
-          data={ShirtsData}
+          // data={props.CatagoryApiName}
+          data={props.flatListProductsData}
           renderItem={renderShirts}
           keyExtractor={item => item.id.toString()}
         />

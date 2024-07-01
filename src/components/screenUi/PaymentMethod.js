@@ -100,7 +100,9 @@ const PaymentMethod = props => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.headerView}>
-        <PrimaryHeader />
+        <PrimaryHeader
+          onHeaderBackArrowPressed={props.onHeaderBackArrowPressed}
+        />
       </View>
       <View style={styles.headingView}>
         <SecondaryTitle text="Payment" />

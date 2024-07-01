@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useCallback} from 'react';
 
 import Cart from '../components/screenUi/Cart';
 
@@ -17,7 +17,7 @@ const CartScreen = () => {
   useFocusEffect(
     useCallback(() => {
       GetCartProducts();
-    }, [cartProducts]),
+    }, []),
   );
 
   const GetCartProducts = async () => {

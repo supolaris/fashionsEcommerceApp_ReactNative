@@ -16,11 +16,16 @@ const PaymentMethodScreen = () => {
     navigation.navigate('CardDetail_Screen');
   };
 
+  const onHeaderBackArrowPressed = () => {
+    navigation.goBack();
+  };
+
   return (
     <PaymentMethod
       onPaymentMethodPressed={onPaymentMethodPressed}
       selectedPaymentMethod={selectePaymentMethod}
       onAddCardPressed={onAddCardPressed}
+      onHeaderBackArrowPressed={onHeaderBackArrowPressed}
     />
   );
 };

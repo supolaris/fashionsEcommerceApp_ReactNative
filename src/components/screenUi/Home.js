@@ -25,7 +25,11 @@ import PrimaryDescription from '../common/Descriptions/PrimaryDescription';
 
 import ArrowIcon from 'react-native-vector-icons/MaterialIcons';
 
-import {ProductCatagories, ShirtsData} from '../../constants/FlatlistData';
+import {
+  BagsData,
+  ProductCatagories,
+  ShirtsData,
+} from '../../constants/FlatlistData';
 
 const Home = props => {
   const renderCategories = ({item}) => {
@@ -51,7 +55,9 @@ const Home = props => {
 
   const renderTopDresses = ({item}) => {
     return (
-      <View style={styles.renderTopDressesView}>
+      <TouchableOpacity
+        style={styles.renderTopDressesView}
+        onPress={() => props.onHomeProductPressed(item)}>
         <View style={styles.renderProductImageView}>
           <Image
             resizeMethod="stretch"
@@ -66,7 +72,7 @@ const Home = props => {
           </View>
           <ProductPriceText text={item.ProductPrice} />
         </View>
-      </View>
+      </TouchableOpacity>
     );
   };
 
@@ -138,7 +144,7 @@ const Home = props => {
           <FlatList
             numColumns={2}
             showsVerticalScrollIndicator={false}
-            data={ShirtsData}
+            data={BagsData}
             renderItem={renderTopDresses}
             keyExtractor={item => item.id.toString()}
           />

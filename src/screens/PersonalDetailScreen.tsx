@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {View, Text} from 'react-native';
 
 import PersonalDetail from '../components/screenUi/PersonalDetail';
 
@@ -24,8 +23,9 @@ const PersonalDetailScreen = () => {
   };
 
   //notification function
-  const onNotificationValueChange = () =>
+  const onNotificationValueChange = () => {
     setIsNotificatonEnabled(previousState => !previousState);
+  };
 
   //dark mode funciton
   const onDarkModeValueChange = () => {
