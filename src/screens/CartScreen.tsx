@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 
 import Cart from '../components/screenUi/Cart';
 
 import {useAppNavigation} from '../@types/AppNavigation';
+import {useFocusEffect} from '@react-navigation/native';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -12,6 +13,17 @@ const CartScreen = () => {
   const [productNumber, setProductNumber] = useState();
 
   let AsyncCartProducts;
+
+  useFocusEffect(
+    useCallback(() => {
+      GetCartProducts();
+    }, [cartProducts]),
+  );
+
+  const GetCartProducts = async () => {
+    AsyncCartProducts = await AsyncStorage.getItem('CartProducts');
+    setCartProducts(JSON.parse(AsyncCartProducts));
+  };
 
   const onMinusIconPressed = (id: any) => {
     cartProducts.map(item => {
@@ -35,16 +47,6 @@ const CartScreen = () => {
     });
   };
 
-  useEffect(() => {
-    GetCartProducts();
-    // AsyncStorage.removeItem('CartProducts');
-  }, []);
-
-  const GetCartProducts = async () => {
-    AsyncCartProducts = await AsyncStorage.getItem('CartProducts');
-    setCartProducts(JSON.parse(AsyncCartProducts));
-  };
-
   const onCheckoutPressed = () => {
     navigation.navigate('PaymentMethod_Screen');
   };
@@ -53,14 +55,20 @@ const CartScreen = () => {
     navigation.goBack();
   };
 
+  const onTrashIconPressed = async (id: any) => {
+    const updateProducts = cartProducts.filter(item => item.id !== id);
+    await AsyncStorage.setItem('CartProducts', JSON.stringify(updateProducts));
+    setCartProducts(updateProducts);
+  };
+
   return (
     <Cart
       cartProducts={cartProducts}
-      //productCounterValue={productCounter}
       onMinusIconPressed={onMinusIconPressed}
       onPlusIconPressed={onPlusIconPressed}
       onCheckoutPressed={onCheckoutPressed}
       onHeaderBackArrowPressed={onHeaderBackArrowPressed}
+      onTrashIconPressed={onTrashIconPressed}
     />
   );
 };

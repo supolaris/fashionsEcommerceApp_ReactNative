@@ -5,7 +5,7 @@ import {
   StyleSheet,
   Image,
   ScrollView,
-  FlatList,
+  TouchableOpacity,
 } from 'react-native';
 
 import {AppColors} from '../../constants/AppColors';
@@ -17,6 +17,7 @@ import MinusIcon from 'react-native-vector-icons/Entypo';
 import PrimaryHeader from '../common/Headers/PrimaryHeader';
 
 import {SwipeListView} from 'react-native-swipe-list-view';
+
 import SecondaryTitle from '../common/Titles/SecondaryTitle';
 import ProductDescriptionText from '../common/Texts/ProductDescriptionText';
 import ProductNameText from '../common/Texts/ProductNameText';
@@ -24,6 +25,8 @@ import ProductPriceText from '../common/Texts/ProductPriceText';
 import PromoTextInput from '../common/TextInputs/PromoTextInput';
 import PrimaryDescription from '../common/Descriptions/PrimaryDescription';
 import CheckOutButton from '../common/Buttons/CheckOutButton';
+
+import TrashBinIcon from 'react-native-vector-icons/FontAwesome5';
 
 const Cart = props => {
   const renderCartItem = ({item}) => {
@@ -61,6 +64,21 @@ const Cart = props => {
     );
   };
 
+  const renderHiddenFunctionality = ({item}) => {
+    return (
+      <TouchableOpacity
+        style={styles.renderRowBack}
+        onPress={() => props.onTrashIconPressed(item.id)}>
+        <TrashBinIcon
+          style={styles.renderTrashIcon}
+          name="trash"
+          size={25}
+          color={AppColors.White}
+        />
+      </TouchableOpacity>
+    );
+  };
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.headerCartView}>
@@ -74,10 +92,12 @@ const Cart = props => {
           <SecondaryTitle text="My Cart" />
         </View>
         <View style={styles.cartProductSwipperList}>
-          <FlatList
+          <SwipeListView
             showsVerticalScrollIndicator={false}
             data={props.cartProducts}
             renderItem={renderCartItem}
+            renderHiddenItem={renderHiddenFunctionality}
+            rightOpenValue={-55}
             keyExtractor={(item, index) => index.toString()}
           />
         </View>
@@ -153,6 +173,19 @@ const styles = StyleSheet.create({
     color: AppColors.Black,
     fontFamily: AppFonts.Medium,
   },
+  renderRowBack: {
+    marginTop: 12,
+    marginBottom: 10,
+    backgroundColor: AppColors.Black,
+    paddingVertical: 40,
+    paddingRight: 20,
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+    paddingHorizontal: 10,
+    borderRadius: 20,
+    marginHorizontal: 5,
+  },
+  renderTrashIcon: {},
 
   //main
   container: {
