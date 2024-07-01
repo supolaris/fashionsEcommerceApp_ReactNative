@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {
   View,
   Text,
@@ -24,8 +24,13 @@ import {LogBox} from 'react-native';
 
 LogBox.ignoreAllLogs(true);
 
-const SelectCountry = props => {
-  const renderSelectCountry = ({item}) => {
+interface Iprops {
+  selectedCountry: string;
+  onCountryPressed: () => void;
+}
+
+const SelectCountry: FC<Iprops> = props => {
+  const renderSelectCountry = ({item}: {item: any}) => {
     return (
       <TouchableOpacity
         style={[

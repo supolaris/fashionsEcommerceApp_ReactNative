@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {View, Text, StyleSheet, Image, StatusBar} from 'react-native';
 
 import {AppColors} from '../../constants/AppColors';
@@ -7,7 +7,11 @@ import {AppFonts} from '../../constants/AppFonts';
 import LoginButton1 from '../common/Buttons/LoginButton1';
 import PrimaryTitle from '../common/Titles/PrimaryTitle';
 
-const RegisterSuccess = props => {
+interface Iprops {
+  onStartShoppingPressed: () => void;
+}
+
+const RegisterSuccess: FC<Iprops> = props => {
   return (
     <View style={styles.container}>
       <StatusBar

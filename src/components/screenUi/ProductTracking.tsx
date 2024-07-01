@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {
   View,
   Text,
@@ -18,7 +18,7 @@ import SecondaryTitle from '../common/Titles/SecondaryTitle';
 
 import SendIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const ProductTracking = props => {
+const ProductTracking = () => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.headerView}>
@@ -45,7 +45,7 @@ const ProductTracking = props => {
             <PrimaryDescription text="10:00 - 11:00 - 25 June, 2024" />
             <PrimaryDescription text="3512 Nagercoil, India" />
           </View>
-          <View style={styles.iconView}>
+          <View>
             <SendIcon name="send-circle" size={45} color={AppColors.Black} />
           </View>
         </View>
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  timeLocationView: {},
+
   pickupMessageView: {
     width: '70%',
   },

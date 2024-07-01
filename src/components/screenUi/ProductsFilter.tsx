@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, FC} from 'react';
 import {
   View,
   Text,
@@ -20,17 +20,23 @@ import {ProductSortByData} from '../../constants/FlatlistData';
 import {RatingStarData} from '../../constants/FlatlistData';
 import Star from '../common/Star';
 
-const ProductsFilter = props => {
-  const [selectedRating, setSelectedRating] = useState(null);
+interface Iprops {
+  onStarPressed: () => void;
+  selectedCatagory: string;
+  catagoryPressed: () => void;
+  selectedSortBy: string;
+  sortByPressed: () => void;
+  onHeaderBackArrowPressed: () => void;
+  selectedRating: string;
+  onTouchableRadioPressed: () => void;
+}
 
-  const renderStar = item => {
+const ProductsFilter: FC<Iprops> = props => {
+  const renderStar: FC<Iprops> = item => {
     return (
       <View style={styles.starRow}>
         {Array.from({length: item}).map(idx => (
-          <Pressable
-            style={styles}
-            key={idx}
-            onPress={() => props.onStarPressed(item)}>
+          <Pressable key={idx} onPress={() => props.onStarPressed(item)}>
             <Star />
           </Pressable>
         ))}
@@ -38,7 +44,7 @@ const ProductsFilter = props => {
     );
   };
 
-  const renderCatagories = ({item}) => {
+  const renderCatagories = ({item}: {item: any}) => {
     return (
       <TouchableOpacity
         style={[
@@ -59,7 +65,7 @@ const ProductsFilter = props => {
     );
   };
 
-  const renderSortBy = ({item}) => {
+  const renderSortBy = ({item}: {item: any}) => {
     return (
       <TouchableOpacity
         style={[
@@ -205,7 +211,6 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
   sortByFlatlistView: {},
-  ratingView: {},
   ratingTitleView: {
     paddingTop: 20,
   },

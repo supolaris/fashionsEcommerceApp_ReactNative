@@ -17,7 +17,7 @@ import {NotificationsData} from '../../constants/FlatlistData';
 import {AppFonts} from '../../constants/AppFonts';
 
 const Notification = () => {
-  const renderNotificaton = ({item}) => {
+  const renderNotificaton = ({item}: {item: any}) => {
     return (
       <View style={styles.renderContainer}>
         <View style={styles.renderImageView}>

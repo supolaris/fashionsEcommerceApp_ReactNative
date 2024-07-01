@@ -32,6 +32,12 @@ yarn add @react-navigation/bottom-tabs
 npm install --save react-native-vector-icons
 ```
 
+### For Typescript
+
+```bash
+npm i --save-dev @types/react-native-vector-icons
+```
+
 Edit android/app/build.gradle (NOT android/build.gradle) and add:
 
 ```bash

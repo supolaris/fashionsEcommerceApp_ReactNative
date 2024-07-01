@@ -1,5 +1,5 @@
-import React from 'react';
-import {View, StyleSheet, Image, StatusBar} from 'react-native';
+import React, {FC} from 'react';
+import {View, StyleSheet, Image} from 'react-native';
 
 import PrimaryTitle from '../common/Titles/PrimaryTitle';
 import PrimaryDescription from '../common/Descriptions/PrimaryDescription';
@@ -7,19 +7,23 @@ import StartupButton from '../common/Buttons/StartupButton';
 
 import {AppColors} from '../../constants/AppColors';
 
-const Startup3 = props => {
+interface Iprops {
+  onGetStartedPressed: () => void;
+}
+
+const Startup2: FC<Iprops> = props => {
   return (
     <View style={styles.container}>
       <View style={styles.imageView}>
         <Image
           style={styles.image}
           resizeMode="stretch"
-          source={require('../../assets/images/startupImage3.jpg')}
+          source={require('../../assets/images/startupImage2.jpg')}
         />
       </View>
       <View style={styles.titleDescriptionView}>
         <View style={styles.titleView}>
-          <PrimaryTitle text="Your Ultimate Destination for Quality Shopping" />
+          <PrimaryTitle text="All types of offers within your reach" />
         </View>
         <View style={styles.descriptionView}>
           <PrimaryDescription text="Explore a wide variety of products, tailored to your preferences" />
@@ -33,7 +37,7 @@ const Startup3 = props => {
   );
 };
 
-export default Startup3;
+export default Startup2;
 
 const styles = StyleSheet.create({
   container: {

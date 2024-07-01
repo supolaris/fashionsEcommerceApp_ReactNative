@@ -1,9 +1,8 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {
   View,
   StyleSheet,
   ScrollView,
-  Dimensions,
   Image,
   TouchableOpacity,
 } from 'react-native';
@@ -25,7 +24,12 @@ import ShieldIcon from 'react-native-vector-icons/Ionicons';
 import BookIcon from 'react-native-vector-icons/SimpleLineIcons';
 import TertiaryHeader from '../common/Headers/TertiaryHeader';
 
-const Profile = props => {
+interface Iprops {
+  onPersonalDetailsPressed: () => void;
+  onShippingAddressPressed: () => void;
+}
+
+const Profile: FC<Iprops> = props => {
   return (
     <ScrollView style={styles.container}>
       <TertiaryHeader showSettingIcon={true} />

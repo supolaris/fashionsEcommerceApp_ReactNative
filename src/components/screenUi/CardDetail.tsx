@@ -1,18 +1,27 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {View, StyleSheet, Image} from 'react-native';
 
 import {AppColors} from '../../constants/AppColors';
+import {AppFonts} from '../../constants/AppFonts';
+
 import PrimaryHeader from '../common/Headers/PrimaryHeader';
 import SecondaryTitle from '../common/Titles/SecondaryTitle';
 import PrimaryTitle from '../common/Titles/PrimaryTitle';
 import TertiaryTextInput from '../common/TextInputs/TertiaryTextInput';
 import SecondaryButton from '../common/Buttons/SecondaryButton';
 import TertiaryButton from '../common/Buttons/TertiaryButton';
-import {AppFonts} from '../../constants/AppFonts';
 
 import PrimaryModal from '../common/PrimaryModal';
 
-const CardDetail = props => {
+interface Iprops {
+  onModalButtonPressed: () => void;
+  modalVisible: boolean;
+  onRequestClose: () => void;
+  onBackArrowPressed: () => void;
+  onCardSubmitConfirmPressed: () => void;
+}
+
+const CardDetail: FC<Iprops> = props => {
   return (
     <View style={styles.container}>
       <View>

@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {View, StyleSheet, ImageBackground, StatusBar} from 'react-native';
 
-import {AppColors} from '../../constants/AppColors';
 import QuaternaryButtonWhite from '../common/Buttons/QuaternaryButtonWhite';
 import QuaternaryButtonOutline from '../common/Buttons/QuaternaryButtonOutline';
 
-const Second = props => {
+interface Iprops {
+  onLoginPressed: () => void;
+  onSignupPressed: () => void;
+}
+
+const Second: FC<Iprops> = props => {
   return (
     <View style={styles.container}>
       <StatusBar

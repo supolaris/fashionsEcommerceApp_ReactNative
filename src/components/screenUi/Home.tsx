@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {
   View,
   Text,
@@ -31,8 +31,17 @@ import {
   ShirtsData,
 } from '../../constants/FlatlistData';
 
-const Home = props => {
-  const renderCategories = ({item}) => {
+interface Iprops {
+  selectedCategory: string;
+  categoryPressed: () => void;
+  onHomeProductPressed: () => void;
+  onUserImagePressed: () => void;
+  onFilterIconPressed: () => void;
+  onViewAllPresses: () => void;
+}
+
+const Home: FC<Iprops> = props => {
+  const renderCategories = ({item}: {item: any}) => {
     return (
       <TouchableOpacity
         style={[
@@ -53,7 +62,7 @@ const Home = props => {
     );
   };
 
-  const renderTopDresses = ({item}) => {
+  const renderTopDresses = ({item}: {item: any}) => {
     return (
       <TouchableOpacity
         style={styles.renderTopDressesView}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {
   View,
   Text,
@@ -15,11 +15,31 @@ import PrimaryTitle from '../common/Titles/PrimaryTitle';
 import PrimaryDescription from '../common/Descriptions/PrimaryDescription';
 import LoginTextInput from '../common/TextInputs/LoginTextInput';
 import LoginButton1 from '../common/Buttons/LoginButton1';
-import FacebookButton from '../common/Buttons/SocialButtons/FacebookButton';
-import GoogleButton from '../common/Buttons/SocialButtons/GoogleButton';
-import AppleButton from '../common/Buttons/SocialButtons/AppleButton';
 
-const Login = props => {
+import CheckBox from '@react-native-community/checkbox';
+
+interface Iprops {
+  usernameValue: string;
+  usenameOnChangeText: () => void;
+  emailValue: string;
+  emailOnChangeText: () => void;
+  isOpenEye: boolean;
+  onEyeOpenPressed: () => void;
+  secureTextEntry: boolean;
+  passwordValue: string;
+  passwordOnChangeText: () => void;
+  isConfirmPasswordOpenEye: boolean;
+  onConfirmPasswordEyeOpenPressed: () => void;
+  confirmPasswordsecureTextEntry: boolean;
+  confirmPasswordValue: string;
+  confirmPasswordOnChangeText: string;
+  toggleCheckBox: boolean;
+  onValueChange: () => void;
+  onRegisterPressed: () => void;
+  onLoginPressed: () => void;
+}
+
+const SignUp: FC<Iprops> = props => {
   return (
     <ScrollView style={styles.container}>
       <StatusBar
@@ -35,13 +55,18 @@ const Login = props => {
       </View>
       <View style={styles.titleDescriptionView}>
         <View style={styles.titleView}>
-          <PrimaryTitle text="Welcome!" />
+          <PrimaryTitle text="Sign Up" />
         </View>
         <View style={styles.descriptionView}>
-          <PrimaryDescription text="Please login or signup to continue our app" />
+          <PrimaryDescription text="Create a new account" />
         </View>
       </View>
       <View style={styles.textInputsView}>
+        <LoginTextInput
+          labelText="User Name"
+          value={props.usernameValue}
+          onChangeText={props.usenameOnChangeText}
+        />
         <LoginTextInput
           labelText="Email"
           value={props.emailValue}
@@ -49,40 +74,44 @@ const Login = props => {
         />
         <LoginTextInput
           labelText="Password"
+          isOpenEye={props.isOpenEye}
+          onEyeOpenPressed={props.onEyeOpenPressed}
           secureTextEntry={props.secureTextEntry}
           showIcon={true}
           value={props.passwordValue}
-          isOpenEye={props.isOpenEye}
-          onEyeOpenPressed={props.onEyeOpenPressed}
           onChangeText={props.passwordOnChangeText}
         />
+        <LoginTextInput
+          labelText="Confrim Password"
+          isOpenEye={props.isConfirmPasswordOpenEye}
+          onEyeOpenPressed={props.onConfirmPasswordEyeOpenPressed}
+          secureTextEntry={props.confirmPasswordsecureTextEntry}
+          showIcon={true}
+          value={props.confirmPasswordValue}
+          onChangeText={props.confirmPasswordOnChangeText}
+        />
       </View>
+
+      <View style={styles.termsConditionsView}>
+        <CheckBox
+          // disabled={props.disabled}
+          value={props.toggleCheckBox}
+          onValueChange={props.onValueChange}
+        />
+        <View style={styles.termsConditonTextView}>
+          <PrimaryDescription text="By creating an account you have to agree with our terms and conditions" />
+        </View>
+      </View>
+
       <View style={styles.loginButtonView}>
-        <LoginButton1 text="Login" onPress={props.onLoginPressed} />
+        <LoginButton1 text="Register" onPress={props.onRegisterPressed} />
       </View>
 
-      <View style={styles.saperatorView}>
-        <View style={styles.leftSaperator}></View>
-        <Text style={styles.saperatorText}>Or</Text>
-        <View style={styles.rightSaperator}></View>
-      </View>
-
-      <View style={styles.socialLoginButtonsView}>
-        <View style={styles.socialButtonView}>
-          <FacebookButton text="Continue with facebook" />
-        </View>
-        <View style={styles.socialButtonView}>
-          <GoogleButton text="Continue with google" />
-        </View>
-        <View style={styles.socialButtonView}>
-          <AppleButton />
-        </View>
-      </View>
       <View style={styles.signUpView}>
         <Text style={styles.signUpSelectText}>
-          Don't have account?{' '}
-          <Text style={styles.signUpText} onPress={props.onSignUpPressed}>
-            Sign Up
+          Already have account?{' '}
+          <Text style={styles.signUpText} onPress={props.onLoginPressed}>
+            Log In
           </Text>
         </Text>
       </View>
@@ -90,7 +119,7 @@ const Login = props => {
   );
 };
 
-export default Login;
+export default SignUp;
 
 const styles = StyleSheet.create({
   container: {
@@ -109,9 +138,18 @@ const styles = StyleSheet.create({
   titleView: {},
   descriptionView: {},
   textInputsView: {
-    paddingVertical: 30,
+    paddingTop: 30,
+    paddingBottom: 20,
   },
   loginButtonView: {},
+  termsConditionsView: {
+    flexDirection: 'row',
+    paddingBottom: 10,
+  },
+  termsConditonTextView: {
+    paddingLeft: 10,
+    width: '90%',
+  },
   saperatorView: {
     flexDirection: 'row',
     alignItems: 'center',

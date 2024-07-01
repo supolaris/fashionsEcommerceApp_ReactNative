@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {
   View,
   Text,
@@ -17,8 +17,12 @@ import SecondaryTitle from '../common/Titles/SecondaryTitle';
 import {ReviewData} from '../../constants/FlatlistData';
 import Star from '../common/Star';
 
-const Review = props => {
-  const renderNotificaton = ({item}) => {
+interface Iprops {
+  onHeaderBackArrowPressed: () => void;
+}
+
+const Review: FC<Iprops> = props => {
+  const renderNotificaton = ({item}: {item: any}) => {
     return (
       <View style={styles.renderContainer}>
         <View style={styles.renderImageView}>

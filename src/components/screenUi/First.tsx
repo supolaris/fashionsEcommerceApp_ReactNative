@@ -1,8 +1,6 @@
 import React from 'react';
 import {View, StyleSheet, ImageBackground, StatusBar} from 'react-native';
 
-import {AppColors} from '../../constants/AppColors';
-
 const First = () => {
   return (
     <View style={styles.container}>
