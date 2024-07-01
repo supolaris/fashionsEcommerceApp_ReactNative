@@ -106,6 +106,7 @@ export const SelectLanguageData = [
 export const ShirtsData = [
   {
     id: 1,
+    NoOfProducts: 0,
     ProductName: 'White Shirt',
     ProductDescription: 'Timeless, classic',
     ProductPrice: 185.25,
@@ -114,6 +115,7 @@ export const ShirtsData = [
   },
   {
     id: 2,
+    NoOfProducts: 0,
     ProductName: 'Oxford Shirt',
     ProductDescription: 'Elegant, versatile',
     ProductPrice: 200.54,
@@ -121,6 +123,7 @@ export const ShirtsData = [
   },
   {
     id: 3,
+    NoOfProducts: 0,
     ProductName: 'Dress Shirt',
     ProductDescription: 'Stylish, formal',
     ProductPrice: 220.45,
@@ -128,6 +131,7 @@ export const ShirtsData = [
   },
   {
     id: 4,
+    NoOfProducts: 0,
     ProductName: 'Casual Shirt',
     ProductDescription: 'Comfortable, relaxed',
     ProductPrice: 175.35,
@@ -135,6 +139,7 @@ export const ShirtsData = [
   },
   {
     id: 5,
+    NoOfProducts: 0,
     ProductName: 'Formal Shirt',
     ProductDescription: 'Sleek, evening',
     ProductPrice: 210.9,
@@ -142,6 +147,7 @@ export const ShirtsData = [
   },
   {
     id: 6,
+    NoOfProducts: 0,
     ProductName: 'Denim Shirt',
     ProductDescription: 'Trendy, versatile',
     ProductPrice: 195.42,

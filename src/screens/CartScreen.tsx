@@ -10,23 +10,44 @@ const CartScreen = () => {
   const navigation = useAppNavigation();
   const [cartProducts, setCartProducts] = useState([]);
   const [productCounter, setProductCounter] = useState(0);
+  const [productNumber, setProductNumber] = useState();
+
   let AsyncCartProducts;
 
-  const onMinusIconPressed = () => {
-    if (productCounter >= 1) {
-      return setProductCounter(productCounter - 1);
-    } else {
-      return productCounter;
-    }
+  const onMinusIconPressed = (id: any) => {
+    cartProducts.map(item => {
+      if (item.id === id) {
+        let currentVal = item.NoOfProducts;
+        if (currentVal >= 1) {
+          let newNoOfProductsVal = currentVal - 1;
+          console.log('newNoOfProductsVal', newNoOfProductsVal);
+          item.NoOfProducts = newNoOfProductsVal;
+          setProductNumber(newNoOfProductsVal);
+        } else {
+          return item.NoOfProducts;
+        }
+      }
+    });
   };
 
-  const onPlusIconPressed = () => {
-    setProductCounter(productCounter + 1);
+  const onPlusIconPressed = (id: any) => {
+    //console.log(cartProducts)
+    cartProducts.map(item => {
+      if (item.id === id) {
+        let currentVal = item.NoOfProducts;
+        let newNoOfProductsVal = currentVal + 1;
+        item.NoOfProducts = newNoOfProductsVal;
+        setProductNumber(newNoOfProductsVal);
+        //console.log(item.NoOfProducts);
+        //return item.NoOfProducts++;
+      }
+    });
+    //setProductCounter(productCounter + 1);
   };
 
   useEffect(() => {
     GetCartProducts();
-    //AsyncStorage.removeItem('CartProducts');
+    // AsyncStorage.removeItem('CartProducts');
   }, []);
 
   const GetCartProducts = async () => {

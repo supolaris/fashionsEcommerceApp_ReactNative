@@ -41,17 +41,15 @@ const Cart = props => {
             <ProductPriceText text={item.ProductPrice} />
             <View style={styles.counterView}>
               <MinusIcon
-                onPress={props.onMinusIconPressed}
+                onPress={() => props.onMinusIconPressed(item.id)}
                 name="minus"
                 size={22}
                 color={AppColors.Black}
               />
-              <Text style={styles.productCounterText}>
-                {props.productCounterValue}
-              </Text>
+              <Text style={styles.productCounterText}>{item.NoOfProducts}</Text>
 
               <PlusIcon
-                onPress={props.onPlusIconPressed}
+                onPress={() => props.onPlusIconPressed(item.id)}
                 name="plus"
                 size={20}
                 color={AppColors.Black}
