@@ -595,28 +595,25 @@ export const ProductSizeData = [
 export const ProductColorsData = [
   {
     id: 1,
-    ProductColorName: '', 
+    ProductColorName: '',
   },
   {
     id: 2,
-    ProductColorName: '', 
+    ProductColorName: '',
   },
   {
     id: 3,
-    ProductColorName: '', 
+    ProductColorName: '',
   },
   {
     id: 4,
-    ProductColorName: '', 
+    ProductColorName: '',
   },
   {
     id: 5,
-    ProductColorName: '', 
+    ProductColorName: '',
   },
-  
-]
-
-.
+];
 
 export const RatingStarData = [5, 4, 3, 2, 1];
 

@@ -43,28 +43,32 @@ const SignUp = props => {
       <View style={styles.textInputsView}>
         <LoginTextInput
           labelText="User Name"
-          placeholder="Ferrin"
+          //placeholder="Ferrin"
           value={props.usernameValue}
           onChangeText={props.usenameOnChangeText}
         />
         <LoginTextInput
           labelText="Email"
-          placeholder="hello@example.com"
+          //placeholder="hello@example.com"
           value={props.emailValue}
           onChangeText={props.emailOnChangeText}
         />
         <LoginTextInput
           labelText="Password"
-          placeholder="******"
-          secureTextEntry={true}
+          //placeholder="******"
+          isOpenEye={props.isOpenEye}
+          onEyeOpenPressed={props.onEyeOpenPressed}
+          secureTextEntry={props.secureTextEntry}
           showIcon={true}
           value={props.passwordValue}
           onChangeText={props.passwordOnChangeText}
         />
         <LoginTextInput
           labelText="Confrim Password"
-          placeholder="******"
-          secureTextEntry={true}
+          //placeholder="******"
+          isOpenEye={props.isConfirmPasswordOpenEye}
+          onEyeOpenPressed={props.onConfirmPasswordEyeOpenPressed}
+          secureTextEntry={props.confirmPasswordsecureTextEntry}
           showIcon={true}
           value={props.confirmPasswordValue}
           onChangeText={props.confirmPasswordOnChangeText}

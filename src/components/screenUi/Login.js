@@ -44,16 +44,16 @@ const Login = props => {
       <View style={styles.textInputsView}>
         <LoginTextInput
           labelText="Email"
-          placeholder="hello@example.com"
           value={props.emailValue}
           onChangeText={props.emailOnChangeText}
         />
         <LoginTextInput
           labelText="Password"
-          placeholder="123456"
-          secureTextEntry={true}
+          secureTextEntry={props.secureTextEntry}
           showIcon={true}
           value={props.passwordValue}
+          isOpenEye={props.isOpenEye}
+          onEyeOpenPressed={props.onEyeOpenPressed}
           onChangeText={props.passwordOnChangeText}
         />
       </View>

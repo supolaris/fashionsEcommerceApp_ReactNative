@@ -1,13 +1,17 @@
 import React from 'react';
-import {View, Text, TextInput, StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 
 import {AppColors} from '../../../constants/AppColors';
 import {AppFonts} from '../../../constants/AppFonts';
 
 import EyeOpenIcon from 'react-native-vector-icons/Entypo';
 import EyeCloseIcon from 'react-native-vector-icons/Entypo';
-import SecondaryTitle from '../Titles/SecondaryTitle';
-//eye-with-line
 
 const LoginTextInput = props => {
   return (
@@ -25,12 +29,27 @@ const LoginTextInput = props => {
           onChangeText={props.onChangeText}
         />
         {props.showIcon === true ? (
-          <EyeOpenIcon
-            style={styles.icon}
-            name="eye"
-            size={18}
-            color={AppColors.Black}
-          />
+          <>
+            {props.isOpenEye ? (
+              <TouchableOpacity onPress={props.onEyeOpenPressed}>
+                <EyeOpenIcon
+                  style={styles.icon}
+                  name="eye"
+                  size={18}
+                  color={AppColors.Black}
+                />
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity onPress={props.onEyeOpenPressed}>
+                <EyeCloseIcon
+                  style={styles.icon}
+                  name="eye-with-line"
+                  size={18}
+                  color={AppColors.Black}
+                />
+              </TouchableOpacity>
+            )}
+          </>
         ) : null}
       </View>
     </View>
@@ -57,7 +76,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: AppColors.GrayDescriptonText,
   },
-  textInput: {},
+  textInput: {
+    width: '90%',
+  },
   icon: {
     paddingRight: 5,
   },
