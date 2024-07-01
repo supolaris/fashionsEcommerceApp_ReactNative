@@ -577,6 +577,47 @@ export const ReviewData = [
   },
 ];
 
+export const ProductSizeData = [
+  {
+    id: 1,
+    SizeName: 'S',
+  },
+  {
+    id: 2,
+    SizeName: 'M',
+  },
+  {
+    id: 3,
+    SizeName: 'L',
+  },
+];
+
+export const ProductColorsData = [
+  {
+    id: 1,
+    ProductColorName: '', 
+  },
+  {
+    id: 2,
+    ProductColorName: '', 
+  },
+  {
+    id: 3,
+    ProductColorName: '', 
+  },
+  {
+    id: 4,
+    ProductColorName: '', 
+  },
+  {
+    id: 5,
+    ProductColorName: '', 
+  },
+  
+]
+
+.
+
 export const RatingStarData = [5, 4, 3, 2, 1];
 
 export const PaymentMethodsData = [

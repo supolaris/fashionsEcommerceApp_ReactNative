@@ -7,7 +7,7 @@ import {AppFonts} from '../../../constants/AppFonts';
 const ProductSizeButton = props => {
   return (
     <TouchableOpacity style={styles.container}>
-      <Text style={[styles.text, {}]}>{props.text}</Text>
+      <Text style={[styles.text]}>{props.text}</Text>
     </TouchableOpacity>
   );
 };

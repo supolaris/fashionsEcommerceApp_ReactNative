@@ -7,6 +7,7 @@ import {
   ScrollView,
   Dimensions,
   TouchableOpacity,
+  FlatList,
 } from 'react-native';
 
 import {AppColors} from '../../constants/AppColors';
@@ -24,10 +25,34 @@ import SecondaryTitle from '../common/Titles/SecondaryTitle';
 import QuinaryTitle from '../common/Titles/QuinaryTitle';
 import SecondaryHeader from '../common/Headers/SecondaryHeader';
 import Star from '../common/Star';
+import {ProductSizeData} from '../../constants/FlatlistData';
 
 const height = Dimensions.get('window').height;
 
 const ProductDescription = ({item, ...props}) => {
+  const renderProductSize = ({item}) => {
+    return (
+      <TouchableOpacity
+        onPress={() => props.onProductSizePressed(item.id)}
+        style={[
+          styles.renderProductSizeContainer,
+          props.selectedProductSize === item.id
+            ? styles.selectedRenderProductSizeContainer
+            : null,
+        ]}>
+        <Text
+          style={[
+            styles.renderProductSizeText,
+            props.selectedProductSize === item.id
+              ? styles.selectedRenderProductSizeText
+              : null,
+          ]}>
+          {item.SizeName}
+        </Text>
+      </TouchableOpacity>
+    );
+  };
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.imageView}>
@@ -95,9 +120,15 @@ const ProductDescription = ({item, ...props}) => {
           </View>
           <View style={styles.sizeColorView}>
             <View style={styles.sizeView}>
-              <ProductSizeButton text="S" />
+              {/* <ProductSizeButton text="S" />
               <ProductSizeButton text="M" />
-              <ProductSizeButton text="L" />
+              <ProductSizeButton text="L" /> */}
+              <FlatList
+                horizontal={true}
+                data={ProductSizeData}
+                renderItem={renderProductSize}
+                keyExtractor={item => item.id.toString()}
+              />
             </View>
             <View style={styles.colorView}>
               <ColorButton color={AppColors.ProductDustyPink} />
@@ -145,6 +176,33 @@ const ProductDescription = ({item, ...props}) => {
 export default ProductDescription;
 
 const styles = StyleSheet.create({
+  //flatlist size
+  renderProductSizeContainer: {
+    paddingHorizontal: 15,
+    paddingVertical: 2,
+    borderRadius: 100,
+    borderWidth: 0.5,
+    marginRight: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  selectedRenderProductSizeContainer: {
+    backgroundColor: AppColors.Black,
+  },
+  renderProductSizeText: {
+    textAlign: 'center',
+    fontSize: 18,
+    color: AppColors.Black,
+    fontFamily: AppFonts.SemiBold,
+  },
+  selectedRenderProductSizeText: {
+    textAlign: 'center',
+    fontSize: 18,
+    color: AppColors.White,
+    fontFamily: AppFonts.SemiBold,
+  },
+
+  //main
   container: {
     height: height,
   },

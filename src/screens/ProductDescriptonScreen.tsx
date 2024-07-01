@@ -10,6 +10,7 @@ const ProductDescriptonScreen = ({route}: {route: any}) => {
   const {item} = route.params;
   const navigation = useAppNavigation();
   const [productNumber, setProductNumber] = useState();
+  const [productSelectedSize, setProductSelectedSize] = useState();
 
   const onMinusIconPressed = (item: any) => {
     if (item.NoOfProducts >= 1) {
@@ -60,6 +61,10 @@ const ProductDescriptonScreen = ({route}: {route: any}) => {
     navigation.navigate('CartScreen');
   };
 
+  const onProductSizePressed = (id: any) => {
+    setProductSelectedSize(id);
+  };
+
   return (
     <ProductDescription
       item={item}
@@ -69,6 +74,8 @@ const ProductDescriptonScreen = ({route}: {route: any}) => {
       onReviewPressed={onReviewPressed}
       onCartIconPressed={onCartIconPressed}
       onBackArrowPressed={onBackArrowPressed}
+      onProductSizePressed={onProductSizePressed}
+      selectedProductSize={productSelectedSize}
     />
   );
 };

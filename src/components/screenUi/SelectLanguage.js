@@ -75,7 +75,9 @@ const SelectLanguage = props => {
 
   return (
     <ScrollView style={styles.container}>
-      <PrimaryHeader />
+      <PrimaryHeader
+        onHeaderBackArrowPressed={props.onHeaderBackArrowPressed}
+      />
       <View style={styles.textInputView}>
         <PrimaryTextInput />
       </View>
