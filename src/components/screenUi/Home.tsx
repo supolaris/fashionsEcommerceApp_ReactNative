@@ -38,8 +38,9 @@ interface Iprops {
   onFilterIconPressed: () => void;
   onViewAllPresses: () => void;
   searchValue: string;
-  searchOnChangeText: () => void;
+  searchOnChangeText: (text: string) => void;
   onHeaderBackArrowPressed: () => void;
+  textt: string;
 }
 
 const Home = (props: Iprops) => {
@@ -102,7 +103,7 @@ const Home = (props: Iprops) => {
         <View style={styles.textInputView}>
           <PrimaryTextInput
             value={props.searchValue}
-            onChangeText={props.searchOnChangeText}
+            onChangeText={() => props.searchOnChangeText(props.textt)}
             placeholder="Search"
           />
         </View>

@@ -16,8 +16,16 @@ const ProfileScreen = () => {
     navigation.navigate('ProductTracking_Screen');
   };
 
+  const onSettingIconPressed = () => {
+    console.log('Setting icon pressed');
+  };
+
+  const onBackArrowPressed = () => [navigation.goBack()];
+
   return (
     <Profile
+      onBackArrowPressed={onBackArrowPressed}
+      onSettingIconPressed={onSettingIconPressed}
       onPersonalDetailsPressed={onPersonalDetailsPressed}
       onShippingAddressPressed={onShippingAddressPressed}
     />

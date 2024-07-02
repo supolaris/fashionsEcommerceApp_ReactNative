@@ -9,7 +9,7 @@ const ProductsFilterScreen = () => {
   const [selectedCatagoryId, setSelectedCatagoryId] = useState(0);
   const [selectedSortById, setSelectedSortById] = useState(0);
 
-  const [selectedRating, setSelectedRating] = useState(null);
+  const [selectedRating, setSelectedRating] = useState('');
 
   const onHeaderBackArrowPressed = () => {
     navigation.goBack();
@@ -31,17 +31,21 @@ const ProductsFilterScreen = () => {
     setSelectedRating(item);
   };
 
+  const onApplyNowPressed = () => {
+    console.log('Apply Now Pressed');
+  };
+
   return (
     <ProductsFilter
-      onHeaderBackArrowPressed={onHeaderBackArrowPressed}
       selectedCatagory={selectedCatagoryId}
       catagoryPressed={catagoryPressed}
       selectedSortBy={selectedSortById}
       sortByPressed={sortByPressed}
-      //stars
-      onStarPressed={onStarPressed}
+      onHeaderBackArrowPressed={onHeaderBackArrowPressed}
       selectedRating={selectedRating}
       onTouchableRadioPressed={onTouchableRadioPressed}
+      onStarPressed={onStarPressed}
+      onApplyNowPressed={onApplyNowPressed}
     />
   );
 };

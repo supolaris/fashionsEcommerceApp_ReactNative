@@ -1,10 +1,17 @@
 import React from 'react';
-import {View, Text} from 'react-native';
 
 import Notification from '../components/screenUi/Notification';
 
+import {useAppNavigation} from '../@types/AppNavigation';
+
 const NotificationScreen = () => {
-  return <Notification />;
+  const navigation = useAppNavigation();
+
+  const onHeaderBackArrowPressed = () => {
+    navigation.goBack();
+  };
+
+  return <Notification onHeaderBackArrowPressed={onHeaderBackArrowPressed} />;
 };
 
 export default NotificationScreen;

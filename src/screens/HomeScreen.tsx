@@ -10,6 +10,7 @@ import {InterfaceProductCatagories} from '../@types/AppTyping';
 const HomeScreen = () => {
   const navigation = useAppNavigation();
   const [selectedCategoryId, setSelectedCategoryId] = useState(0);
+  const [searchValue, setSearchValue] = useState<string>('');
 
   const onFilterIconPressed = () => {
     navigation.navigate('ProductsFilter_Screen');
@@ -31,14 +32,23 @@ const HomeScreen = () => {
     navigation.navigate('ProductDescripton_Screen', {item: item});
   };
 
+  const onHeaderBackArrowPressed = () => {};
+  const searchOnChangeText = (text: string) => {
+    setSearchValue(text);
+  };
+
   return (
     <Home
-      onFilterIconPressed={onFilterIconPressed}
-      categoryPressed={categoryPressed}
       selectedCategory={selectedCategoryId}
-      onViewAllPresses={onViewAllPresses}
-      onUserImagePressed={onUserImagePressed}
+      categoryPressed={categoryPressed}
       onHomeProductPressed={onHomeProductPressed}
+      onHeaderBackArrowPressed={onHeaderBackArrowPressed}
+      onUserImagePressed={onUserImagePressed}
+      searchValue={searchValue}
+      searchOnChangeText={searchOnChangeText}
+      textt={searchValue}
+      onFilterIconPressed={onFilterIconPressed}
+      onViewAllPresses={onViewAllPresses}
     />
   );
 };

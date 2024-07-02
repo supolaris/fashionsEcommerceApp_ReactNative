@@ -28,7 +28,7 @@ interface Iprops {
   onPersonalDetailsPressed: () => void;
   onShippingAddressPressed: () => void;
   onBackArrowPressed: () => void;
-  onCartIconPressed: () => void;
+  onSettingIconPressed: () => void;
 }
 
 const Profile = (props: Iprops) => {
@@ -36,7 +36,7 @@ const Profile = (props: Iprops) => {
     <ScrollView style={styles.container}>
       <TertiaryHeader
         onBackArrowPressed={props.onBackArrowPressed}
-        onCartIconPressed={props.onCartIconPressed}
+        onSettingIconPressed={props.onSettingIconPressed}
         showSettingIcon={true}
       />
       <View style={styles.pictureNameEmailView}>

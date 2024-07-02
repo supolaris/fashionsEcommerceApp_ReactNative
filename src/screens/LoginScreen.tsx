@@ -35,10 +35,8 @@ const LoginScreen = () => {
 
   return (
     <Login
-      //email
       emailValue={email}
       emailOnChangeText={setEmail}
-      //password
       passwordValue={password}
       passwordOnChangeText={setPassword}
       onLoginPressed={onLoginPressed}

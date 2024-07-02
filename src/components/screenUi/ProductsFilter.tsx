@@ -25,7 +25,7 @@ import {InterfaceProductSortByData} from '../../@types/AppTyping';
 import {InterfaceProductCatagories} from '../../@types/AppTyping';
 
 interface Iprops {
-  onStarPressed: () => void;
+  onStarPressed: (item: any) => void;
   selectedCatagory: number;
   catagoryPressed: (item: InterfaceProductCatagories) => void;
   selectedSortBy: number;
@@ -37,7 +37,7 @@ interface Iprops {
 }
 
 const ProductsFilter = (props: Iprops) => {
-  const renderStar = ({item}: {item: any}) => {
+  const renderStar = ({item}: {item: any}, index: number) => {
     return (
       <View style={styles.starRow}>
         {Array.from({length: item}).map(idx => (

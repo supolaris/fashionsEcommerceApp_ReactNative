@@ -9,7 +9,7 @@ import SettingIcon from 'react-native-vector-icons/Feather';
 interface Iprops {
   onBackArrowPressed: () => void;
   showSettingIcon: boolean;
-  onCartIconPressed: () => void;
+  onSettingIconPressed: () => void;
 }
 
 const TertiaryHeader = (props: Iprops) => {
@@ -28,7 +28,7 @@ const TertiaryHeader = (props: Iprops) => {
       {props.showSettingIcon == true ? (
         <TouchableOpacity
           style={styles.cartTouchable}
-          onPress={props.onCartIconPressed}>
+          onPress={props.onSettingIconPressed}>
           <SettingIcon
             style={styles.icon}
             name="settings"

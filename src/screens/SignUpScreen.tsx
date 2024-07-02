@@ -8,10 +8,10 @@ import {Alert} from 'react-native';
 const SignUpScreen = () => {
   const navigation = useAppNavigation();
 
-  const [usename, setUsername] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [confirmPassword, setConfirmPassword] = useState();
+  const [usename, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [isEyeOpen, setIsEyeOpen] = useState(false);
   const [isConfirmPasswordOpenEye, setIsConfirmPasswordOpenEye] =
     useState(false);

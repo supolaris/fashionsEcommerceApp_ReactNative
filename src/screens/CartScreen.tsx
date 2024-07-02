@@ -16,7 +16,7 @@ const CartScreen = () => {
   );
   const [productNumber, setProductNumber] = useState<number>();
 
-  let AsyncCartProducts;
+  //let AsyncCartProducts;
 
   useFocusEffect(
     useCallback(() => {
@@ -24,9 +24,20 @@ const CartScreen = () => {
     }, []),
   );
 
+  // const GetCartProducts = async () => {
+  //   let AsyncCartProducts: string | = await AsyncStorage.getItem('CartProducts');
+  //   setCartProducts(JSON.parse(AsyncCartProducts));
+  // };
+
   const GetCartProducts = async () => {
-    AsyncCartProducts = await AsyncStorage.getItem('CartProducts');
-    setCartProducts(JSON.parse(AsyncCartProducts));
+    let AsyncCartProducts: string | null = await AsyncStorage.getItem(
+      'CartProducts',
+    );
+    if (AsyncCartProducts !== null) {
+      setCartProducts(JSON.parse(AsyncCartProducts));
+    } else {
+      setCartProducts([]);
+    }
   };
 
   const onMinusIconPressed = (id: number) => {
