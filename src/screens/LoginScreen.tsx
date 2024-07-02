@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, Alert} from 'react-native';
+import {Alert} from 'react-native';
 
 import Login from '../components/screenUi/Login';
 
@@ -7,8 +7,8 @@ import {useAppNavigation} from '../@types/AppNavigation';
 
 const LoginScreen = () => {
   const navigation = useAppNavigation();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState<string>();
+  const [password, setPassword] = useState<string>();
   const [isEyeOpen, setIsEyeOpen] = useState(false);
 
   const onLoginPressed = () => {

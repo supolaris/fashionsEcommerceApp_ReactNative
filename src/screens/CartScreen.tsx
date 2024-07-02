@@ -7,10 +7,14 @@ import {useFocusEffect} from '@react-navigation/native';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import {InterfaceProductTyping} from '../@types/AppTyping';
+
 const CartScreen = () => {
   const navigation = useAppNavigation();
-  const [cartProducts, setCartProducts] = useState([]);
-  const [productNumber, setProductNumber] = useState();
+  const [cartProducts, setCartProducts] = useState<InterfaceProductTyping[]>(
+    [],
+  );
+  const [productNumber, setProductNumber] = useState<number>();
 
   let AsyncCartProducts;
 
@@ -25,7 +29,7 @@ const CartScreen = () => {
     setCartProducts(JSON.parse(AsyncCartProducts));
   };
 
-  const onMinusIconPressed = (id: any) => {
+  const onMinusIconPressed = (id: number) => {
     cartProducts.map(item => {
       if (item.id === id) {
         if (item.NoOfProducts >= 1) {
@@ -55,7 +59,7 @@ const CartScreen = () => {
     navigation.goBack();
   };
 
-  const onTrashIconPressed = async (id: any) => {
+  const onTrashIconPressed = async (id: number) => {
     const updateProducts = cartProducts.filter(item => item.id !== id);
     await AsyncStorage.setItem('CartProducts', JSON.stringify(updateProducts));
     setCartProducts(updateProducts);

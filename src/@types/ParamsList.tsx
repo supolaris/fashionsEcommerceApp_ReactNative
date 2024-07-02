@@ -1,32 +1,42 @@
-import {InterfaceProductTyping} from './AppTyping';
-
 export type StackParmList = {
-  RegisterSuccess_Screen: undefined;
-  SignUp_Screen: undefined;
+  First_Screen: undefined;
+  Second_Screen: undefined;
   Login_Screen: undefined;
-  ProductDescripton_Screen: InterfaceProductTyping;
-  Profile_Screen: undefined;
+  SignUp_Screen: undefined;
+  RegisterSuccess_Screen: undefined;
   Startup_Screen: undefined;
+  Startup_Screen2: undefined;
+  Startup_Screen3: undefined;
+  Home_Screen: undefined;
+  ProductsFilter_Screen: undefined;
+  Catagories_Screen: undefined;
+  ProductDescripton_Screen: {
+    id: number;
+    NoOfProducts: number;
+    CategoryName: string;
+    ProductName: string;
+    ProductDescription: string;
+    ProductPrice: number;
+    ProductImage: string;
+  };
+  Products_Screen: {
+    CatagoryApiName: string;
+    id: number;
+    NoOfProducts: number;
+    CategoryName: string;
+    ProductName: string;
+    ProductDescription: string;
+    ProductPrice: number;
+    ProductImage: string;
+  };
+  ProfileScreen: undefined;
+  Profile_Screen: undefined;
   PersonalDetail_Screen: undefined;
   SelectLanguage_Screen: undefined;
   CardDetail_Screen: undefined;
-  ProductsFilter_Screen: undefined;
-
-  First_Screen: undefined;
-  Second_Screen: undefined;
-
-  Startup_Screen2: undefined;
-  Startup_Screen3: undefined;
-
-  Products_Screen: undefined;
-  Cart_Screen: undefined;
-  CartScreen: undefined;
+  ProductTracking_Screen: undefined;
   PaymentMethod_Screen: undefined;
   Review_Screen: undefined;
-  Home_Screen: undefined;
-  Catagories_Screen: undefined;
-  ProfileScreen: undefined;
-  ProductTracking_Screen: undefined;
-
   BottomNav: undefined;
+  CartScreen: undefined;
 };

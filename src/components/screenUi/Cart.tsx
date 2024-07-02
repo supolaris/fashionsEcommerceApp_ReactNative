@@ -26,6 +26,8 @@ import PromoTextInput from '../common/TextInputs/PromoTextInput';
 import PrimaryDescription from '../common/Descriptions/PrimaryDescription';
 import CheckOutButton from '../common/Buttons/CheckOutButton';
 
+import {InterfaceProductTyping} from '../../@types/AppTyping';
+
 interface Iprops {
   onMinusIconPressed: (id: number) => void;
   onPlusIconPressed: (id: number) => void;
