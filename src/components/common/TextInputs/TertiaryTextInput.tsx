@@ -8,7 +8,7 @@ interface Iprops {
   onChangeText: () => void;
 }
 
-const TertiaryTextInput: FC<Iprops> = props => {
+const TertiaryTextInput = (props: Iprops) => {
   return (
     <View style={styes.container}>
       <TextInput

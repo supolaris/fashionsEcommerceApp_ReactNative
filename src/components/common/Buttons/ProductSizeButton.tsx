@@ -7,7 +7,7 @@ interface Iprops {
   text: string;
 }
 
-const ProductSizeButton: FC<Iprops> = props => {
+const ProductSizeButton = (props: Iprops) => {
   return (
     <TouchableOpacity style={styles.container}>
       <Text style={[styles.text]}>{props.text}</Text>

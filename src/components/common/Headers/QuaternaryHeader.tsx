@@ -11,7 +11,7 @@ interface Iprops {
   onUserImagePressed: () => void;
 }
 
-const QuaternaryHeader: FC<Iprops> = props => {
+const QuaternaryHeader = (props: Iprops) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity

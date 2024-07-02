@@ -10,7 +10,7 @@ interface Iprops {
   onPress: () => void;
 }
 
-const FacebookButton: FC<Iprops> = props => {
+const FacebookButton = (props: Iprops) => {
   return (
     <TouchableOpacity style={styles.container} onPress={props.onPress}>
       <View style={styles.iconView}>

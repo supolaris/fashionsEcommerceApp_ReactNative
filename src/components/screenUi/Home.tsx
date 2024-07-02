@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React from 'react';
 import {
   View,
   Text,
@@ -25,23 +25,25 @@ import PrimaryDescription from '../common/Descriptions/PrimaryDescription';
 
 import ArrowIcon from 'react-native-vector-icons/MaterialIcons';
 
-import {
-  BagsData,
-  ProductCatagories,
-  ShirtsData,
-} from '../../constants/FlatlistData';
+import {BagsData, ProductCatagories} from '../../constants/FlatlistData';
+
+import {InterfaceProductTyping} from '../../@types/AppTyping';
+import {InterfaceProductCatagories} from '../../@types/AppTyping';
 
 interface Iprops {
-  selectedCategory: string;
+  selectedCategory: number;
   categoryPressed: () => void;
   onHomeProductPressed: () => void;
   onUserImagePressed: () => void;
   onFilterIconPressed: () => void;
   onViewAllPresses: () => void;
+  searchValue: string;
+  searchOnChangeText: () => void;
+  onHeaderBackArrowPressed: () => void;
 }
 
-const Home: FC<Iprops> = props => {
-  const renderCategories = ({item}: {item: any}) => {
+const Home = (props: Iprops) => {
+  const renderCategories = ({item}: {item: InterfaceProductCatagories}) => {
     return (
       <TouchableOpacity
         style={[
@@ -62,7 +64,7 @@ const Home: FC<Iprops> = props => {
     );
   };
 
-  const renderTopDresses = ({item}: {item: any}) => {
+  const renderTopDresses = ({item}: {item: InterfaceProductTyping}) => {
     return (
       <TouchableOpacity
         style={styles.renderTopDressesView}
@@ -88,6 +90,7 @@ const Home: FC<Iprops> = props => {
   return (
     <ScrollView style={styles.container}>
       <QuaternaryHeader
+        onHeaderBackArrowPressed={props.onHeaderBackArrowPressed}
         showUserImage={true}
         onUserImagePressed={props.onUserImagePressed}
       />
@@ -97,7 +100,11 @@ const Home: FC<Iprops> = props => {
       </View>
       <View style={styles.textInputFilterView}>
         <View style={styles.textInputView}>
-          <PrimaryTextInput placeholder="Search" />
+          <PrimaryTextInput
+            value={props.searchValue}
+            onChangeText={props.searchOnChangeText}
+            placeholder="Search"
+          />
         </View>
         <View style={styles.filterButtonView}>
           <FilterButton onPress={props.onFilterIconPressed} />

@@ -9,7 +9,7 @@ interface Iprops {
   onPress: () => void;
 }
 
-const FilterButton: FC<Iprops> = props => {
+const FilterButton = (props: Iprops) => {
   return (
     <TouchableOpacity style={styles.container} onPress={props.onPress}>
       <FilterIcon

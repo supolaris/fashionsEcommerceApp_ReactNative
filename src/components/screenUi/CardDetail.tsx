@@ -28,7 +28,7 @@ interface Iprops {
   onCancelButtonPressed: () => void;
 }
 
-const CardDetail: FC<Iprops> = props => {
+const CardDetail = (props: Iprops) => {
   return (
     <View style={styles.container}>
       <View>

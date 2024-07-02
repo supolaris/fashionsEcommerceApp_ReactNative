@@ -16,17 +16,23 @@ import {AppFonts} from '../../constants/AppFonts';
 import PrimaryHeader from '../common/Headers/PrimaryHeader';
 import SecondaryTitle from '../common/Titles/SecondaryTitle';
 
+import {InterfaceProductTyping} from '../../@types/AppTyping';
+
 const width = Dimensions.get('window').width;
 
 interface Iprops {
   onProductPressed: () => void;
   onHeaderBackArrowPressed: () => void;
   categoryName: string;
-  flatListProductsData: string;
+  flatListProductsData: InterfaceProductTyping;
+}
+interface Item {
+  name: string;
+  productId: number;
 }
 
-const Products: FC<Iprops> = props => {
-  const renderProducts = ({item}: {item: any}) => {
+const Products = (props: Iprops) => {
+  const renderProducts = ({item}: {item: InterfaceProductTyping}) => {
     return (
       <TouchableOpacity
         onPress={() => props.onProductPressed(item)}

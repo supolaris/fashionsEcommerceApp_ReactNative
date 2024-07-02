@@ -9,7 +9,7 @@ interface Iprops {
   onSignupPressed: () => void;
 }
 
-const Second: FC<Iprops> = props => {
+const Second = (props: Iprops) => {
   return (
     <View style={styles.container}>
       <StatusBar

@@ -1,8 +1,10 @@
+import {InterfaceProductTyping} from './AppTyping';
+
 export type StackParmList = {
   RegisterSuccess_Screen: undefined;
   SignUp_Screen: undefined;
   Login_Screen: undefined;
-  ProductDescripton_Screen: undefined;
+  ProductDescripton_Screen: InterfaceProductTyping;
   Profile_Screen: undefined;
   Startup_Screen: undefined;
   PersonalDetail_Screen: undefined;

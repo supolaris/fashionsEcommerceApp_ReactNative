@@ -8,7 +8,7 @@ interface Iprops {
   text: string;
 }
 
-const QuinaryTitle: FC<Iprops> = props => {
+const QuinaryTitle = (props: Iprops) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{props.text}</Text>

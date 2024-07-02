@@ -12,7 +12,7 @@ interface Iprops {
   onCartIconPressed: () => void;
 }
 
-const SecondaryHeader: FC<Iprops> = props => {
+const SecondaryHeader = (props: Iprops) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity

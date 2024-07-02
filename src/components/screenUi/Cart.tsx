@@ -35,7 +35,7 @@ interface Iprops {
   onCheckoutPressed: () => void;
 }
 
-const Cart: FC<Iprops> = props => {
+const Cart = (props: Iprops) => {
   const renderCartItem = ({item}: {item: any}) => {
     return (
       <View style={styles.renderCartItemContainer}>

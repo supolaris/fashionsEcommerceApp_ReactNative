@@ -24,7 +24,7 @@ interface Iprops {
   onEyeOpenPressed: () => void;
 }
 
-const LoginTextInput: FC<Iprops> = props => {
+const LoginTextInput = (props: Iprops) => {
   return (
     <View style={styles.container}>
       <View style={styles.labelView}>

@@ -27,9 +27,11 @@ LogBox.ignoreAllLogs(true);
 interface Iprops {
   selectedCountry: string;
   onCountryPressed: () => void;
+  countrySearchValue: string;
+  countryOnChangeText: () => void;
 }
 
-const SelectCountry: FC<Iprops> = props => {
+const SelectCountry = (props: Iprops) => {
   const renderSelectCountry = ({item}: {item: any}) => {
     return (
       <TouchableOpacity
@@ -80,7 +82,11 @@ const SelectCountry: FC<Iprops> = props => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.textInputView}>
-        <PrimaryTextInput />
+        <PrimaryTextInput
+          placeholder="Search Country"
+          value={props.countrySearchValue}
+          onChangeText={props.countryOnChangeText}
+        />
       </View>
       <View style={styles.titleView}>
         <SecondaryTitle text="Country or Region" />

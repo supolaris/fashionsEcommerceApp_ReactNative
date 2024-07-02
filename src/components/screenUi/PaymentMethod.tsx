@@ -15,12 +15,14 @@ import {AppFonts} from '../../constants/AppFonts';
 import SecondaryTitle from '../common/Titles/SecondaryTitle';
 import PrimaryHeader from '../common/Headers/PrimaryHeader';
 import DottedBorderButton from '../common/Buttons/DottedBorderButton';
+import SendBadgeButton from '../common/Buttons/SendBadgeButton';
 
 import CircleIcon from 'react-native-vector-icons/Entypo';
 
 import {PaymentMethodsData} from '../../constants/FlatlistData';
 import {ProductHistoryData} from '../../constants/FlatlistData';
-import SendBadgeButton from '../common/Buttons/SendBadgeButton';
+
+import {InterfacePaymentMethodsData} from '../../@types/AppTyping';
 
 interface Iprops {
   selectedPaymentMethod: number;
@@ -29,8 +31,8 @@ interface Iprops {
   onAddCardPressed: () => void;
 }
 
-const PaymentMethod: FC<Iprops> = props => {
-  const renderPaymentMethod = ({item}: {item: any}) => {
+const PaymentMethod = (props: Iprops) => {
+  const renderPaymentMethod = ({item}: {item: InterfacePaymentMethodsData}) => {
     return (
       <TouchableOpacity
         style={[

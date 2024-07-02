@@ -11,7 +11,7 @@ interface Iprops {
   text: string;
 }
 
-const PrimaryButton: FC<Iprops> = props => {
+const PrimaryButton = (props: Iprops) => {
   return (
     <TouchableOpacity style={styles.container} onPress={props.onPress}>
       <View style={styles.iconTextView}>

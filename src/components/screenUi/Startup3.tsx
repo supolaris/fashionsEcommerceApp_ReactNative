@@ -11,7 +11,7 @@ interface Iprops {
   onGetStartedPressed: () => void;
 }
 
-const Startup3: FC<Iprops> = props => {
+const Startup3 = (props: Iprops) => {
   return (
     <View style={styles.container}>
       <View style={styles.imageView}>

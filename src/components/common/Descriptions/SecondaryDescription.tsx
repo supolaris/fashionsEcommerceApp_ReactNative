@@ -3,11 +3,12 @@ import {View, Text, StyleSheet} from 'react-native';
 
 import {AppFonts} from '../../../constants/AppFonts';
 import {AppColors} from '../../../constants/AppColors';
+
 interface Iprops {
   text: string;
 }
 
-const SecondaryDescription: FC<Iprops> = props => {
+const SecondaryDescription = (props: Iprops) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{props.text}</Text>

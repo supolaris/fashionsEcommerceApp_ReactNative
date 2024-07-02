@@ -29,9 +29,14 @@ interface Iprops {
   passwordOnChangeText: () => void;
   onLoginPressed: () => void;
   onSignUpPressed: () => void;
+  emailPlaceholder: string;
+  emailSecureTextEntry: boolean;
+  onFacebookButtonPressed: () => void;
+  onGoogleButtonPressed: () => void;
+  onApplebuttonPressed: () => void;
 }
 
-const Login: FC<Iprops> = props => {
+const Login = (props: Iprops) => {
   return (
     <ScrollView style={styles.container}>
       <StatusBar
@@ -55,11 +60,17 @@ const Login: FC<Iprops> = props => {
       </View>
       <View style={styles.textInputsView}>
         <LoginTextInput
+          placeholder={props.emailPlaceholder}
+          secureTextEntry={props.emailSecureTextEntry}
+          showIcon={false}
+          isOpenEye={false}
+          onEyeOpenPressed={props.onEyeOpenPressed}
           labelText="Email"
           value={props.emailValue}
           onChangeText={props.emailOnChangeText}
         />
         <LoginTextInput
+          placeholder={props.emailPlaceholder}
           labelText="Password"
           secureTextEntry={props.secureTextEntry}
           showIcon={true}
@@ -81,13 +92,13 @@ const Login: FC<Iprops> = props => {
 
       <View style={styles.socialLoginButtonsView}>
         <View style={styles.socialButtonView}>
-          <FacebookButton text="Continue with facebook" />
+          <FacebookButton onPress={props.onFacebookButtonPressed} />
         </View>
         <View style={styles.socialButtonView}>
-          <GoogleButton text="Continue with google" />
+          <GoogleButton onPress={props.onGoogleButtonPressed} />
         </View>
         <View style={styles.socialButtonView}>
-          <AppleButton />
+          <AppleButton onPress={props.onApplebuttonPressed} />
         </View>
       </View>
       <View style={styles.signUpView}>

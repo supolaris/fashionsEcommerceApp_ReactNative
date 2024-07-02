@@ -9,7 +9,7 @@ interface Iprops {
   text: string;
 }
 
-const QuaternaryButtonOutline: FC<Iprops> = props => {
+const QuaternaryButtonOutline = (props: Iprops) => {
   return (
     <TouchableOpacity style={styles.container} onPress={props.onPress}>
       <View style={styles.iconTextView}>

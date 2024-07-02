@@ -8,7 +8,7 @@ interface Iprops {
   text: string;
 }
 
-const PrimaryTitle: FC<Iprops> = props => {
+const PrimaryTitle = (props: Iprops) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{props.text}</Text>

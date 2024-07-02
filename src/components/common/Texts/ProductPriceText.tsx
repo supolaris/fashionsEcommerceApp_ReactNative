@@ -8,7 +8,7 @@ interface Iprops {
   text: string;
 }
 
-const ProductPriceText: FC<Iprops> = props => {
+const ProductPriceText = (props: Iprops) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>${props.text}</Text>

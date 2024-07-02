@@ -15,7 +15,7 @@ interface Iprops {
   touchableText: string;
 }
 
-const PromoTextInput: FC<Iprops> = props => {
+const PromoTextInput = (props: Iprops) => {
   return (
     <View style={styles.container}>
       <TextInput

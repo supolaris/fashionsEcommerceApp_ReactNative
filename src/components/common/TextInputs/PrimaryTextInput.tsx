@@ -11,7 +11,7 @@ interface Iprops {
   onChangeText: () => void;
 }
 
-const PrimaryTextInput: FC<Iprops> = props => {
+const PrimaryTextInput = (props: Iprops) => {
   return (
     <View style={styles.container}>
       <SearchIcon

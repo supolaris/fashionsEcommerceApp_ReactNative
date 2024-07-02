@@ -6,13 +6,15 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {useAppNavigation} from '../@types/AppNavigation';
 
+import {InterfaceProductTyping} from '../@types/AppTyping';
+
 const ProductDescriptonScreen = ({route}: {route: any}) => {
   const {item} = route.params;
   const navigation = useAppNavigation();
-  const [productNumber, setProductNumber] = useState();
+  const [productNumber, setProductNumber] = useState<number>();
   const [productSelectedSize, setProductSelectedSize] = useState();
 
-  const onMinusIconPressed = (item: any) => {
+  const onMinusIconPressed = (item: InterfaceProductTyping) => {
     if (item.NoOfProducts >= 1) {
       item.NoOfProducts--;
       setProductNumber(item.NoOfProducts);
@@ -21,7 +23,7 @@ const ProductDescriptonScreen = ({route}: {route: any}) => {
     }
   };
 
-  const onPlusIconPressed = (item: any) => {
+  const onPlusIconPressed = (item: InterfaceProductTyping) => {
     item.NoOfProducts++;
     setProductNumber(item.NoOfProducts);
   };

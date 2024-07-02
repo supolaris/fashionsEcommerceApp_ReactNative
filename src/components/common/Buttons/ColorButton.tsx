@@ -9,7 +9,7 @@ interface Iprops {
   color: string;
 }
 
-const ColorButton: FC<Iprops> = props => {
+const ColorButton = (props: Iprops) => {
   return (
     <View style={[styles.container, {backgroundColor: props.color}]}>
       <TickIcon name="done" size={20} color={AppColors.White} />

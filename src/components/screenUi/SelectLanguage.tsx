@@ -25,8 +25,16 @@ import PrimaryHeader from '../common/Headers/PrimaryHeader';
 
 LogBox.ignoreAllLogs(true);
 
-const SelectLanguage = props => {
-  const renderSelectLanguage = ({item}) => {
+interface Iprops {
+  selectedLanguage: string;
+  onLanguagePressed: () => void;
+  onHeaderBackArrowPressed: () => void;
+  languageValue: string;
+  langaugeOnChangeText: () => void;
+}
+
+const SelectLanguage = (props: Iprops) => {
+  const renderSelectLanguage = ({item}: {item: any}) => {
     return (
       <TouchableOpacity
         style={[
@@ -77,9 +85,14 @@ const SelectLanguage = props => {
     <ScrollView style={styles.container}>
       <PrimaryHeader
         onHeaderBackArrowPressed={props.onHeaderBackArrowPressed}
+        showSearchIcon={false}
       />
       <View style={styles.textInputView}>
-        <PrimaryTextInput />
+        <PrimaryTextInput
+          placeholder="Search Language"
+          value={props.languageValue}
+          onChangeText={props.langaugeOnChangeText}
+        />
       </View>
       <View style={styles.titleView}>
         <SecondaryTitle text="Select Language" />

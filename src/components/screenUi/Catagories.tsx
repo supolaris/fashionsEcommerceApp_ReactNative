@@ -24,7 +24,7 @@ interface Iprops {
   onSearchChangeText: () => void;
 }
 
-const Catagories: FC<Iprops> = props => {
+const Catagories = (props: Iprops) => {
   const renderCatagories = ({item}: {item: any}) => {
     return (
       <TouchableOpacity

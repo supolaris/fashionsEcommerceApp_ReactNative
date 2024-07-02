@@ -9,7 +9,7 @@ interface Iprops {
   onChangeText: () => void;
 }
 
-const SecondaryTextInput: FC<Iprops> = props => {
+const SecondaryTextInput = (props: Iprops) => {
   return (
     <View style={styles.container}>
       <TextInput

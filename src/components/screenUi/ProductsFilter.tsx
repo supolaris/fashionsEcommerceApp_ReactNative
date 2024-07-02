@@ -31,7 +31,7 @@ interface Iprops {
   onTouchableRadioPressed: () => void;
 }
 
-const ProductsFilter: FC<Iprops> = props => {
+const ProductsFilter = (props: Iprops) => {
   const renderStar: FC<Iprops> = item => {
     return (
       <View style={styles.starRow}>

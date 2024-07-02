@@ -7,11 +7,11 @@ import ArrowIcon from 'react-native-vector-icons/FontAwesome';
 import SearchIcon from 'react-native-vector-icons/AntDesign';
 
 interface Iprops {
-  onHeaderBackArrowPressed: () => void
-  showSearchIcon: boolean
+  onHeaderBackArrowPressed: () => void;
+  showSearchIcon: boolean;
 }
 
-const PrimaryHeader: FC<Iprops> = props => {
+const PrimaryHeader = (props: Iprops) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity

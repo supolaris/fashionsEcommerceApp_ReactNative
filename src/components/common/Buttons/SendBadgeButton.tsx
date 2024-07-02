@@ -10,7 +10,7 @@ interface Iprops {
   text: string;
 }
 
-const SendBadgeButton: FC<Iprops> = props => {
+const SendBadgeButton = (props: Iprops) => {
   return (
     <View style={styles.container}>
       <SendIcon name="send-circle" size={20} color={AppColors.Black} />

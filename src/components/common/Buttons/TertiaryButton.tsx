@@ -9,7 +9,7 @@ interface Iprops {
   text: string;
 }
 
-const TertiaryButton: FC<Iprops> = props => {
+const TertiaryButton = (props: Iprops) => {
   return (
     <TouchableOpacity onPress={props.onPress} style={styles.container}>
       <Text style={styles.text}>{props.text}</Text>

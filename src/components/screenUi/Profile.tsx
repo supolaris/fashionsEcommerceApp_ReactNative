@@ -27,12 +27,18 @@ import TertiaryHeader from '../common/Headers/TertiaryHeader';
 interface Iprops {
   onPersonalDetailsPressed: () => void;
   onShippingAddressPressed: () => void;
+  onBackArrowPressed: () => void;
+  onCartIconPressed: () => void;
 }
 
-const Profile: FC<Iprops> = props => {
+const Profile = (props: Iprops) => {
   return (
     <ScrollView style={styles.container}>
-      <TertiaryHeader showSettingIcon={true} />
+      <TertiaryHeader
+        onBackArrowPressed={props.onBackArrowPressed}
+        onCartIconPressed={props.onCartIconPressed}
+        showSettingIcon={true}
+      />
       <View style={styles.pictureNameEmailView}>
         <View style={styles.imageView}>
           <Image

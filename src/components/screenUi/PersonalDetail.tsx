@@ -41,7 +41,7 @@ interface Iprops {
   onLogOutPressed: () => void;
 }
 
-const PersonalDetail: FC<Iprops> = props => {
+const PersonalDetail = (props: Iprops) => {
   return (
     <>
       <StatusBar barStyle="dark-content" backgroundColor={AppColors.White} />

@@ -11,7 +11,7 @@ interface Iprops {
   text: string;
 }
 
-const CheckOutButton: FC<Iprops> = props => {
+const CheckOutButton = (props: Iprops) => {
   return (
     <TouchableOpacity style={styles.container} onPress={props.onPress}>
       <Text style={styles.text}>{props.text}</Text>

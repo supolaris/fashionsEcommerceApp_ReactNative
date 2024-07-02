@@ -10,7 +10,7 @@ interface Iprops {
   text: string;
 }
 
-const ProfileDetailTitleIcon: FC<Iprops> = props => {
+const ProfileDetailTitleIcon = (props: Iprops) => {
   return (
     <View style={styles.container}>
       <SecondaryTitle text={props.text} />

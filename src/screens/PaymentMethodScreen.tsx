@@ -4,11 +4,13 @@ import PaymentMethod from '../components/screenUi/PaymentMethod';
 
 import {useAppNavigation} from '../@types/AppNavigation';
 
+import {InterfacePaymentMethodsData} from '../@types/AppTyping';
+
 const PaymentMethodScreen = () => {
   const navigation = useAppNavigation();
   const [selectePaymentMethod, setSelectedPaymentMethod] = useState(0);
 
-  const onPaymentMethodPressed = (item: any) => {
+  const onPaymentMethodPressed = (item: InterfacePaymentMethodsData) => {
     setSelectedPaymentMethod(item.id);
   };
 

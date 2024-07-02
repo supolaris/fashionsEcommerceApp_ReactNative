@@ -20,7 +20,7 @@ interface Iprops {
   buttonText: string;
 }
 
-const PrimaryModal: FC<Iprops> = props => {
+const PrimaryModal = (props: Iprops) => {
   return (
     <Modal
       animationType={props.animationType}

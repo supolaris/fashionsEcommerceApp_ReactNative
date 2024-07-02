@@ -9,7 +9,7 @@ interface Iprops {
   onPress: () => void;
 }
 
-const StartupButton: FC<Iprops> = props => {
+const StartupButton = (props: Iprops) => {
   return (
     <TouchableOpacity style={styles.container} onPress={props.onPress}>
       <ArrowIcon

@@ -11,7 +11,7 @@ interface Iprops {
   onStartShoppingPressed: () => void;
 }
 
-const RegisterSuccess: FC<Iprops> = props => {
+const RegisterSuccess = (props: Iprops) => {
   return (
     <View style={styles.container}>
       <StatusBar

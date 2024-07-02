@@ -11,7 +11,7 @@ interface Iprops {
   text: string;
 }
 
-const DottedBorderButton: FC<Iprops> = props => {
+const DottedBorderButton = (props: Iprops) => {
   return (
     <TouchableOpacity style={styles.container} onPress={props.onPress}>
       <View style={styles.iconView}>

@@ -21,7 +21,7 @@ interface Iprops {
   onHeaderBackArrowPressed: () => void;
 }
 
-const Review: FC<Iprops> = props => {
+const Review = (props: Iprops) => {
   const renderNotificaton = ({item}: {item: any}) => {
     return (
       <View style={styles.renderContainer}>

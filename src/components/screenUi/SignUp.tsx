@@ -32,14 +32,20 @@ interface Iprops {
   onConfirmPasswordEyeOpenPressed: () => void;
   confirmPasswordsecureTextEntry: boolean;
   confirmPasswordValue: string;
-  confirmPasswordOnChangeText: string;
+  confirmPasswordOnChangeText: () => void;
   toggleCheckBox: boolean;
   onValueChange: () => void;
   onRegisterPressed: () => void;
   onLoginPressed: () => void;
+  passwordPlaceholder: string;
+  confirmPasswordPlaceholder: string;
+  useNamePlaceholder: string;
+  onUserNameEyeOpenPressed: () => void;
+  emailPlaceholder: string;
+  onEmailEyeOpenPressed: () => void;
 }
 
-const SignUp: FC<Iprops> = props => {
+const SignUp = (props: Iprops) => {
   return (
     <ScrollView style={styles.container}>
       <StatusBar
@@ -63,16 +69,27 @@ const SignUp: FC<Iprops> = props => {
       </View>
       <View style={styles.textInputsView}>
         <LoginTextInput
+          placeholder={props.useNamePlaceholder}
+          isOpenEye={false}
+          onEyeOpenPressed={props.onUserNameEyeOpenPressed}
+          secureTextEntry={false}
+          showIcon={false}
           labelText="User Name"
           value={props.usernameValue}
           onChangeText={props.usenameOnChangeText}
         />
         <LoginTextInput
+          placeholder={props.emailPlaceholder}
+          isOpenEye={false}
+          onEyeOpenPressed={props.onEmailEyeOpenPressed}
+          secureTextEntry={false}
+          showIcon={false}
           labelText="Email"
           value={props.emailValue}
           onChangeText={props.emailOnChangeText}
         />
         <LoginTextInput
+          placeholder={props.passwordPlaceholder}
           labelText="Password"
           isOpenEye={props.isOpenEye}
           onEyeOpenPressed={props.onEyeOpenPressed}
@@ -82,6 +99,7 @@ const SignUp: FC<Iprops> = props => {
           onChangeText={props.passwordOnChangeText}
         />
         <LoginTextInput
+          placeholder={props.confirmPasswordPlaceholder}
           labelText="Confrim Password"
           isOpenEye={props.isConfirmPasswordOpenEye}
           onEyeOpenPressed={props.onConfirmPasswordEyeOpenPressed}
