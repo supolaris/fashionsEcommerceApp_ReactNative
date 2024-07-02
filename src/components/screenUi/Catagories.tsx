@@ -18,8 +18,10 @@ import PrimaryTextInput from '../common/TextInputs/PrimaryTextInput';
 import {ProductCatagoriesData} from '../../constants/FlatlistData';
 
 interface Iprops {
-  onCatagoryPressed: () => void;
+  onCatagoryPressed: (item: any) => void;
   onHeaderBackArrowPressed: () => void;
+  onSearchValue: string;
+  onSearchChangeText: () => void;
 }
 
 const Catagories: FC<Iprops> = props => {
@@ -47,11 +49,16 @@ const Catagories: FC<Iprops> = props => {
     <ScrollView style={styles.container}>
       <View style={styles.headerView}>
         <PrimaryHeader
+          showSearchIcon={false}
           onHeaderBackArrowPressed={props.onHeaderBackArrowPressed}
         />
       </View>
       <View style={styles.textInputView}>
-        <PrimaryTextInput placeholder="Search Categories" />
+        <PrimaryTextInput
+          placeholder="Search Categories"
+          value={props.onSearchValue}
+          onChangeText={props.onSearchChangeText}
+        />
       </View>
       <View style={styles.flatLisView}>
         <FlatList

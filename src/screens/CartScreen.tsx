@@ -63,7 +63,7 @@ const CartScreen = () => {
 
   return (
     <Cart
-      cartProducts={cartProducts}
+      cartProductsData={cartProducts}
       onMinusIconPressed={onMinusIconPressed}
       onPlusIconPressed={onPlusIconPressed}
       onCheckoutPressed={onCheckoutPressed}

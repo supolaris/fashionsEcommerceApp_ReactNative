@@ -69,7 +69,7 @@ const Home: FC<Iprops> = props => {
         onPress={() => props.onHomeProductPressed(item)}>
         <View style={styles.renderProductImageView}>
           <Image
-            resizeMethod="stretch"
+            resizeMode="stretch"
             source={item.ProductImage}
             style={styles.renderProductImage}
           />

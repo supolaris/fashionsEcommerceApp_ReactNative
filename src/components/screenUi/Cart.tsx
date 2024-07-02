@@ -31,7 +31,7 @@ interface Iprops {
   onPlusIconPressed: (id: number) => void;
   onTrashIconPressed: (id: number) => void;
   onHeaderBackArrowPressed: () => void;
-  cartProducts: string;
+  cartProductsData: string;
   onCheckoutPressed: () => void;
 }
 
@@ -101,7 +101,7 @@ const Cart: FC<Iprops> = props => {
         <View style={styles.cartProductSwipperList}>
           <SwipeListView
             showsVerticalScrollIndicator={false}
-            data={props.cartProducts}
+            data={props.cartProductsData}
             renderItem={renderCartItem}
             renderHiddenItem={renderHiddenFunctionality}
             rightOpenValue={-55}

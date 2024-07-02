@@ -19,6 +19,13 @@ interface Iprops {
   onRequestClose: () => void;
   onBackArrowPressed: () => void;
   onCardSubmitConfirmPressed: () => void;
+  cardValue: string;
+  onCardChangeText: () => void;
+  expValue: string;
+  onExpChangeText: () => void;
+  cvvValue: string;
+  onCvvChangeText: () => void;
+  onCancelButtonPressed: () => void;
 }
 
 const CardDetail: FC<Iprops> = props => {
@@ -58,20 +65,32 @@ const CardDetail: FC<Iprops> = props => {
         <SecondaryTitle text="Card Detail" />
         <View style={styles.textInputsView}>
           <View style={styles.textInputItemView}>
-            <TertiaryTextInput placeholder="Card Number" />
+            <TertiaryTextInput
+              placeholder="Card Number"
+              value={props.cardValue}
+              onChangeText={props.onCardChangeText}
+            />
           </View>
           <View style={styles.textInputItemView}>
-            <TertiaryTextInput placeholder="Exp Date" />
+            <TertiaryTextInput
+              placeholder="Exp Date"
+              value={props.expValue}
+              onChangeText={props.onExpChangeText}
+            />
           </View>
           <View style={styles.textInputItemView}>
-            <TertiaryTextInput placeholder="CVV" />
+            <TertiaryTextInput
+              placeholder="CVV"
+              value={props.cvvValue}
+              onChangeText={props.onCvvChangeText}
+            />
           </View>
         </View>
       </View>
 
       <View style={styles.buttonsView}>
         <View style={styles.cancelButtonView}>
-          <TertiaryButton text="Cancel" />
+          <TertiaryButton text="Cancel" onPress={props.onCancelButtonPressed} />
         </View>
         <View style={styles.confirmButtonView}>
           <SecondaryButton

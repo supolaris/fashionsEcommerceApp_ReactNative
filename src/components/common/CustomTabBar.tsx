@@ -9,7 +9,15 @@ import CartIcon from 'react-native-vector-icons/Entypo';
 import BellIcon from 'react-native-vector-icons/FontAwesome';
 import UserIcon from 'react-native-vector-icons/FontAwesome';
 
-function CustomTabBar({state, descriptors, navigation}) {
+function CustomTabBar({
+  state,
+  descriptors,
+  navigation,
+}: {
+  state: any;
+  descriptors: any;
+  navigation: any;
+}) {
   return (
     <View style={styles.container}>
       {state.routes.map((route, index) => {
