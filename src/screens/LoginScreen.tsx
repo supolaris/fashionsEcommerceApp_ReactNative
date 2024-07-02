@@ -7,8 +7,8 @@ import {useAppNavigation} from '../@types/AppNavigation';
 
 const LoginScreen = () => {
   const navigation = useAppNavigation();
-  const [email, setEmail] = useState<string>();
-  const [password, setPassword] = useState<string>();
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
   const [isEyeOpen, setIsEyeOpen] = useState(false);
 
   const onLoginPressed = () => {

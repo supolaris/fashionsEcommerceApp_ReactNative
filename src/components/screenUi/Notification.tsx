@@ -16,7 +16,11 @@ import SecondaryTitle from '../common/Titles/SecondaryTitle';
 import {NotificationsData} from '../../constants/FlatlistData';
 import {AppFonts} from '../../constants/AppFonts';
 
-const Notification = () => {
+interface Iprops {
+  onHeaderBackArrowPressed: () => void;
+}
+
+const Notification = (props: Iprops) => {
   const renderNotificaton = ({item}: {item: any}) => {
     return (
       <View style={styles.renderContainer}>
@@ -37,7 +41,10 @@ const Notification = () => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.headerView}>
-        <PrimaryHeader showSearchIcon={true} />
+        <PrimaryHeader
+          showSearchIcon={true}
+          onHeaderBackArrowPressed={props.onHeaderBackArrowPressed}
+        />
       </View>
       <View style={styles.titleView}>
         <SecondaryTitle text="Notification" />

@@ -4,6 +4,9 @@ import Home from '../components/screenUi/Home';
 
 import {useAppNavigation} from '../@types/AppNavigation';
 
+import {InterfaceProductTyping} from '../@types/AppTyping';
+import {InterfaceProductCatagories} from '../@types/AppTyping';
+
 const HomeScreen = () => {
   const navigation = useAppNavigation();
   const [selectedCategoryId, setSelectedCategoryId] = useState(0);
@@ -12,7 +15,7 @@ const HomeScreen = () => {
     navigation.navigate('ProductsFilter_Screen');
   };
 
-  const categoryPressed = (item: any) => {
+  const categoryPressed = (item: InterfaceProductCatagories) => {
     setSelectedCategoryId(item.id);
   };
 
@@ -24,7 +27,7 @@ const HomeScreen = () => {
     navigation.navigate('ProfileScreen');
   };
 
-  const onHomeProductPressed = (item: any) => {
+  const onHomeProductPressed = (item: InterfaceProductTyping) => {
     navigation.navigate('ProductDescripton_Screen', {item: item});
   };
 

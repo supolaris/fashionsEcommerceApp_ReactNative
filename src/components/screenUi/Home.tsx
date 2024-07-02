@@ -32,8 +32,8 @@ import {InterfaceProductCatagories} from '../../@types/AppTyping';
 
 interface Iprops {
   selectedCategory: number;
-  categoryPressed: () => void;
-  onHomeProductPressed: () => void;
+  categoryPressed: (item: InterfaceProductCatagories) => void;
+  onHomeProductPressed: (item: InterfaceProductTyping) => void;
   onUserImagePressed: () => void;
   onFilterIconPressed: () => void;
   onViewAllPresses: () => void;

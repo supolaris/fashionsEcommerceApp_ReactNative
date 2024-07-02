@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React from 'react';
 import {
   View,
   Text,
@@ -24,15 +24,17 @@ import {LogBox} from 'react-native';
 
 LogBox.ignoreAllLogs(true);
 
+import {InterfaceSelectCountryData} from '../../@types/AppTyping';
+
 interface Iprops {
   selectedCountry: string;
-  onCountryPressed: () => void;
+  onCountryPressed: (item: InterfaceSelectCountryData) => void;
   countrySearchValue: string;
   countryOnChangeText: () => void;
 }
 
 const SelectCountry = (props: Iprops) => {
-  const renderSelectCountry = ({item}: {item: any}) => {
+  const renderSelectCountry = ({item}: {item: InterfaceSelectCountryData}) => {
     return (
       <TouchableOpacity
         style={[

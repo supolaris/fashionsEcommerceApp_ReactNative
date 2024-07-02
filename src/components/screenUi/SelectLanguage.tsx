@@ -25,16 +25,22 @@ import PrimaryHeader from '../common/Headers/PrimaryHeader';
 
 LogBox.ignoreAllLogs(true);
 
+import {InterfaceSelectLanguageData} from '../../@types/AppTyping';
+
 interface Iprops {
   selectedLanguage: string;
-  onLanguagePressed: () => void;
+  onLanguagePressed: (item: InterfaceSelectLanguageData) => void;
   onHeaderBackArrowPressed: () => void;
   languageValue: string;
   langaugeOnChangeText: () => void;
 }
 
 const SelectLanguage = (props: Iprops) => {
-  const renderSelectLanguage = ({item}: {item: any}) => {
+  const renderSelectLanguage = ({
+    item,
+  }: {
+    item: InterfaceSelectLanguageData;
+  }) => {
     return (
       <TouchableOpacity
         style={[

@@ -23,10 +23,11 @@ import {PaymentMethodsData} from '../../constants/FlatlistData';
 import {ProductHistoryData} from '../../constants/FlatlistData';
 
 import {InterfacePaymentMethodsData} from '../../@types/AppTyping';
+import {InterfaceProductTyping} from '../../@types/AppTyping';
 
 interface Iprops {
   selectedPaymentMethod: number;
-  onPaymentMethodPressed: () => void;
+  onPaymentMethodPressed: (item: InterfacePaymentMethodsData) => void;
   onHeaderBackArrowPressed: () => void;
   onAddCardPressed: () => void;
 }
@@ -109,6 +110,7 @@ const PaymentMethod = (props: Iprops) => {
     <ScrollView style={styles.container}>
       <View style={styles.headerView}>
         <PrimaryHeader
+          showSearchIcon={false}
           onHeaderBackArrowPressed={props.onHeaderBackArrowPressed}
         />
       </View>

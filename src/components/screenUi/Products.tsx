@@ -21,7 +21,7 @@ import {InterfaceProductTyping} from '../../@types/AppTyping';
 const width = Dimensions.get('window').width;
 
 interface Iprops {
-  onProductPressed: () => void;
+  onProductPressed: (item: InterfaceProductTyping) => void;
   onHeaderBackArrowPressed: () => void;
   categoryName: string;
   flatListProductsData: InterfaceProductTyping;

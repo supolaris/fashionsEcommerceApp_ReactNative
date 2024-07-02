@@ -1,4 +1,4 @@
-import React, {useState, FC} from 'react';
+import React from 'react';
 import {
   View,
   Text,
@@ -18,21 +18,26 @@ import QuaternaryButton from '../common/Buttons/QuaternaryButton';
 import {ProductCatagories} from '../../constants/FlatlistData';
 import {ProductSortByData} from '../../constants/FlatlistData';
 import {RatingStarData} from '../../constants/FlatlistData';
+
 import Star from '../common/Star';
+
+import {InterfaceProductSortByData} from '../../@types/AppTyping';
+import {InterfaceProductCatagories} from '../../@types/AppTyping';
 
 interface Iprops {
   onStarPressed: () => void;
-  selectedCatagory: string;
-  catagoryPressed: () => void;
-  selectedSortBy: string;
-  sortByPressed: () => void;
+  selectedCatagory: number;
+  catagoryPressed: (item: InterfaceProductCatagories) => void;
+  selectedSortBy: number;
+  sortByPressed: (item: InterfaceProductSortByData) => void;
   onHeaderBackArrowPressed: () => void;
   selectedRating: string;
-  onTouchableRadioPressed: () => void;
+  onTouchableRadioPressed: (item: any) => void;
+  onApplyNowPressed: () => void;
 }
 
 const ProductsFilter = (props: Iprops) => {
-  const renderStar: FC<Iprops> = item => {
+  const renderStar = ({item}: {item: any}) => {
     return (
       <View style={styles.starRow}>
         {Array.from({length: item}).map(idx => (
@@ -44,7 +49,7 @@ const ProductsFilter = (props: Iprops) => {
     );
   };
 
-  const renderCatagories = ({item}: {item: any}) => {
+  const renderCatagories = ({item}: {item: InterfaceProductCatagories}) => {
     return (
       <TouchableOpacity
         style={[
@@ -65,7 +70,7 @@ const ProductsFilter = (props: Iprops) => {
     );
   };
 
-  const renderSortBy = ({item}: {item: any}) => {
+  const renderSortBy = ({item}: {item: InterfaceProductSortByData}) => {
     return (
       <TouchableOpacity
         style={[
@@ -121,7 +126,7 @@ const ProductsFilter = (props: Iprops) => {
         <View style={styles.ratingView}>
           <FlatList
             data={RatingStarData}
-            renderItem={({item, index}) => (
+            renderItem={({item, index}: {item: any; index: number}) => (
               <View style={styles.row}>
                 {renderStar(item, index)}
                 <TouchableOpacity
@@ -139,7 +144,7 @@ const ProductsFilter = (props: Iprops) => {
       </View>
 
       <View style={styles.buttonView}>
-        <QuaternaryButton text="Apply Now" />
+        <QuaternaryButton onPress={props.onApplyNowPressed} text="Apply Now" />
       </View>
     </View>
   );

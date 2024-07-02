@@ -8,6 +8,9 @@ const CardDetailScreen = () => {
   const navigation = useAppNavigation();
 
   const [modalVisible, setModalVisible] = useState(false);
+  const [cardValue, setCardValue] = useState('');
+  const [expValue, setExpValue] = useState('');
+  const [cvvValue, setCvvValue] = useState('');
 
   const onBackArrowPressed = () => {
     navigation.goBack();
@@ -24,6 +27,11 @@ const CardDetailScreen = () => {
   const onCardSubmitConfirmPressed = () => {
     setModalVisible(true);
   };
+
+  const onCancelButtonPressed = () => {
+    console.log('onCancelButtonPressed');
+  };
+
   return (
     <CardDetail
       onBackArrowPressed={onBackArrowPressed}
@@ -31,6 +39,13 @@ const CardDetailScreen = () => {
       onRequestClose={onRequestClose}
       onModalButtonPressed={onModalButtonPressed}
       onCardSubmitConfirmPressed={onCardSubmitConfirmPressed}
+      cardValue={cardValue}
+      onCardChangeText={setCardValue}
+      expValue={expValue}
+      onExpChangeText={setExpValue}
+      cvvValue={cvvValue}
+      onCvvChangeText={setCvvValue}
+      onCancelButtonPressed={onCancelButtonPressed}
     />
   );
 };

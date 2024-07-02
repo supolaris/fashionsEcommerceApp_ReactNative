@@ -18,11 +18,18 @@ import SecondaryTitle from '../common/Titles/SecondaryTitle';
 
 import SendIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const ProductTracking = () => {
+interface Iprops {
+  onHeaderBackArrowPressed: () => void;
+}
+
+const ProductTracking = (props: Iprops) => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.headerView}>
-        <PrimaryHeader />
+        <PrimaryHeader
+          onHeaderBackArrowPressed={props.onHeaderBackArrowPressed}
+          showSearchIcon={false}
+        />
       </View>
       <View style={styles.productCodeTitleView}>
         <PrimaryTitle text="US 2343445668" />

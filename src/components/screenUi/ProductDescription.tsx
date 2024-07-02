@@ -26,6 +26,8 @@ import SecondaryHeader from '../common/Headers/SecondaryHeader';
 import Star from '../common/Star';
 
 import {ProductSizeData} from '../../constants/FlatlistData';
+import {InterfaceProductSizeData} from '../../@types/AppTyping';
+import {InterfaceProductTyping} from '../../@types/AppTyping';
 
 const height = Dimensions.get('window').height;
 
@@ -34,14 +36,14 @@ interface Iprops {
   selectedProductSize: number;
   onBackArrowPressed: () => void;
   onCartIconPressed: () => void;
-  onMinusIconPressed: () => void;
-  onPlusIconPressed: () => void;
+  onMinusIconPressed: (item: InterfaceProductTyping) => void;
+  onPlusIconPressed: (item: InterfaceProductTyping) => void;
   onReviewPressed: () => void;
   onAddToCartPressed: () => void;
 }
 
 const ProductDescription: FC<Iprops> = ({item, ...props}) => {
-  const renderProductSize = ({item}: {item: any}) => {
+  const renderProductSize = ({item}: {item: InterfaceProductSizeData}) => {
     return (
       <TouchableOpacity
         onPress={() => props.onProductSizePressed(item.id)}

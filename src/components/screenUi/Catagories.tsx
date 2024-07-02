@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React from 'react';
 import {
   View,
   Text,
@@ -16,6 +16,7 @@ import PrimaryHeader from '../common/Headers/PrimaryHeader';
 import PrimaryTextInput from '../common/TextInputs/PrimaryTextInput';
 
 import {ProductCatagoriesData} from '../../constants/FlatlistData';
+import {InterfaceProductCatagoriesData} from '../../@types/AppTyping';
 
 interface Iprops {
   onCatagoryPressed: (item: any) => void;
@@ -25,7 +26,7 @@ interface Iprops {
 }
 
 const Catagories = (props: Iprops) => {
-  const renderCatagories = ({item}: {item: any}) => {
+  const renderCatagories = ({item}: {item: InterfaceProductCatagoriesData}) => {
     return (
       <TouchableOpacity
         onPress={() => props.onCatagoryPressed(item)}
