@@ -12,7 +12,7 @@ const Tab = createBottomTabNavigator();
 function BottomNav() {
   return (
     <Tab.Navigator
-      tabBar={props => <CustomTabBar {...props} />}
+      tabBar={(props: any) => <CustomTabBar {...props} />}
       screenOptions={{
         headerShown: false,
       }}>
