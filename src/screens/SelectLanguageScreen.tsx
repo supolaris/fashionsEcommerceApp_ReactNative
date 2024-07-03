@@ -7,7 +7,7 @@ import {useAppNavigation} from '../@types/AppNavigation';
 const SelectLanguageScreen = () => {
   const navigaiton = useAppNavigation();
   const [selectedLanguage, setSelectedLanguage] = useState('');
-  const [languageValue, setLanguageValue] = useState('');
+  const [languageValue, setLanguageValue] = useState<string>('');
 
   const onLanguagePressed = (item: any) => {
     setSelectedLanguage(item.LanguageName);
@@ -17,13 +17,17 @@ const SelectLanguageScreen = () => {
     navigaiton.goBack();
   };
 
+  const onLangaugeOnChangeText = (val: string) => {
+    setLanguageValue(val);
+  };
+
   return (
     <SelectLanguage
       selectedLanguage={selectedLanguage}
       onLanguagePressed={onLanguagePressed}
       onHeaderBackArrowPressed={onHeaderBackArrowPressed}
       languageValue={languageValue}
-      langaugeOnChangeText={setLanguageValue}
+      onLangaugeOnChangeText={onLangaugeOnChangeText}
     />
   );
 };

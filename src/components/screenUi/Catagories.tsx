@@ -22,7 +22,7 @@ interface Iprops {
   onCatagoryPressed: (item: any) => void;
   onHeaderBackArrowPressed: () => void;
   onSearchValue: string;
-  onSearchChangeText: () => void;
+  onSearchChangeText: (val: any) => void;
 }
 
 const Catagories = (props: Iprops) => {
@@ -58,7 +58,7 @@ const Catagories = (props: Iprops) => {
         <PrimaryTextInput
           placeholder="Search Categories"
           value={props.onSearchValue}
-          onChangeText={props.onSearchChangeText}
+          onChangeText={(val: any) => props.onSearchChangeText(val)}
         />
       </View>
       <View style={styles.flatLisView}>

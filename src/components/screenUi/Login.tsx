@@ -21,16 +21,16 @@ import AppleButton from '../common/Buttons/SocialButtons/AppleButton';
 
 interface Iprops {
   emailValue: string;
-  emailOnChangeText: () => void;
   secureTextEntry: boolean;
   passwordValue: string;
   isOpenEye: boolean;
-  onEyeOpenPressed: () => void;
-  passwordOnChangeText: () => void;
-  onLoginPressed: () => void;
-  onSignUpPressed: () => void;
   emailPlaceholder: string;
   emailSecureTextEntry: boolean;
+  passwordOnChangeText: (val: any) => void;
+  emailOnChangeText: (val: any) => void;
+  onEyeOpenPressed: () => void;
+  onLoginPressed: () => void;
+  onSignUpPressed: () => void;
   onFacebookButtonPressed: () => void;
   onGoogleButtonPressed: () => void;
   onApplebuttonPressed: () => void;
@@ -67,7 +67,7 @@ const Login = (props: Iprops) => {
           onEyeOpenPressed={props.onEyeOpenPressed}
           labelText="Email"
           value={props.emailValue}
-          onChangeText={props.emailOnChangeText}
+          onChangeText={(val: any) => props.emailOnChangeText(val)}
         />
         <LoginTextInput
           placeholder={props.emailPlaceholder}
@@ -77,7 +77,7 @@ const Login = (props: Iprops) => {
           value={props.passwordValue}
           isOpenEye={props.isOpenEye}
           onEyeOpenPressed={props.onEyeOpenPressed}
-          onChangeText={props.passwordOnChangeText}
+          onChangeText={(val: any) => props.passwordOnChangeText(val)}
         />
       </View>
       <View style={styles.loginButtonView}>

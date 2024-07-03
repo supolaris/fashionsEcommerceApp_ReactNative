@@ -25,6 +25,14 @@ const LoginScreen = () => {
     }
   };
 
+  const emailOnChangeText = (val: any) => {
+    setEmail(val);
+  };
+
+  const passwordOnChangeText = (val: any) => {
+    setPassword(val);
+  };
+
   const onSignUpPressed = () => {
     navigation.navigate('SignUp_Screen');
   };
@@ -33,17 +41,32 @@ const LoginScreen = () => {
     setIsEyeOpen(!isEyeOpen);
   };
 
+  const onFacebookButtonPressed = () => {
+    console.log('onApplebuttonPressed');
+  };
+  const onGoogleButtonPressed = () => {
+    console.log('onApplebuttonPressed');
+  };
+  const onApplebuttonPressed = () => {
+    console.log('onApplebuttonPressed');
+  };
+
   return (
     <Login
+      emailPlaceholder=""
+      emailSecureTextEntry={false}
       emailValue={email}
-      emailOnChangeText={setEmail}
+      emailOnChangeText={emailOnChangeText}
       passwordValue={password}
-      passwordOnChangeText={setPassword}
+      passwordOnChangeText={passwordOnChangeText}
       onLoginPressed={onLoginPressed}
       onSignUpPressed={onSignUpPressed}
       isOpenEye={isEyeOpen}
       onEyeOpenPressed={onEyeOpenPressed}
       secureTextEntry={isEyeOpen}
+      onFacebookButtonPressed={onFacebookButtonPressed}
+      onGoogleButtonPressed={onGoogleButtonPressed}
+      onApplebuttonPressed={onApplebuttonPressed}
     />
   );
 };

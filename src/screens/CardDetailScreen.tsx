@@ -32,6 +32,18 @@ const CardDetailScreen = () => {
     console.log('onCancelButtonPressed');
   };
 
+  const onCardChangeText = (val: any) => {
+    setCardValue(val);
+  };
+
+  const onExpChangeText = (val: any) => {
+    setExpValue(val);
+  };
+
+  const onCvvChangeText = (val: any) => {
+    setCvvValue(val);
+  };
+
   return (
     <CardDetail
       onBackArrowPressed={onBackArrowPressed}
@@ -41,13 +53,13 @@ const CardDetailScreen = () => {
       onCardSubmitConfirmPressed={onCardSubmitConfirmPressed}
       //card
       cardValue={cardValue}
-      onCardChangeText={setCardValue}
-      cardNumberInput={cardValue}
+      onCardChangeText={onCardChangeText}
+      //cardNumberInput={cardValue}
       //exp
       expValue={expValue}
-      onExpChangeText={setExpValue}
+      onExpChangeText={onExpChangeText}
       cvvValue={cvvValue}
-      onCvvChangeText={setCvvValue}
+      onCvvChangeText={onCvvChangeText}
       onCancelButtonPressed={onCancelButtonPressed}
     />
   );

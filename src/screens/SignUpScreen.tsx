@@ -55,20 +55,46 @@ const SignUpScreen = () => {
     setIsConfirmPasswordOpenEye(!isConfirmPasswordOpenEye);
   };
 
+  const usenameOnChangeText = (val: any) => {
+    setUsername(val);
+  };
+  const emailOnChangeText = (val: any) => {
+    setEmail(val);
+  };
+  const passwordOnChangeText = (val: any) => {
+    setPassword(val);
+  };
+  const confirmPasswordOnChangeText = (val: any) => {
+    setConfirmPassword(val);
+  };
+
+  const onEmailEyeOpenPressed = () => {
+    console.log('onEmailEyeOpenPressed');
+  };
+
+  const onUserNameEyeOpenPressed = () => {
+    console.log('onUserNameEyeOpenPressed');
+  };
   return (
     <SignUp
+      passwordPlaceholder=""
+      confirmPasswordPlaceholder=""
+      useNamePlaceholder=""
+      emailPlaceholder=""
+      onEmailEyeOpenPressed={onEmailEyeOpenPressed}
+      onUserNameEyeOpenPressed={onUserNameEyeOpenPressed}
       //username
       usernameValue={usename}
-      usenameOnChangeText={setUsername}
+      usenameOnChangeText={usenameOnChangeText}
       //email
       emailValue={email}
-      emailOnChangeText={setEmail}
+      emailOnChangeText={emailOnChangeText}
       //password
       passwordValue={password}
-      passwordOnChangeText={setPassword}
+      passwordOnChangeText={passwordOnChangeText}
       //confirm password
       confirmPasswordValue={confirmPassword}
-      confirmPasswordOnChangeText={setConfirmPassword}
+      confirmPasswordOnChangeText={confirmPasswordOnChangeText}
       //checkbox
       toggleCheckBox={toggleCheckBox}
       onValueChange={(value: boolean) => setToggleCheckBox(value)}

@@ -30,7 +30,7 @@ interface Iprops {
   selectedCountry: string;
   onCountryPressed: (item: InterfaceSelectCountryData) => void;
   countrySearchValue: string;
-  countryOnChangeText: () => void;
+  countryOnChangeText: (val: string) => void;
 }
 
 const SelectCountry = (props: Iprops) => {
@@ -87,7 +87,7 @@ const SelectCountry = (props: Iprops) => {
         <PrimaryTextInput
           placeholder="Search Country"
           value={props.countrySearchValue}
-          onChangeText={props.countryOnChangeText}
+          onChangeText={(val: string) => props.countryOnChangeText(val)}
         />
       </View>
       <View style={styles.titleView}>

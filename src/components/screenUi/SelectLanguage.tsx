@@ -32,7 +32,7 @@ interface Iprops {
   onLanguagePressed: (item: InterfaceSelectLanguageData) => void;
   onHeaderBackArrowPressed: () => void;
   languageValue: string;
-  langaugeOnChangeText: () => void;
+  onLangaugeOnChangeText: (val: string) => void;
 }
 
 const SelectLanguage = (props: Iprops) => {
@@ -97,7 +97,7 @@ const SelectLanguage = (props: Iprops) => {
         <PrimaryTextInput
           placeholder="Search Language"
           value={props.languageValue}
-          onChangeText={props.langaugeOnChangeText}
+          onChangeText={(val: string) => props.onLangaugeOnChangeText(val)}
         />
       </View>
       <View style={styles.titleView}>

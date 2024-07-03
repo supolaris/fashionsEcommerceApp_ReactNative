@@ -20,28 +20,28 @@ import CheckBox from '@react-native-community/checkbox';
 
 interface Iprops {
   usernameValue: string;
-  usenameOnChangeText: () => void;
   emailValue: string;
-  emailOnChangeText: () => void;
   isOpenEye: boolean;
-  onEyeOpenPressed: () => void;
   secureTextEntry: boolean;
   passwordValue: string;
-  passwordOnChangeText: () => void;
   isConfirmPasswordOpenEye: boolean;
-  onConfirmPasswordEyeOpenPressed: () => void;
-  confirmPasswordsecureTextEntry: boolean;
-  confirmPasswordValue: string;
-  confirmPasswordOnChangeText: () => void;
-  toggleCheckBox: boolean;
-  onValueChange: () => void;
-  onRegisterPressed: () => void;
-  onLoginPressed: () => void;
   passwordPlaceholder: string;
   confirmPasswordPlaceholder: string;
   useNamePlaceholder: string;
-  onUserNameEyeOpenPressed: () => void;
+  confirmPasswordsecureTextEntry: boolean;
+  confirmPasswordValue: string;
   emailPlaceholder: string;
+  toggleCheckBox: boolean;
+  onConfirmPasswordEyeOpenPressed: () => void;
+  usenameOnChangeText: (val: any) => void;
+  emailOnChangeText: (val: any) => void;
+  passwordOnChangeText: (val: any) => void;
+  confirmPasswordOnChangeText: (val: any) => void;
+  onEyeOpenPressed: () => void;
+  onValueChange: (value: boolean) => void;
+  onRegisterPressed: () => void;
+  onLoginPressed: () => void;
+  onUserNameEyeOpenPressed: () => void;
   onEmailEyeOpenPressed: () => void;
 }
 
@@ -76,7 +76,7 @@ const SignUp = (props: Iprops) => {
           showIcon={false}
           labelText="User Name"
           value={props.usernameValue}
-          onChangeText={props.usenameOnChangeText}
+          onChangeText={(val: any) => props.usenameOnChangeText(val)}
         />
         <LoginTextInput
           placeholder={props.emailPlaceholder}
@@ -86,7 +86,7 @@ const SignUp = (props: Iprops) => {
           showIcon={false}
           labelText="Email"
           value={props.emailValue}
-          onChangeText={props.emailOnChangeText}
+          onChangeText={(val: any) => props.emailOnChangeText(val)}
         />
         <LoginTextInput
           placeholder={props.passwordPlaceholder}
@@ -96,7 +96,7 @@ const SignUp = (props: Iprops) => {
           secureTextEntry={props.secureTextEntry}
           showIcon={true}
           value={props.passwordValue}
-          onChangeText={props.passwordOnChangeText}
+          onChangeText={(val: any) => props.passwordOnChangeText(val)}
         />
         <LoginTextInput
           placeholder={props.confirmPasswordPlaceholder}
@@ -106,7 +106,7 @@ const SignUp = (props: Iprops) => {
           secureTextEntry={props.confirmPasswordsecureTextEntry}
           showIcon={true}
           value={props.confirmPasswordValue}
-          onChangeText={props.confirmPasswordOnChangeText}
+          onChangeText={(val: any) => props.confirmPasswordOnChangeText(val)}
         />
       </View>
 

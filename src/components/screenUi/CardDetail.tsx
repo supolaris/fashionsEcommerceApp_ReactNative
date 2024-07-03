@@ -20,11 +20,11 @@ interface Iprops {
   onBackArrowPressed: () => void;
   onCardSubmitConfirmPressed: () => void;
   cardValue: string;
-  onCardChangeText: () => void;
+  onCardChangeText: (val: any) => void;
   expValue: string;
-  onExpChangeText: () => void;
+  onExpChangeText: (val: any) => void;
   cvvValue: string;
-  onCvvChangeText: () => void;
+  onCvvChangeText: (val: any) => void;
   onCancelButtonPressed: () => void;
 }
 
@@ -68,21 +68,21 @@ const CardDetail = (props: Iprops) => {
             <TertiaryTextInput
               placeholder="Card Number"
               value={props.cardValue}
-              onChangeText={props.onCardChangeText}
+              onChangeText={(val: any) => props.onCardChangeText(val)}
             />
           </View>
           <View style={styles.textInputItemView}>
             <TertiaryTextInput
               placeholder="Exp Date"
               value={props.expValue}
-              onChangeText={props.onExpChangeText}
+              onChangeText={(val: any) => props.onExpChangeText(val)}
             />
           </View>
           <View style={styles.textInputItemView}>
             <TertiaryTextInput
               placeholder="CVV"
               value={props.cvvValue}
-              onChangeText={props.onCvvChangeText}
+              onChangeText={(val: any) => props.onCvvChangeText(val)}
             />
           </View>
         </View>

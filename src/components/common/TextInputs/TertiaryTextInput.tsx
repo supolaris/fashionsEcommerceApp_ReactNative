@@ -5,7 +5,7 @@ import {AppColors} from '../../../constants/AppColors';
 interface Iprops {
   placeholder: string;
   value: string;
-  onChangeText: () => void;
+  onChangeText: (val: any) => void;
 }
 
 const TertiaryTextInput = (props: Iprops) => {

@@ -18,7 +18,7 @@ interface Iprops {
   placeholder: string;
   secureTextEntry: boolean;
   value: string;
-  onChangeText: () => void;
+  onChangeText: (val: any) => void;
   showIcon: boolean;
   isOpenEye: boolean;
   onEyeOpenPressed: () => void;

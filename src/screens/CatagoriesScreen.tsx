@@ -17,12 +17,16 @@ const CatagoriesScreen = () => {
   const onCatagoryPressed = (item: InterfaceProductCatagoriesData) => {
     navigation.navigate('Products_Screen', {item: item});
   };
+
+  const onSearchChangeText = (val: any) => {
+    setSearchValue(val);
+  };
   return (
     <Catagories
       onHeaderBackArrowPressed={onHeaderBackArrowPressed}
       onCatagoryPressed={onCatagoryPressed}
       onSearchValue={searchValue}
-      onSearchChangeText={setSearchValue}
+      onSearchChangeText={onSearchChangeText}
     />
   );
 };
