@@ -51,3 +51,8 @@ export interface InterfaceProductSizeData {
   id: number;
   SizeName: string;
 }
+
+export interface InterfaceRatingStarData {
+  id: number;
+  ratingNumber: number;
+}

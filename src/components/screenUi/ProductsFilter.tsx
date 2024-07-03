@@ -21,36 +21,27 @@ import {RatingStarData} from '../../constants/FlatlistData';
 
 import Star from '../common/Star';
 
+import TickIcon from 'react-native-vector-icons/MaterialIcons';
+import CircleIcon from 'react-native-vector-icons/Entypo';
+
 import {InterfaceProductSortByData} from '../../@types/AppTyping';
 import {InterfaceProductCatagories} from '../../@types/AppTyping';
+import {InterfaceRatingStarData} from '../../@types/AppTyping';
 
 import {StarRatingDisplay} from 'react-native-star-rating-widget';
 
 interface Iprops {
-  onStarPressed: (item: any) => void;
   selectedCatagory: number;
   catagoryPressed: (item: InterfaceProductCatagories) => void;
   selectedSortBy: number;
   sortByPressed: (item: InterfaceProductSortByData) => void;
   onHeaderBackArrowPressed: () => void;
-  selectedRating: string;
-  onTouchableRadioPressed: (item: any) => void;
+  selectedRating: number;
   onApplyNowPressed: () => void;
+  onSeletedRatingPressed: (item: InterfaceRatingStarData) => void;
 }
 
 const ProductsFilter = (props: Iprops) => {
-  const renderStar = ({item}: {item: any}, index: number) => {
-    return (
-      <View style={styles.starRow}>
-        {Array.from({length: item}).map(idx => (
-          <Pressable key={idx} onPress={() => props.onStarPressed(item)}>
-            <Star />
-          </Pressable>
-        ))}
-      </View>
-    );
-  };
-
   const renderCatagories = ({item}: {item: InterfaceProductCatagories}) => {
     return (
       <TouchableOpacity
@@ -93,6 +84,35 @@ const ProductsFilter = (props: Iprops) => {
     );
   };
 
+  const renderRatingStars = ({item}: {item: InterfaceRatingStarData}) => {
+    return (
+      <TouchableOpacity
+        style={styles.renderRatingStarIconView}
+        onPress={() => props.onSeletedRatingPressed(item)}>
+        <View style={styles.renderStarView}>
+          <StarRatingDisplay rating={item.ratingNumber} />
+        </View>
+        <View style={styles.iconView}>
+          {props.selectedRating === item.id ? (
+            <TickIcon
+              style={styles.doneIcon}
+              name="done"
+              size={20}
+              color={AppColors.White}
+            />
+          ) : (
+            <CircleIcon
+              style={styles.doneIcon}
+              name="circle"
+              size={20}
+              color={AppColors.Black}
+            />
+          )}
+        </View>
+      </TouchableOpacity>
+    );
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.detailsView}>
@@ -110,10 +130,6 @@ const ProductsFilter = (props: Iprops) => {
             renderItem={renderCatagories}
             keyExtractor={item => item.id.toString()}
           />
-        </View>
-        <View>
-          <Text style={{fontSize: 30, color: 'white'}}>hello world</Text>
-          <StarRatingDisplay rating={3} />
         </View>
 
         <View style={styles.sortByTitle}>
@@ -133,18 +149,7 @@ const ProductsFilter = (props: Iprops) => {
         <View style={styles.ratingView}>
           <FlatList
             data={RatingStarData}
-            renderItem={({item, index}: {item: any; index: number}) => (
-              <View style={styles.row}>
-                {renderStar(item, index)}
-                <TouchableOpacity
-                  style={[
-                    styles.radio,
-                    props.selectedRating === item && styles.selectedRadio,
-                  ]}
-                  onPress={() => props.onTouchableRadioPressed(item)}
-                />
-              </View>
-            )}
+            renderItem={renderRatingStars}
             keyExtractor={(item, index) => index.toString()}
           />
         </View>
@@ -203,6 +208,21 @@ const styles = StyleSheet.create({
   renderSelectedSortByText: {
     color: AppColors.White,
   },
+
+  //render stars
+  renderRatingStarIconView: {
+    marginBottom: 3,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  renderStarView: {},
+  iconView: {
+    padding: 2,
+    borderRadius: 100,
+    backgroundColor: AppColors.Black,
+  },
+  doneIcon: {},
 
   //main
   container: {

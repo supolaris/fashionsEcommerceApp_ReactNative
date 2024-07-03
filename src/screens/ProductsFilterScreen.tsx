@@ -9,7 +9,7 @@ const ProductsFilterScreen = () => {
   const [selectedCatagoryId, setSelectedCatagoryId] = useState(0);
   const [selectedSortById, setSelectedSortById] = useState(0);
 
-  const [selectedRating, setSelectedRating] = useState('');
+  const [selecteRating, setSelectedRating] = useState(0);
 
   const onHeaderBackArrowPressed = () => {
     navigation.goBack();
@@ -23,28 +23,23 @@ const ProductsFilterScreen = () => {
     setSelectedSortById(item.id);
   };
 
-  const onStarPressed = (item: any) => {
-    setSelectedRating(item);
-  };
-
-  const onTouchableRadioPressed = (item: any) => {
-    setSelectedRating(item);
-  };
-
   const onApplyNowPressed = () => {
     console.log('Apply Now Pressed');
   };
 
+  const onSeletedRatingPressed = (item: any) => {
+    setSelectedRating(item.id);
+  };
+
   return (
     <ProductsFilter
+      onSeletedRatingPressed={onSeletedRatingPressed}
+      selectedRating={selecteRating}
       selectedCatagory={selectedCatagoryId}
       catagoryPressed={catagoryPressed}
       selectedSortBy={selectedSortById}
       sortByPressed={sortByPressed}
       onHeaderBackArrowPressed={onHeaderBackArrowPressed}
-      selectedRating={selectedRating}
-      onTouchableRadioPressed={onTouchableRadioPressed}
-      onStarPressed={onStarPressed}
       onApplyNowPressed={onApplyNowPressed}
     />
   );

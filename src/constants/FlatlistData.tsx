@@ -619,7 +619,24 @@ export const ProductColorsData = [
   },
 ];
 
-export const RatingStarData: number[] = [5, 4, 3, 2, 1];
+export const RatingStarData = [
+  {
+    id: 1,
+    ratingNumber: 5,
+  },
+  {
+    id: 2,
+    ratingNumber: 4,
+  },
+  {
+    id: 3,
+    ratingNumber: 3,
+  },
+  {
+    id: 4,
+    ratingNumber: 2,
+  },
+];
 
 export const PaymentMethodsData = [
   {
