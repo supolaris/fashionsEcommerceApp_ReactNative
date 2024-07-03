@@ -53,6 +53,6 @@ export interface InterfaceProductSizeData {
 }
 
 export interface InterfaceRatingStarData {
-  id: number;
-  ratingNumber: number;
+  id: 1;
+  ratingNumber: 5;
 }

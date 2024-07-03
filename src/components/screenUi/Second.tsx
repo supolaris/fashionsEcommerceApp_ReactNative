@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React from 'react';
 import {View, StyleSheet, ImageBackground, StatusBar} from 'react-native';
 
 import QuaternaryButtonWhite from '../common/Buttons/QuaternaryButtonWhite';

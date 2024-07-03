@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React from 'react';
 import {View, StyleSheet, Image, StatusBar} from 'react-native';
 
 import PrimaryTitle from '../common/Titles/PrimaryTitle';

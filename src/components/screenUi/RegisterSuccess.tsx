@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React from 'react';
 import {View, Text, StyleSheet, Image, StatusBar} from 'react-native';
 
 import {AppColors} from '../../constants/AppColors';
