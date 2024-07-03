@@ -73,7 +73,11 @@ const Cart = (props: Iprops) => {
     );
   };
 
-  const renderHiddenFunctionality = ({item}: {item: any}) => {
+  const renderHiddenFunctionality = ({
+    item,
+  }: {
+    item: InterfaceProductTyping;
+  }) => {
     return (
       <TouchableOpacity
         style={styles.renderRowBack}
@@ -107,7 +111,9 @@ const Cart = (props: Iprops) => {
             renderItem={renderCartItem}
             renderHiddenItem={renderHiddenFunctionality}
             rightOpenValue={-55}
-            keyExtractor={(item, index) => index.toString()}
+            keyExtractor={(item: InterfaceProductTyping, index: number) =>
+              index.toString()
+            }
           />
         </View>
       </View>
