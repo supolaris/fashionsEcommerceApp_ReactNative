@@ -81,3 +81,17 @@ yarn add @react-native-async-storage/async-storage
 ```bash
 npm install --save react-native-swipe-list-view
 ```
+
+# Star Rating Widget
+
+```bash
+yarn add react-native-star-rating-widget
+```
+
+(Required)
+
+## Svg
+
+```bash
+yarn add react-native-svg
+```

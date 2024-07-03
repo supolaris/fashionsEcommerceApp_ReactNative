@@ -24,6 +24,8 @@ import Star from '../common/Star';
 import {InterfaceProductSortByData} from '../../@types/AppTyping';
 import {InterfaceProductCatagories} from '../../@types/AppTyping';
 
+import {StarRatingDisplay} from 'react-native-star-rating-widget';
+
 interface Iprops {
   onStarPressed: (item: any) => void;
   selectedCatagory: number;
@@ -109,6 +111,11 @@ const ProductsFilter = (props: Iprops) => {
             keyExtractor={item => item.id.toString()}
           />
         </View>
+        <View>
+          <Text style={{fontSize: 30, color: 'white'}}>hello world</Text>
+          <StarRatingDisplay rating={3} />
+        </View>
+
         <View style={styles.sortByTitle}>
           <SecondaryTitle text="Sort by" />
         </View>
