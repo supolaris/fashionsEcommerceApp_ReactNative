@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -31,19 +31,21 @@ import {InterfaceProductTyping} from '../../@types/AppTyping';
 import {InterfaceProductCatagories} from '../../@types/AppTyping';
 
 interface Iprops {
+  // text: string;
   selectedCategory: number;
-  categoryPressed: (item: InterfaceProductCatagories) => void;
-  onHomeProductPressed: (item: InterfaceProductTyping) => void;
+  searchValue: string;
   onUserImagePressed: () => void;
   onFilterIconPressed: () => void;
   onViewAllPresses: () => void;
-  searchValue: string;
-  searchOnChangeText: (text: string) => void;
+  //searchOnChangeText: (text: string) => void;
+  onSearchChangeText: (text: any) => void;
   onHeaderBackArrowPressed: () => void;
-  textt: string;
+  categoryPressed: (item: InterfaceProductCatagories) => void;
+  onHomeProductPressed: (item: InterfaceProductTyping) => void;
 }
 
 const Home = (props: Iprops) => {
+  const [searchVal, setSearchVal] = useState('');
   const renderCategories = ({item}: {item: InterfaceProductCatagories}) => {
     return (
       <TouchableOpacity
@@ -103,7 +105,7 @@ const Home = (props: Iprops) => {
         <View style={styles.textInputView}>
           <PrimaryTextInput
             value={props.searchValue}
-            onChangeText={() => props.searchOnChangeText(props.textt)}
+            onChangeText={(val: any) => props.onSearchChangeText(val)}
             placeholder="Search"
           />
         </View>

@@ -39,8 +39,11 @@ const CardDetailScreen = () => {
       onRequestClose={onRequestClose}
       onModalButtonPressed={onModalButtonPressed}
       onCardSubmitConfirmPressed={onCardSubmitConfirmPressed}
+      //card
       cardValue={cardValue}
       onCardChangeText={setCardValue}
+      cardNumberInput={cardValue}
+      //exp
       expValue={expValue}
       onExpChangeText={setExpValue}
       cvvValue={cvvValue}

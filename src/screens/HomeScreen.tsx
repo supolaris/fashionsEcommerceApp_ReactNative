@@ -33,7 +33,8 @@ const HomeScreen = () => {
   };
 
   const onHeaderBackArrowPressed = () => {};
-  const searchOnChangeText = (text: string) => {
+
+  const onSearchChangeText = (text: any) => {
     setSearchValue(text);
   };
 
@@ -44,9 +45,10 @@ const HomeScreen = () => {
       onHomeProductPressed={onHomeProductPressed}
       onHeaderBackArrowPressed={onHeaderBackArrowPressed}
       onUserImagePressed={onUserImagePressed}
+      //search textinput
       searchValue={searchValue}
-      searchOnChangeText={searchOnChangeText}
-      textt={searchValue}
+      onSearchChangeText={onSearchChangeText}
+      //
       onFilterIconPressed={onFilterIconPressed}
       onViewAllPresses={onViewAllPresses}
     />

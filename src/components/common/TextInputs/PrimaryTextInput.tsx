@@ -8,7 +8,7 @@ import SearchIcon from 'react-native-vector-icons/Feather';
 interface Iprops {
   placeholder: string;
   value: string;
-  onChangeText: () => void;
+  onChangeText: (val: any) => void;
 }
 
 const PrimaryTextInput = (props: Iprops) => {
@@ -44,5 +44,7 @@ const styles = StyleSheet.create({
   icon: {
     paddingRight: 15,
   },
-  textInput: {},
+  textInput: {
+    width: '90%',
+  },
 });
