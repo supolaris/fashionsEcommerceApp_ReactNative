@@ -33,7 +33,7 @@ interface Iprops {
   onPlusIconPressed: (id: number) => void;
   onTrashIconPressed: (id: number) => void;
   onHeaderBackArrowPressed: () => void;
-  cartProductsData: string;
+  cartProductsData: InterfaceProductTyping[];
   onCheckoutPressed: () => void;
 }
 

@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React from 'react';
 import {
   View,
   Text,
@@ -32,17 +32,19 @@ import {InterfaceProductTyping} from '../../@types/AppTyping';
 const height = Dimensions.get('window').height;
 
 interface Iprops {
-  onProductSizePressed: (id: number) => void;
-  selectedProductSize: number;
+  item: InterfaceProductTyping;
+  selectedProductSize: number | undefined;
   onBackArrowPressed: () => void;
   onCartIconPressed: () => void;
-  onMinusIconPressed: (item: InterfaceProductTyping) => void;
-  onPlusIconPressed: (item: InterfaceProductTyping) => void;
   onReviewPressed: () => void;
   onAddToCartPressed: () => void;
+  onProductSizePressed: (id: number) => void;
+  onMinusIconPressed: (item: InterfaceProductTyping) => void;
+  onPlusIconPressed: (item: InterfaceProductTyping) => void;
 }
-
-const ProductDescription: FC<Iprops> = ({item, ...props}) => {
+//const ProductDescription: FC<Iprops> = ({item, ...props}) => {
+const ProductDescription = (props: Iprops) => {
+  const item = props.item;
   const renderProductSize = ({item}: {item: InterfaceProductSizeData}) => {
     return (
       <TouchableOpacity

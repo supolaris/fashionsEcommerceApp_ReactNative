@@ -4,6 +4,8 @@ import Home from '../components/screenUi/Home';
 
 import {useAppNavigation} from '../@types/AppNavigation';
 
+import {BagsData} from '../constants/FlatlistData';
+
 import {InterfaceProductTyping} from '../@types/AppTyping';
 import {InterfaceProductCatagories} from '../@types/AppTyping';
 
@@ -51,6 +53,7 @@ const HomeScreen = () => {
       //
       onFilterIconPressed={onFilterIconPressed}
       onViewAllPresses={onViewAllPresses}
+      FlatlistData={BagsData}
     />
   );
 };

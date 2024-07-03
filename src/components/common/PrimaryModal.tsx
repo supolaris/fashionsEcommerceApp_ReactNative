@@ -10,7 +10,7 @@ import PrimaryTitle from './Titles/PrimaryTitle';
 import QuaternaryButton from './Buttons/QuaternaryButton';
 
 interface Iprops {
-  animationType: string;
+  animationType: any;
   transparent: boolean;
   visible: boolean;
   onRequestClose: () => void;

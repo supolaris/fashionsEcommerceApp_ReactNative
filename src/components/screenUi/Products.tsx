@@ -24,7 +24,7 @@ interface Iprops {
   onProductPressed: (item: InterfaceProductTyping) => void;
   onHeaderBackArrowPressed: () => void;
   categoryName: string;
-  flatListProductsData: InterfaceProductTyping;
+  flatListProductsData: InterfaceProductTyping[];
 }
 interface Item {
   name: string;

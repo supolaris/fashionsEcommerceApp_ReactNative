@@ -1,7 +1,5 @@
 import React, {useCallback, useState} from 'react';
 
-import {Alert} from 'react-native';
-
 import Products from '../components/screenUi/Products';
 
 import {useFocusEffect} from '@react-navigation/native';
@@ -12,8 +10,10 @@ import {ShirtsData} from '../constants/FlatlistData';
 import {ShoesData} from '../constants/FlatlistData';
 import {ElectronicsData} from '../constants/FlatlistData';
 
+import {InterfaceProductTyping} from '../@types/AppTyping';
+
 const ProductsScreen = ({route}: {route: any}) => {
-  const [flatlistProductArray, setFlatlistProductArray] = useState([]);
+  const [flatlistProductArray, setFlatlistProductArray] = useState<any>([]);
   const {item} = route.params;
   // Alert.alert('Warning', item.CatagoryApiName);
   const navigation = useAppNavigation();
@@ -29,9 +29,9 @@ const ProductsScreen = ({route}: {route: any}) => {
       } else if (item.CatagoryApiName === 'ElectronicsData') {
         setFlatlistProductArray(ElectronicsData);
       } else if (item.CatagoryApiName === 'JewelryData') {
-        setFlatlistProductArray(JewelryData);
+        setFlatlistProductArray(ShirtsData);
       } else if (item.CatagoryApiName === 'AccessoriesData') {
-        setFlatlistProductArray(AccessoriesData);
+        setFlatlistProductArray(BagsData);
       }
     }, []),
   );
@@ -47,7 +47,6 @@ const ProductsScreen = ({route}: {route: any}) => {
     <Products
       onProductPressed={onProductPressed}
       onHeaderBackArrowPressed={onHeaderBackArrowPressed}
-      CatagoryApiName={item.CatagoryApiName}
       categoryName={item.CatagoryName}
       flatListProductsData={flatlistProductArray}
     />

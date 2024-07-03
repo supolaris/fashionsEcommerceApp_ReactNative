@@ -20,7 +20,7 @@ function CustomTabBar({
 }) {
   return (
     <View style={styles.container}>
-      {state.routes.map((route, index) => {
+      {state.routes.map((route: any, index: number) => {
         const {options} = descriptors[route.key];
 
         const isFocused = state.index === index;

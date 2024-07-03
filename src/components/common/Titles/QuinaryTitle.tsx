@@ -5,7 +5,7 @@ import {AppFonts} from '../../../constants/AppFonts';
 import {AppColors} from '../../../constants/AppColors';
 
 interface Iprops {
-  text: string;
+  text: string | number;
 }
 
 const QuinaryTitle = (props: Iprops) => {

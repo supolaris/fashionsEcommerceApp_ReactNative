@@ -5,7 +5,7 @@ import {AppColors} from '../../../constants/AppColors';
 import {AppFonts} from '../../../constants/AppFonts';
 
 interface Iprops {
-  text: string;
+  text: string | number;
 }
 
 const ProductPriceText = (props: Iprops) => {

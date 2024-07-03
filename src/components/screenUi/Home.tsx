@@ -34,6 +34,7 @@ interface Iprops {
   // text: string;
   selectedCategory: number;
   searchValue: string;
+  FlatlistData: InterfaceProductTyping[];
   onUserImagePressed: () => void;
   onFilterIconPressed: () => void;
   onViewAllPresses: () => void;
@@ -45,7 +46,6 @@ interface Iprops {
 }
 
 const Home = (props: Iprops) => {
-  const [searchVal, setSearchVal] = useState('');
   const renderCategories = ({item}: {item: InterfaceProductCatagories}) => {
     return (
       <TouchableOpacity
@@ -163,7 +163,7 @@ const Home = (props: Iprops) => {
           <FlatList
             numColumns={2}
             showsVerticalScrollIndicator={false}
-            data={BagsData}
+            data={props.FlatlistData}
             renderItem={renderTopDresses}
             keyExtractor={item => item.id.toString()}
           />
