@@ -95,3 +95,9 @@ yarn add react-native-star-rating-widget
 ```bash
 yarn add react-native-svg
 ```
+
+# Image picker
+
+```bash
+yarn add react-native-image-picker
+```

@@ -2,6 +2,12 @@ import React, {useState} from 'react';
 
 import PersonalDetail from '../components/screenUi/PersonalDetail';
 
+import {
+  ImagePickerResponse,
+  launchCamera,
+  launchImageLibrary,
+} from 'react-native-image-picker';
+
 import {useAppNavigation} from '../@types/AppNavigation';
 
 const PersonalDetailScreen = () => {
@@ -12,9 +18,28 @@ const PersonalDetailScreen = () => {
   const [darkModeValue, setDarkModeValue] = useState(false);
   const [darkModeOnOff, setDarkModeOnOff] = useState('Off');
 
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const [selectedUserImage, setSelectedUserImage] =
+    useState<ImagePickerResponse>();
+
   //edit image function
-  const onEditImagePressed = () => {
-    console.log('onEditImagePressed');
+  const onEditImagePressed = async () => {
+    setModalVisible(!modalVisible);
+  };
+
+  //modal
+  const onLaunchCameraPressed = async () => {
+    const userImage: ImagePickerResponse = await launchCamera();
+    setSelectedUserImage(userImage);
+  };
+  const onSelectFromLibraryPressed = async () => {
+    const userImage: ImagePickerResponse = await launchImageLibrary();
+    setSelectedUserImage(userImage);
+  };
+
+  const onModalRequestClose = () => {
+    setModalVisible(!modalVisible);
   };
 
   //langauge fucntion
@@ -49,6 +74,14 @@ const PersonalDetailScreen = () => {
 
   return (
     <PersonalDetail
+      //modal
+      animationType="slide"
+      transparent={true}
+      visible={modalVisible}
+      onRequestClose={onModalRequestClose}
+      onLaunchCameraPressed={onLaunchCameraPressed}
+      onSelectFromLibraryPressed={onSelectFromLibraryPressed}
+      //edit image
       onEditImagePressed={onEditImagePressed}
       onSelectLanguagePressed={onSelectLanguagePressed}
       //Notification

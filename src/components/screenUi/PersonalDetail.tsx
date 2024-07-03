@@ -1,19 +1,26 @@
-import React, {FC} from 'react';
+import React from 'react';
 import {
   View,
   ScrollView,
-  Text,
+  Modal,
   StyleSheet,
   Image,
   StatusBar,
   Switch,
   TouchableOpacity,
+  TouchableWithoutFeedback,
+  Text,
 } from 'react-native';
 
 import {AppColors} from '../../constants/AppColors';
+import {AppFonts} from '../../constants/AppFonts';
 
 import PrimaryTitle from '../common/Titles/PrimaryTitle';
 import SecondaryTitle from '../common/Titles/SecondaryTitle';
+import TertiaryTitle from '../common/Titles/TertiaryTitle';
+import PrimaryDescription from '../common/Descriptions/PrimaryDescription';
+import PrimaryButton from '../common/Buttons/PrimaryButton';
+import QuaternaryTitle from '../common/Titles/QuaternaryTitle';
 
 import EditIcon from 'react-native-vector-icons/AntDesign';
 import GlobeIcon from 'react-native-vector-icons/Feather';
@@ -22,12 +29,15 @@ import MoonIcon from 'react-native-vector-icons/FontAwesome6';
 import QuestionMarkIcon from 'react-native-vector-icons/FontAwesome6';
 import ArrowRightIcon from 'react-native-vector-icons/MaterialIcons';
 
-import TertiaryTitle from '../common/Titles/TertiaryTitle';
-import PrimaryDescription from '../common/Descriptions/PrimaryDescription';
-import PrimaryButton from '../common/Buttons/PrimaryButton';
-import QuaternaryTitle from '../common/Titles/QuaternaryTitle';
-
 interface Iprops {
+  //modal
+  animationType: any;
+  transparent: boolean;
+  visible: boolean;
+  onRequestClose: () => void;
+  onLaunchCameraPressed: () => void;
+  onSelectFromLibraryPressed: () => void;
+  //
   onEditImagePressed: () => void;
   onSelectLanguagePressed: () => void;
   isNotificatonEnabled: boolean;
@@ -46,6 +56,33 @@ const PersonalDetail = (props: Iprops) => {
     <>
       <StatusBar barStyle="dark-content" backgroundColor={AppColors.White} />
       <ScrollView style={styles.container}>
+        {/* Image picker modal start*/}
+        <Modal
+          animationType={props.animationType}
+          transparent={props.transparent}
+          visible={props.visible}
+          onRequestClose={props.onRequestClose}>
+          <View style={styles.modalOuterView}>
+            <View style={styles.modalInnerView}>
+              <TouchableOpacity
+                onPress={props.onLaunchCameraPressed}
+                style={styles.modalButtonTouchable}>
+                <Text style={styles.modalButtonTouchableText}>
+                  Launch camera
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={props.onSelectFromLibraryPressed}
+                style={styles.modalButtonTouchable}>
+                <Text style={styles.modalButtonTouchableText}>
+                  Select from library
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
+
+        {/* Image picker modal end*/}
         <View style={styles.imageView}>
           <Image
             style={styles.image}
@@ -80,10 +117,10 @@ const PersonalDetail = (props: Iprops) => {
           {/* Gender */}
           <View style={styles.titleDetailView}>
             <View style={styles.titleView}>
-              <TertiaryTitle text="Name" />
+              <TertiaryTitle text="Gender" />
             </View>
             <View style={styles.detailView}>
-              <QuaternaryTitle text="Jessica" />
+              <QuaternaryTitle text="Female" />
             </View>
           </View>
 
@@ -213,6 +250,37 @@ const PersonalDetail = (props: Iprops) => {
 export default PersonalDetail;
 
 const styles = StyleSheet.create({
+  //modal
+  modalOuterView: {
+    flex: 1,
+    backgroundColor: AppColors.TransparentBlack,
+    justifyContent: 'flex-end',
+  },
+  modalInnerView: {
+    height: 250,
+    backgroundColor: AppColors.White,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
+  },
+  modalButtonTouchable: {
+    width: '80%',
+    borderWidth: 0.5,
+    paddingVertical: 15,
+    borderRadius: 10,
+    backgroundColor: AppColors.White,
+    elevation: 10,
+    marginVertical: 10,
+  },
+  modalButtonTouchableText: {
+    textAlign: 'center',
+    fontSize: 18,
+    color: AppColors.Black,
+    fontFamily: AppFonts.Bold,
+  },
+
+  //main
   container: {
     flex: 1,
     backgroundColor: AppColors.White,
