@@ -1,3 +1,5 @@
+import {ImageSourcePropType} from 'react-native';
+
 export type StackParmList = {
   First_Screen: undefined;
   Second_Screen: undefined;
@@ -22,14 +24,13 @@ export type StackParmList = {
     };
   };
   Products_Screen: {
-    CatagoryApiName: string;
-    id: number;
-    NoOfProducts: number;
-    CategoryName: string;
-    ProductName: string;
-    ProductDescription: string;
-    ProductPrice: number;
-    ProductImage: string;
+    item: {
+      id: number;
+      CatagoryName: string;
+      CatagoryApiName: string;
+      CatagoryPicture: ImageSourcePropType;
+      NoOfProducts: number;
+    };
   };
   ProfileScreen: undefined;
   Profile_Screen: undefined;
