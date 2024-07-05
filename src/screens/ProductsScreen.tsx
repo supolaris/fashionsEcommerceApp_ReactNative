@@ -10,8 +10,6 @@ import {ShirtsData} from '../constants/FlatlistData';
 import {ShoesData} from '../constants/FlatlistData';
 import {ElectronicsData} from '../constants/FlatlistData';
 
-import {InterfaceProductTyping} from '../@types/AppTyping';
-
 const ProductsScreen = ({route}: {route: any}) => {
   const [flatlistProductArray, setFlatlistProductArray] = useState<any>([]);
   const {item} = route.params;

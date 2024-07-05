@@ -11,13 +11,15 @@ export type StackParmList = {
   ProductsFilter_Screen: undefined;
   Catagories_Screen: undefined;
   ProductDescripton_Screen: {
-    id: number;
-    NoOfProducts: number;
-    CategoryName: string;
-    ProductName: string;
-    ProductDescription: string;
-    ProductPrice: number;
-    ProductImage: string;
+    item: {
+      id: number;
+      NoOfProducts: number;
+      CategoryName: string;
+      ProductName: string;
+      ProductDescription: string;
+      ProductPrice: number;
+      ProductImage: string;
+    };
   };
   Products_Screen: {
     CatagoryApiName: string;
