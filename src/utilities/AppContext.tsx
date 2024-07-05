@@ -5,10 +5,10 @@ export const AppContext = createContext({
   cartProductsArray: [],
 });
 
-export const AppContextProvider = ({children}) => {
+export const AppContextProvider = ({children}: {children: any}) => {
   const [lightDarkTheme, setLightDarkTheme] = useState('Light');
 
-  const themeModeHandler = themeMode => {
+  const themeModeHandler = (themeMode: any) => {
     setLightDarkTheme(themeMode);
     return lightDarkTheme;
   };

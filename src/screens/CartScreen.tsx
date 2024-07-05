@@ -16,18 +16,11 @@ const CartScreen = () => {
   );
   const [productNumber, setProductNumber] = useState<number>();
 
-  //let AsyncCartProducts;
-
   useFocusEffect(
     useCallback(() => {
       GetCartProducts();
     }, []),
   );
-
-  // const GetCartProducts = async () => {
-  //   let AsyncCartProducts: string | = await AsyncStorage.getItem('CartProducts');
-  //   setCartProducts(JSON.parse(AsyncCartProducts));
-  // };
 
   const GetCartProducts = async () => {
     let AsyncCartProducts: string | null = await AsyncStorage.getItem(
