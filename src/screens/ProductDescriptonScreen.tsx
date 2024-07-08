@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 
 import ProductDescription from '../components/screenUi/ProductDescription';
 
@@ -9,15 +9,35 @@ import {useAppNavigation} from '../@types/AppNavigation';
 import {InterfaceProductTyping} from '../@types/AppTyping';
 
 import {AppContext} from '../utilities/AppContext';
-import {StackParmList} from '../@types/ParamsList';
 
 const ProductDescriptonScreen = ({route}: {route: any}) => {
+  const {item} = route.params;
+
+  const [isItemInCart, setIsItemInCart] = useState(false);
+
+  useEffect(() => {
+    checkIfItemInCart();
+  }, [item]);
+
+  //check if product in the cart then disable the add to cart button
+  const checkIfItemInCart = async () => {
+    const PreviousProducts = await AsyncStorage.getItem('CartProducts');
+    if (PreviousProducts !== null && PreviousProducts !== '') {
+      const parsedPreviousProducts = JSON.parse(PreviousProducts);
+      const previousProductsArray = Array.isArray(parsedPreviousProducts)
+        ? parsedPreviousProducts
+        : [parsedPreviousProducts];
+
+      const itemExists = previousProductsArray.some(
+        product => product.id === item.id,
+      );
+      setIsItemInCart(itemExists);
+    }
+  };
+
   const AppCtx = useContext(AppContext);
   const isDarkMode = AppCtx.isDarkMode;
 
-  let itemInMyCart;
-
-  const {item} = route.params;
   const navigation = useAppNavigation();
   const [productNumber, setProductNumber] = useState<number>();
   const [productSelectedSize, setProductSelectedSize] = useState();
@@ -39,12 +59,12 @@ const ProductDescriptonScreen = ({route}: {route: any}) => {
   };
 
   const onAddToCartPressed = async () => {
-    console.log(item);
-    item.ProductInTheCart = true;
-    itemInMyCart = item.ProductInTheCart;
-    setIteminCart(itemInMyCart);
+    // console.log(item);
+    // item.ProductInTheCart = true;
+    // itemInMyCart = item.ProductInTheCart;
+    // setIteminCart(itemInMyCart);
 
-    console.log('isItemInCart', itemInMyCart);
+    //console.log('isItemInCart', itemInMyCart);
     const PreviousProducts = await AsyncStorage.getItem('CartProducts');
 
     if (PreviousProducts !== null && PreviousProducts !== '') {
@@ -64,6 +84,7 @@ const ProductDescriptonScreen = ({route}: {route: any}) => {
       console.log('else entered');
       AsyncStorage.setItem('CartProducts', JSON.stringify(item));
     }
+    setIsItemInCart(true);
   };
 
   const onReviewPressed = () => {
@@ -85,7 +106,7 @@ const ProductDescriptonScreen = ({route}: {route: any}) => {
 
   return (
     <ProductDescription
-      isItemInCart={iteminCart}
+      isItemInCart={isItemInCart}
       isDarkModeActive={isDarkMode}
       item={item}
       onMinusIconPressed={onMinusIconPressed}
