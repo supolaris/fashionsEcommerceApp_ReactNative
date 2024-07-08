@@ -31,6 +31,7 @@ import {InterfaceProductTyping} from '../../@types/AppTyping';
 import {InterfaceProductCatagories} from '../../@types/AppTyping';
 
 interface Iprops {
+  isDarkModeActive: boolean;
   // text: string;
   selectedCategory: number;
   searchValue: string;
@@ -51,13 +52,26 @@ const Home = (props: Iprops) => {
       <TouchableOpacity
         style={[
           styles.renderCategoriesContainer,
-          props.selectedCategory === item.id ? styles.selectedCategory : null,
+
+          props.isDarkModeActive
+            ? props.selectedCategory === item.id
+              ? styles.darkModeSelectedCategory
+              : null
+            : props.selectedCategory === item.id
+            ? styles.selectedCategory
+            : null,
         ]}
         onPress={() => props.categoryPressed(item)}>
         <Text
           style={[
-            styles.renderCategoryText,
-            props.selectedCategory === item.id
+            props.isDarkModeActive
+              ? styles.darkModeRenderCategoryText
+              : styles.renderCategoryText,
+            props.isDarkModeActive
+              ? props.selectedCategory === item.id
+                ? styles.darkModeRenderSelectedCategoryText
+                : null
+              : props.selectedCategory === item.id
               ? styles.renderSelectedCategoryText
               : null,
           ]}>
@@ -80,25 +94,34 @@ const Home = (props: Iprops) => {
           />
         </View>
         <View style={styles.renderProductDetailView}>
-          <ProductNameText text={item.ProductName} />
+          <ProductNameText
+            text={item.ProductName}
+            isDarkMode={props.isDarkModeActive}
+          />
           <View style={styles.renderProductDescriptionTextView}>
             <ProductDescriptionText text="ProductDescription" />
           </View>
-          <ProductPriceText text={item.ProductPrice} />
+          <ProductPriceText
+            text={item.ProductPrice}
+            isDarkMode={props.isDarkModeActive}
+          />
         </View>
       </TouchableOpacity>
     );
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView
+      style={
+        props.isDarkModeActive ? styles.darkModeContainer : styles.container
+      }>
       <QuaternaryHeader
         onHeaderBackArrowPressed={props.onHeaderBackArrowPressed}
         showUserImage={true}
         onUserImagePressed={props.onUserImagePressed}
       />
       <View style={styles.titleDescriptionView}>
-        <PrimaryTitle text="Welcome," />
+        <PrimaryTitle text="Welcome," isDarkMode={props.isDarkModeActive} />
         <SecondaryDescription text="Our Fashion App" />
       </View>
       <View style={styles.textInputFilterView}>
@@ -110,7 +133,10 @@ const Home = (props: Iprops) => {
           />
         </View>
         <View style={styles.filterButtonView}>
-          <FilterButton onPress={props.onFilterIconPressed} />
+          <FilterButton
+            onPress={props.onFilterIconPressed}
+            isDarkMode={props.isDarkModeActive}
+          />
         </View>
       </View>
       <View style={styles.hotProductView}>
@@ -122,9 +148,15 @@ const Home = (props: Iprops) => {
         </View>
         <View style={styles.detailView}>
           <View style={styles.hotProductTitleDescriptionPriceView}>
-            <ProductNameText text="Alex Arigato" />
+            <ProductNameText
+              text="Alex Arigato"
+              isDarkMode={props.isDarkModeActive}
+            />
             <ProductDescriptionText text="Clean 90 triple sneakers" />
-            <ProductPriceText text="245.00" />
+            <ProductPriceText
+              text="245.00"
+              isDarkMode={props.isDarkModeActive}
+            />
           </View>
           <TouchableOpacity style={styles.arrowRrightButton}>
             <ArrowIcon
@@ -138,7 +170,10 @@ const Home = (props: Iprops) => {
       </View>
       <View style={styles.categoriesView}>
         <View>
-          <SecondaryTitle text="Categories" />
+          <SecondaryTitle
+            text="Categories"
+            isDarkMode={props.isDarkModeActive}
+          />
         </View>
         <View>
           <FlatList
@@ -153,7 +188,10 @@ const Home = (props: Iprops) => {
       <View style={styles.topDressesView}>
         <View style={styles.topDressesTitleView}>
           <View style={styles.topDressesSeeAllView}>
-            <SecondaryTitle text="Top Dresses" />
+            <SecondaryTitle
+              text="Top Dresses"
+              isDarkMode={props.isDarkModeActive}
+            />
             <TouchableOpacity onPress={props.onViewAllPresses}>
               <PrimaryDescription text="View All" />
             </TouchableOpacity>
@@ -177,6 +215,7 @@ export default Home;
 
 const styles = StyleSheet.create({
   //categories flatlist
+  darkModeRenderCategoriesContainer: {},
   renderCategoriesContainer: {
     borderWidth: 0.5,
     borderRadius: 20,
@@ -185,13 +224,25 @@ const styles = StyleSheet.create({
     margin: 4,
     justifyContent: 'center',
   },
+  darkModeSelectedCategory: {
+    backgroundColor: AppColors.White,
+  },
   selectedCategory: {
     backgroundColor: AppColors.Black,
+  },
+  darkModeRenderCategoryText: {
+    textAlign: 'center',
+    fontSize: 14,
+    fontFamily: AppFonts.SemiBold,
+    color: AppColors.White,
   },
   renderCategoryText: {
     textAlign: 'center',
     fontSize: 14,
     fontFamily: AppFonts.SemiBold,
+    color: AppColors.Black,
+  },
+  darkModeRenderSelectedCategoryText: {
     color: AppColors.Black,
   },
   renderSelectedCategoryText: {
@@ -209,6 +260,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   renderProductDetailView: {
+    paddingTop: 5,
     alignItems: 'center',
   },
   renderProductDescriptionTextView: {
@@ -216,6 +268,11 @@ const styles = StyleSheet.create({
   },
 
   //main
+  darkModeContainer: {
+    flex: 1,
+    paddingHorizontal: 15,
+    backgroundColor: AppColors.Black,
+  },
   container: {
     flex: 1,
     paddingHorizontal: 15,

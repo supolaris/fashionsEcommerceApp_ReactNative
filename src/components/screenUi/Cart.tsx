@@ -29,6 +29,7 @@ import CheckOutButton from '../common/Buttons/CheckOutButton';
 import {InterfaceProductTyping} from '../../@types/AppTyping';
 
 interface Iprops {
+  isDarkModeActive: boolean;
   onMinusIconPressed: (id: number) => void;
   onPlusIconPressed: (id: number) => void;
   onTrashIconPressed: (id: number) => void;
@@ -40,17 +41,28 @@ interface Iprops {
 const Cart = (props: Iprops) => {
   const renderCartItem = ({item}: {item: any}) => {
     return (
-      <View style={styles.renderCartItemContainer}>
+      <View
+        style={
+          props.isDarkModeActive
+            ? styles.darkModeRenderCartItemContainer
+            : styles.renderCartItemContainer
+        }>
         <View style={styles.renderImageView}>
           <Image source={item.ProductImage} style={styles.renderImage} />
         </View>
         <View style={styles.renderDetailView}>
           <View style={styles.nameDescriptionView}>
-            <ProductNameText text={item.ProductName} />
+            <ProductNameText
+              text={item.ProductName}
+              isDarkMode={props.isDarkModeActive}
+            />
             <ProductDescriptionText text={item.ProductDescription} />
           </View>
           <View style={styles.priceCounterView}>
-            <ProductPriceText text={item.ProductPrice} />
+            <ProductPriceText
+              text={item.ProductPrice}
+              isDarkMode={props.isDarkModeActive}
+            />
             <View style={styles.counterView}>
               <MinusIcon
                 onPress={() => props.onMinusIconPressed(item.id)}
@@ -80,29 +92,37 @@ const Cart = (props: Iprops) => {
   }) => {
     return (
       <TouchableOpacity
-        style={styles.renderRowBack}
+        style={
+          props.isDarkModeActive
+            ? styles.darkModeRenderRowBack
+            : styles.renderRowBack
+        }
         onPress={() => props.onTrashIconPressed(item.id)}>
         <TrashBinIcon
           style={styles.renderTrashIcon}
           name="trash"
           size={25}
-          color={AppColors.White}
+          color={props.isDarkModeActive ? AppColors.Black : AppColors.White}
         />
       </TouchableOpacity>
     );
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView
+      style={
+        props.isDarkModeActive ? styles.darkModeContainer : styles.container
+      }>
       <View style={styles.headerCartView}>
         <View style={styles.headerView}>
           <PrimaryHeader
             showSearchIcon={true}
             onHeaderBackArrowPressed={props.onHeaderBackArrowPressed}
+            isDarkMode={props.isDarkModeActive}
           />
         </View>
         <View style={styles.cartTitleView}>
-          <SecondaryTitle text="My Cart" />
+          <SecondaryTitle text="My Cart" isDarkMode={props.isDarkModeActive} />
         </View>
         <View style={styles.cartProductSwipperList}>
           <SwipeListView
@@ -124,10 +144,11 @@ const Cart = (props: Iprops) => {
         <View style={styles.itemPriceCheckView}>
           <View style={styles.itemPriceView}>
             <PrimaryDescription text="Total (3 items)" />
-            <SecondaryTitle text="$300" />
+            <SecondaryTitle text="$300" isDarkMode={props.isDarkModeActive} />
           </View>
           <View style={styles.checkOutButtonView}>
             <CheckOutButton
+              isDarkMode={props.isDarkModeActive}
               text="Proceed to checkout"
               onPress={props.onCheckoutPressed}
             />
@@ -142,6 +163,18 @@ export default Cart;
 
 const styles = StyleSheet.create({
   //flatlist products
+  darkModeRenderCartItemContainer: {
+    flexDirection: 'row',
+    marginVertical: 10,
+    backgroundColor: AppColors.Black,
+    elevation: 5,
+    shadowColor: AppColors.White,
+    paddingVertical: 10,
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    borderRadius: 20,
+    marginHorizontal: 5,
+  },
   renderCartItemContainer: {
     flexDirection: 'row',
     marginVertical: 10,
@@ -188,6 +221,18 @@ const styles = StyleSheet.create({
     color: AppColors.Black,
     fontFamily: AppFonts.Medium,
   },
+  darkModeRenderRowBack: {
+    marginTop: 12,
+    marginBottom: 10,
+    backgroundColor: AppColors.White,
+    paddingVertical: 40,
+    paddingRight: 20,
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+    paddingHorizontal: 10,
+    borderRadius: 20,
+    marginHorizontal: 5,
+  },
   renderRowBack: {
     marginTop: 12,
     marginBottom: 10,
@@ -203,6 +248,11 @@ const styles = StyleSheet.create({
   renderTrashIcon: {},
 
   //main
+  darkModeContainer: {
+    flex: 1,
+    backgroundColor: AppColors.Black,
+    paddingHorizontal: 15,
+  },
   container: {
     flex: 1,
     backgroundColor: AppColors.White,

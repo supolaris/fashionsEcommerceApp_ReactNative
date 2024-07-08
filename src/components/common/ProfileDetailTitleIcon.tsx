@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React from 'react';
 import {View, StyleSheet} from 'react-native';
 
 import {AppColors} from '../../constants/AppColors';
@@ -8,17 +8,17 @@ import SecondaryTitle from './Titles/SecondaryTitle';
 
 interface Iprops {
   text: string;
+  isDarkMode: boolean;
 }
 
 const ProfileDetailTitleIcon = (props: Iprops) => {
   return (
     <View style={styles.container}>
-      <SecondaryTitle text={props.text} />
-
+      <SecondaryTitle text={props.text} isDarkMode={props.isDarkMode} />
       <ArrowIcon
         name="keyboard-arrow-right"
         size={25}
-        color={AppColors.Black}
+        color={props.isDarkMode ? AppColors.White : AppColors.Black}
       />
     </View>
   );

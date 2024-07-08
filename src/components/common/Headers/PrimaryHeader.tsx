@@ -9,19 +9,20 @@ import SearchIcon from 'react-native-vector-icons/AntDesign';
 interface Iprops {
   onHeaderBackArrowPressed: () => void;
   showSearchIcon: boolean;
+  isDarkMode: boolean;
 }
 
 const PrimaryHeader = (props: Iprops) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        style={styles.arrowView}
+        style={props.isDarkMode ? styles.darkModeArrowView : styles.arrowView}
         onPress={props.onHeaderBackArrowPressed}>
         <ArrowIcon
           style={styles.icon}
           name="arrow-left"
           size={20}
-          color={AppColors.White}
+          color={props.isDarkMode ? AppColors.Black : AppColors.White}
         />
       </TouchableOpacity>
       {props.showSearchIcon == true ? (
@@ -30,7 +31,7 @@ const PrimaryHeader = (props: Iprops) => {
             style={styles.icon}
             name="search1"
             size={28}
-            color={AppColors.Black}
+            color={props.isDarkMode ? AppColors.White : AppColors.Black}
           />
         </TouchableOpacity>
       ) : null}
@@ -48,9 +49,16 @@ const styles = StyleSheet.create({
     paddingBottom: 30,
     paddingTop: 50,
   },
+  darkModeArrowView: {
+    borderRadius: 100,
+    backgroundColor: AppColors.White,
+    padding: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   arrowView: {
     borderRadius: 100,
-    backgroundColor: 'black',
+    backgroundColor: AppColors.Black,
     padding: 12,
     justifyContent: 'center',
     alignItems: 'center',

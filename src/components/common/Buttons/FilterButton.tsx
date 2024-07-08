@@ -7,16 +7,19 @@ import FilterIcon from 'react-native-vector-icons/FontAwesome';
 
 interface Iprops {
   onPress: () => void;
+  isDarkMode: boolean;
 }
 
 const FilterButton = (props: Iprops) => {
   return (
-    <TouchableOpacity style={styles.container} onPress={props.onPress}>
+    <TouchableOpacity
+      style={props.isDarkMode ? styles.darkModeContainer : styles.container}
+      onPress={props.onPress}>
       <FilterIcon
         style={styles.icon}
         name="filter"
         size={20}
-        color={AppColors.White}
+        color={props.isDarkMode ? AppColors.Black : AppColors.White}
       />
     </TouchableOpacity>
   );
@@ -25,6 +28,14 @@ const FilterButton = (props: Iprops) => {
 export default FilterButton;
 
 const styles = StyleSheet.create({
+  darkModeContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 10,
+    paddingHorizontal: 13,
+    borderRadius: 100,
+    backgroundColor: AppColors.White,
+  },
   container: {
     justifyContent: 'center',
     alignItems: 'center',

@@ -1,4 +1,4 @@
-import React, {useState, useCallback} from 'react';
+import React, {useState, useCallback, useContext} from 'react';
 
 import Cart from '../components/screenUi/Cart';
 
@@ -10,7 +10,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {InterfaceProductTyping} from '../@types/AppTyping';
 import {StackParmList} from '../@types/ParamsList';
 
+import {AppContext} from '../utilities/AppContext';
+
 const CartScreen: StackParmList['CartScreen'] = () => {
+  const AppCtx = useContext(AppContext);
+  const isDarkMode = AppCtx.isDarkMode;
   const navigation = useAppNavigation();
   const [cartProducts, setCartProducts] = useState<InterfaceProductTyping[]>(
     [],
@@ -72,6 +76,7 @@ const CartScreen: StackParmList['CartScreen'] = () => {
 
   return (
     <Cart
+      isDarkModeActive={isDarkMode}
       cartProductsData={cartProducts}
       onMinusIconPressed={onMinusIconPressed}
       onPlusIconPressed={onPlusIconPressed}

@@ -1,7 +1,7 @@
 import {createContext, useState} from 'react';
 
 export const AppContext = createContext({
-  themeModeHandler: () => {},
+  themeModeHandler: (darkModeValue: boolean) => {},
   isDarkMode: false,
 });
 

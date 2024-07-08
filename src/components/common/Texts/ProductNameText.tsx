@@ -6,12 +6,15 @@ import {AppFonts} from '../../../constants/AppFonts';
 
 interface Iprops {
   text: string;
+  isDarkMode: boolean;
 }
 
 const ProductNameText = (props: Iprops) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{props.text}</Text>
+      <Text style={props.isDarkMode ? styles.darkModetext : styles.text}>
+        {props.text}
+      </Text>
     </View>
   );
 };
@@ -20,9 +23,14 @@ export default ProductNameText;
 
 const styles = StyleSheet.create({
   container: {},
+  darkModetext: {
+    fontSize: 17,
+    color: AppColors.White,
+    fontFamily: AppFonts.SemiBold,
+  },
   text: {
     fontSize: 17,
     color: AppColors.Black,
-    fontFamily: AppFonts.Bold,
+    fontFamily: AppFonts.SemiBold,
   },
 });

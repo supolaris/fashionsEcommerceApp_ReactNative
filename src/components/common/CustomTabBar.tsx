@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {View, TouchableOpacity, StyleSheet, Text} from 'react-native';
 
 import {AppColors} from '../../constants/AppColors';
@@ -8,6 +8,8 @@ import HomeIcon from 'react-native-vector-icons/Entypo';
 import CartIcon from 'react-native-vector-icons/Entypo';
 import BellIcon from 'react-native-vector-icons/FontAwesome';
 import UserIcon from 'react-native-vector-icons/FontAwesome';
+
+import {AppContext} from '../../utilities/AppContext';
 
 function CustomTabBar({
   state,
@@ -36,6 +38,9 @@ function CustomTabBar({
             navigation.navigate({name: route.name, merge: true});
           }
         };
+
+        const AppCtx = useContext(AppContext);
+        const isDarkMode = AppCtx.isDarkMode;
 
         return (
           <TouchableOpacity

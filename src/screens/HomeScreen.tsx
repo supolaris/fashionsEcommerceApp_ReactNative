@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 
 import Home from '../components/screenUi/Home';
 
@@ -9,7 +9,12 @@ import {BagsData} from '../constants/FlatlistData';
 import {InterfaceProductTyping} from '../@types/AppTyping';
 import {InterfaceProductCatagories} from '../@types/AppTyping';
 
+import {AppContext} from '../utilities/AppContext';
+
 const HomeScreen = () => {
+  const AppCtx = useContext(AppContext);
+  const isDarkMode = AppCtx.isDarkMode;
+
   const navigation = useAppNavigation();
   const [selectedCategoryId, setSelectedCategoryId] = useState(0);
   const [searchValue, setSearchValue] = useState<string>('');
@@ -42,6 +47,7 @@ const HomeScreen = () => {
 
   return (
     <Home
+      isDarkModeActive={isDarkMode}
       selectedCategory={selectedCategoryId}
       categoryPressed={categoryPressed}
       onHomeProductPressed={onHomeProductPressed}

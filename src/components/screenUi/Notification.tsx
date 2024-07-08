@@ -18,19 +18,38 @@ import {AppFonts} from '../../constants/AppFonts';
 
 interface Iprops {
   onHeaderBackArrowPressed: () => void;
+  isDarkModeActive: boolean;
 }
 
 const Notification = (props: Iprops) => {
   const renderNotificaton = ({item}: {item: any}) => {
     return (
-      <View style={styles.renderContainer}>
+      <View
+        style={
+          props.isDarkModeActive
+            ? styles.darkModeRenderContainer
+            : styles.renderContainer
+        }>
         <View style={styles.renderImageView}>
           <Image style={styles.renderImage} source={item.image} />
         </View>
         <View style={styles.nameCommentTimeView}>
-          <Text style={styles.renderNameText}>
+          <Text
+            style={
+              props.isDarkModeActive
+                ? styles.darkModeRenderNameText
+                : styles.renderCommentText
+            }>
             {item.name}
-            <Text style={styles.renderCommentText}> {item.message}</Text>
+            <Text
+              style={
+                props.isDarkModeActive
+                  ? styles.darkModeRenderCommentText
+                  : styles.renderCommentText
+              }>
+              {' '}
+              {item.message}
+            </Text>
           </Text>
           <Text>{item.time} hour ago</Text>
         </View>
@@ -39,15 +58,22 @@ const Notification = (props: Iprops) => {
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView
+      style={
+        props.isDarkModeActive ? styles.darkModeContainer : styles.container
+      }>
       <View style={styles.headerView}>
         <PrimaryHeader
+          isDarkMode={props.isDarkModeActive}
           showSearchIcon={true}
           onHeaderBackArrowPressed={props.onHeaderBackArrowPressed}
         />
       </View>
       <View style={styles.titleView}>
-        <SecondaryTitle text="Notification" />
+        <SecondaryTitle
+          text="Notification"
+          isDarkMode={props.isDarkModeActive}
+        />
       </View>
       <View style={styles.flatListView}>
         <FlatList
@@ -65,6 +91,12 @@ export default Notification;
 
 const styles = StyleSheet.create({
   //flatlist
+  darkModeRenderContainer: {
+    flexDirection: 'row',
+    paddingVertical: 10,
+    borderBottomWidth: 0.5,
+    borderBottomColor: AppColors.White,
+  },
   renderContainer: {
     flexDirection: 'row',
     paddingVertical: 10,
@@ -80,16 +112,28 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     width: '80%',
   },
+  darkModeRenderNameText: {
+    fontSize: 14,
+    color: AppColors.White,
+    fontFamily: AppFonts.Medium,
+  },
+
   renderNameText: {
     fontSize: 14,
     color: AppColors.Black,
     fontFamily: AppFonts.Bold,
   },
+  darkModeRenderCommentText: {},
   renderCommentText: {
     fontFamily: AppFonts.Regular,
   },
 
   //main
+  darkModeContainer: {
+    flex: 1,
+    backgroundColor: AppColors.Black,
+    paddingHorizontal: 15,
+  },
   container: {
     flex: 1,
     backgroundColor: AppColors.White,

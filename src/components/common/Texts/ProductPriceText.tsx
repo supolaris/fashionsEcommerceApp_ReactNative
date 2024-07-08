@@ -6,12 +6,15 @@ import {AppFonts} from '../../../constants/AppFonts';
 
 interface Iprops {
   text: string | number;
+  isDarkMode: boolean;
 }
 
 const ProductPriceText = (props: Iprops) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>${props.text}</Text>
+      <Text style={props.isDarkMode ? styles.darkModetext : styles.text}>
+        ${props.text}
+      </Text>
     </View>
   );
 };
@@ -20,6 +23,12 @@ export default ProductPriceText;
 
 const styles = StyleSheet.create({
   container: {},
+  darkModetext: {
+    fontSize: 16,
+    color: AppColors.White,
+    fontFamily: AppFonts.SemiBold,
+  },
+
   text: {
     fontSize: 16,
     color: AppColors.Black,

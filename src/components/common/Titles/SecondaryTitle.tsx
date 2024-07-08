@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
 import {AppFonts} from '../../../constants/AppFonts';
@@ -12,10 +12,6 @@ interface Iprops {
 }
 
 const SecondaryTitle = (props: Iprops) => {
-  const AppCtx = useContext(AppContext);
-
-  const isDarkMode = AppCtx.isDarkMode;
-
   return (
     <View style={styles.container}>
       <Text style={props.isDarkMode ? styles.darkModeText : styles.text}>
@@ -32,11 +28,11 @@ const styles = StyleSheet.create({
   darkModeText: {
     fontSize: 18,
     color: AppColors.White,
-    fontFamily: AppFonts.Bold,
+    fontFamily: AppFonts.SemiBold,
   },
   text: {
     fontSize: 18,
     color: AppColors.Black,
-    fontFamily: AppFonts.Bold,
+    fontFamily: AppFonts.SemiBold,
   },
 });

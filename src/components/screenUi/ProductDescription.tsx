@@ -32,6 +32,7 @@ import {InterfaceProductTyping} from '../../@types/AppTyping';
 const height = Dimensions.get('window').height;
 
 interface Iprops {
+  isDarkModeActive: boolean;
   item: InterfaceProductTyping;
   selectedProductSize: number | undefined;
   onBackArrowPressed: () => void;
@@ -51,7 +52,11 @@ const ProductDescription = (props: Iprops) => {
         onPress={() => props.onProductSizePressed(item.id)}
         style={[
           styles.renderProductSizeContainer,
-          props.selectedProductSize === item.id
+          props.isDarkModeActive
+            ? props.selectedProductSize === item.id
+              ? styles.selectedRenderProductSizeContainer
+              : null
+            : props.selectedProductSize === item.id
             ? styles.selectedRenderProductSizeContainer
             : null,
         ]}>
@@ -84,11 +89,17 @@ const ProductDescription = (props: Iprops) => {
           onCartIconPressed={props.onCartIconPressed}
         />
       </View>
-      <View style={styles.detailView}>
+      <View
+        style={
+          props.isDarkModeActive ? styles.darkModeDetailView : styles.detailView
+        }>
         <View style={styles.nameDescriptionCounterView}>
           <View style={styles.nameDescriptionView}>
             <View>
-              <PrimaryTitle text={item.ProductName} />
+              <PrimaryTitle
+                text={item.ProductName}
+                isDarkMode={props.isDarkModeActive}
+              />
             </View>
             <View>
               <PrimaryDescription text={item.ProductDescription} />
@@ -126,18 +137,22 @@ const ProductDescription = (props: Iprops) => {
             </TouchableOpacity>
           </View>
           <View style={styles.stockView}>
-            <Text style={styles.stockAvailableText}>Available in stock</Text>
+            <Text
+              style={
+                props.isDarkModeActive
+                  ? styles.darkModeStockAvailableText
+                  : styles.stockAvailableText
+              }>
+              Available in stock
+            </Text>
           </View>
         </View>
         <View style={styles.titleSizeColorView}>
           <View style={styles.sizeTitleView}>
-            <PrimaryTitle text="Size" />
+            <PrimaryTitle text="Size" isDarkMode={props.isDarkModeActive} />
           </View>
           <View style={styles.sizeColorView}>
             <View style={styles.sizeView}>
-              {/* <ProductSizeButton text="S" />
-              <ProductSizeButton text="M" />
-              <ProductSizeButton text="L" /> */}
               <FlatList
                 horizontal={true}
                 data={ProductSizeData}
@@ -156,31 +171,56 @@ const ProductDescription = (props: Iprops) => {
 
         <View style={styles.titleDescriptionView}>
           <View style={styles.descriptionTitleView}>
-            <PrimaryTitle text="Description" />
+            <PrimaryTitle
+              text="Description"
+              isDarkMode={props.isDarkModeActive}
+            />
           </View>
           <View style={styles.descriptionTextView}>
             <PrimaryDescription text="Elevate your style with this classic button-up shirt, featuring breathable fabric, a tailored fit, and versatile colors for any occasion. " />
           </View>
         </View>
-        <View style={styles.priceAddToCartView}>
+        <View
+          style={
+            props.isDarkModeActive
+              ? styles.darkModePriceAddToCartView
+              : styles.priceAddToCartView
+          }>
           <View
             style={[
               styles.priceView,
               {flexDirection: 'row', alignItems: 'center'},
             ]}>
-            <Text style={styles.dollarText}>$</Text>
-            <QuinaryTitle text={item.ProductPrice} />
+            <Text
+              style={
+                props.isDarkModeActive
+                  ? styles.darkModeDollarText
+                  : styles.dollarText
+              }>
+              $
+            </Text>
+            <QuinaryTitle
+              text={item.ProductPrice}
+              isDarkMode={props.isDarkModeActive}
+            />
           </View>
           <TouchableOpacity
             onPress={props.onAddToCartPressed}
-            style={styles.addToCartView}>
+            style={
+              props.isDarkModeActive
+                ? styles.darkModeAddToCartView
+                : styles.addToCartView
+            }>
             <CartIcon
               style={styles.cartIcon}
               name="cart-outline"
               size={30}
-              color={AppColors.Black}
+              color={props.isDarkModeActive ? AppColors.White : AppColors.Black}
             />
-            <SecondaryTitle text="Add to cart" />
+            <SecondaryTitle
+              text="Add to cart"
+              isDarkMode={props.isDarkModeActive}
+            />
           </TouchableOpacity>
         </View>
       </View>
@@ -234,6 +274,16 @@ const styles = StyleSheet.create({
   image: {
     height: 500,
     width: '100%',
+  },
+  darkModeDetailView: {
+    justifyContent: 'space-between',
+    position: 'absolute',
+    bottom: 0,
+    backgroundColor: AppColors.Black,
+    paddingHorizontal: 15,
+    paddingVertical: 20,
+    borderTopRightRadius: 25,
+    borderTopLeftRadius: 25,
   },
   detailView: {
     justifyContent: 'space-between',
@@ -290,6 +340,11 @@ const styles = StyleSheet.create({
   titleSizeColorView: {
     paddingVertical: 15,
   },
+  darkModeStockAvailableText: {
+    fontSize: 16,
+    color: AppColors.White,
+    fontFamily: AppFonts.SemiBold,
+  },
   stockAvailableText: {
     fontSize: 16,
     color: AppColors.Black,
@@ -322,6 +377,16 @@ const styles = StyleSheet.create({
   descriptionTextView: {
     paddingBottom: 20,
   },
+  darkModePriceAddToCartView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: AppColors.White,
+    paddingHorizontal: 10,
+    borderRadius: 10,
+    paddingVertical: 10,
+  },
+
   priceAddToCartView: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -334,10 +399,26 @@ const styles = StyleSheet.create({
   priceView: {
     width: '40%',
   },
+  darkModeDollarText: {
+    fontSize: 25,
+    color: AppColors.Black,
+    fontFamily: AppFonts.Bold,
+  },
   dollarText: {
     fontSize: 25,
     color: AppColors.White,
     fontFamily: AppFonts.Bold,
+  },
+  darkModeAddToCartView: {
+    width: '50%',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: AppColors.Black,
+    paddingHorizontal: 15,
+    paddingTop: 8,
+    paddingBottom: 6,
+    borderRadius: 10,
   },
   addToCartView: {
     width: '50%',

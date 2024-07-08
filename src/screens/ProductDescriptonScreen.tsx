@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 
 import ProductDescription from '../components/screenUi/ProductDescription';
 
@@ -8,7 +8,12 @@ import {useAppNavigation} from '../@types/AppNavigation';
 
 import {InterfaceProductTyping} from '../@types/AppTyping';
 
+import {AppContext} from '../utilities/AppContext';
+
 const ProductDescriptonScreen = ({route}: {route: any}) => {
+  const AppCtx = useContext(AppContext);
+  const isDarkMode = AppCtx.isDarkMode;
+
   const {item} = route.params;
   const navigation = useAppNavigation();
   const [productNumber, setProductNumber] = useState<number>();
@@ -69,6 +74,7 @@ const ProductDescriptonScreen = ({route}: {route: any}) => {
 
   return (
     <ProductDescription
+      isDarkModeActive={isDarkMode}
       item={item}
       onMinusIconPressed={onMinusIconPressed}
       onPlusIconPressed={onPlusIconPressed}

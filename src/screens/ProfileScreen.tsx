@@ -1,10 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
 import Profile from '../components/screenUi/Profile';
 
 import {useAppNavigation} from '../@types/AppNavigation';
 
+import {AppContext} from '../utilities/AppContext';
+
 const ProfileScreen = () => {
+  const AppCtx = useContext(AppContext);
+  const isDarkMode = AppCtx.isDarkMode;
+
   const navigation = useAppNavigation();
 
   const onPersonalDetailsPressed = () => {
@@ -23,6 +28,7 @@ const ProfileScreen = () => {
 
   return (
     <Profile
+      isDarkModeActive={isDarkMode}
       onBackArrowPressed={onBackArrowPressed}
       onSettingIconPressed={onSettingIconPressed}
       onPersonalDetailsPressed={onPersonalDetailsPressed}

@@ -15,7 +15,7 @@ import {AppContext} from '../utilities/AppContext';
 const PersonalDetailScreen = () => {
   const navigation = useAppNavigation();
   //notification variable
-  const [isNotificatonEnabled, setIsNotificatonEnabled] = useState(false);
+  const [isNotificatonEnabled, setIsNotificatonEnabled] = useState();
   //dark mode variables
   const [darkModeValue, setDarkModeValue] = useState(false);
   const [darkModeOnOff, setDarkModeOnOff] = useState('Off');
@@ -26,6 +26,7 @@ const PersonalDetailScreen = () => {
   const AppCtx = useContext(AppContext);
   AppCtx.themeModeHandler(darkModeValue);
   const isDarkModeActive = AppCtx.isDarkMode;
+  //setDarkModeState(darkModeValue);
 
   const [selectedUserImage, setSelectedUserImage] =
     useState<ImagePickerResponse>();
@@ -81,7 +82,7 @@ const PersonalDetailScreen = () => {
 
   return (
     <PersonalDetail
-      isDarkModeActive={isDarkModeActive}
+      isDarkModeActive={darkModeValue}
       //modal
       animationType="slide"
       transparent={true}

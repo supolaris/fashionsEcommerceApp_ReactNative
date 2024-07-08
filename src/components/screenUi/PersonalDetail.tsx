@@ -54,7 +54,11 @@ interface Iprops {
 const PersonalDetail = (props: Iprops) => {
   return (
     <>
-      <StatusBar barStyle="dark-content" backgroundColor={AppColors.White} />
+      {props.isDarkModeActive ? (
+        <StatusBar barStyle="light-content" />
+      ) : (
+        <StatusBar barStyle="dark-content" />
+      )}
       <ScrollView
         style={props.isDarkMode ? styles.Darkcontainer : styles.container}>
         {/* Image picker modal start*/}
@@ -152,7 +156,7 @@ const PersonalDetail = (props: Iprops) => {
         {/* Setting View */}
         <View style={styles.settingView}>
           <View style={styles.settingsTitleView}>
-            <PrimaryTitle text="Settings" />
+            <PrimaryTitle text="Settings" isDarkMode={props.isDarkMode} />
           </View>
 
           <View style={styles.settingsDetailsView}>

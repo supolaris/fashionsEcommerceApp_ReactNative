@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React from 'react';
 import {View, StyleSheet, TouchableOpacity} from 'react-native';
 
 import {AppColors} from '../../../constants/AppColors';
@@ -10,19 +10,20 @@ interface Iprops {
   onBackArrowPressed: () => void;
   showSettingIcon: boolean;
   onSettingIconPressed: () => void;
+  isDarkMode: boolean;
 }
 
 const TertiaryHeader = (props: Iprops) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        style={styles.arrowView}
+        style={props.isDarkMode ? styles.darkModeArrowView : styles.arrowView}
         onPress={props.onBackArrowPressed}>
         <ArrowIcon
           style={styles.icon}
           name="arrow-left"
           size={20}
-          color={AppColors.White}
+          color={props.isDarkMode ? AppColors.Black : AppColors.White}
         />
       </TouchableOpacity>
       {props.showSettingIcon == true ? (
@@ -33,7 +34,7 @@ const TertiaryHeader = (props: Iprops) => {
             style={styles.icon}
             name="settings"
             size={25}
-            color={AppColors.Black}
+            color={props.isDarkMode ? AppColors.White : AppColors.Black}
           />
         </TouchableOpacity>
       ) : null}
@@ -51,15 +52,21 @@ const styles = StyleSheet.create({
     paddingBottom: 30,
     paddingTop: 50,
   },
+  darkModeArrowView: {
+    borderRadius: 100,
+    backgroundColor: AppColors.White,
+    padding: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   arrowView: {
     borderRadius: 100,
-    backgroundColor: 'black',
+    backgroundColor: AppColors.Black,
     padding: 12,
     justifyContent: 'center',
     alignItems: 'center',
   },
   cartTouchable: {
-    backgroundColor: AppColors.White,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 8,
