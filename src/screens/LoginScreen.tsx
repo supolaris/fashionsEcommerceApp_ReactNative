@@ -1,11 +1,15 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {Alert} from 'react-native';
 
 import Login from '../components/screenUi/Login';
 
 import {useAppNavigation} from '../@types/AppNavigation';
 
+import {AppContext} from '../utilities/AppContext';
+
 const LoginScreen = () => {
+  const AppCtx = useContext(AppContext);
+  const isDarkMode = AppCtx.isDarkMode;
   const navigation = useAppNavigation();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -53,6 +57,7 @@ const LoginScreen = () => {
 
   return (
     <Login
+      isDarkModeActive={isDarkMode}
       emailPlaceholder=""
       emailSecureTextEntry={false}
       emailValue={email}

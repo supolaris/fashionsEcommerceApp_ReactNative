@@ -20,6 +20,7 @@ import GoogleButton from '../common/Buttons/SocialButtons/GoogleButton';
 import AppleButton from '../common/Buttons/SocialButtons/AppleButton';
 
 interface Iprops {
+  isDarkModeActive: boolean;
   emailValue: string;
   secureTextEntry: boolean;
   passwordValue: string;
@@ -38,7 +39,13 @@ interface Iprops {
 
 const Login = (props: Iprops) => {
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView
+      style={{
+        ...styles.container,
+        backgroundColor: props.isDarkModeActive
+          ? AppColors.Black
+          : AppColors.White,
+      }}>
       <StatusBar
         translucent
         barStyle="dark-content"
@@ -52,7 +59,7 @@ const Login = (props: Iprops) => {
       </View>
       <View style={styles.titleDescriptionView}>
         <View style={styles.titleView}>
-          <PrimaryTitle text="Welcome!" />
+          <PrimaryTitle text="Welcome!" isDarkMode={props.isDarkModeActive} />
         </View>
         <View style={styles.descriptionView}>
           <PrimaryDescription text="Please login or signup to continue our app" />
