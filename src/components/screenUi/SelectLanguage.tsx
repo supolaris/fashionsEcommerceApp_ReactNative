@@ -28,6 +28,7 @@ LogBox.ignoreAllLogs(true);
 import {InterfaceSelectLanguageData} from '../../@types/AppTyping';
 
 interface Iprops {
+  isDarkModeActive: boolean;
   selectedLanguage: string;
   onLanguagePressed: (item: InterfaceSelectLanguageData) => void;
   onHeaderBackArrowPressed: () => void;
@@ -44,9 +45,22 @@ const SelectLanguage = (props: Iprops) => {
     return (
       <TouchableOpacity
         style={[
-          styles.renderTouchable,
+          {
+            ...styles.renderTouchable,
+            backgroundColor: props.isDarkModeActive
+              ? AppColors.Black
+              : AppColors.White,
+            shadowColor: props.isDarkModeActive
+              ? AppColors.White
+              : AppColors.Black,
+          },
           props.selectedLanguage === item.LanguageName
-            ? styles.renderSelectedTouchable
+            ? {
+                ...styles.renderSelectedTouchable,
+                backgroundColor: props.isDarkModeActive
+                  ? AppColors.White
+                  : AppColors.Black,
+              }
             : null,
         ]}
         onPress={() => props.onLanguagePressed(item)}>
@@ -58,9 +72,19 @@ const SelectLanguage = (props: Iprops) => {
           />
           <Text
             style={[
-              styles.renderLanguageText,
+              {
+                ...styles.renderLanguageText,
+                color: props.isDarkModeActive
+                  ? AppColors.White
+                  : AppColors.Black,
+              },
               props.selectedLanguage === item.LanguageName
-                ? styles.renderSelectedLanguageText
+                ? {
+                    ...styles.renderSelectedLanguageText,
+                    color: props.isDarkModeActive
+                      ? AppColors.Black
+                      : AppColors.White,
+                  }
                 : null,
             ]}>
             {item.LanguageName}
@@ -72,14 +96,14 @@ const SelectLanguage = (props: Iprops) => {
               style={styles.renderIcon}
               name="dot-circle-o"
               size={20}
-              color={AppColors.White}
+              color={props.isDarkModeActive ? AppColors.Black : AppColors.White}
             />
           ) : (
             <CircleIcon
               style={styles.renderIcon}
               name="circle-o"
               size={20}
-              color={AppColors.Black}
+              color={props.isDarkModeActive ? AppColors.White : AppColors.Black}
             />
           )}
         </View>
@@ -88,8 +112,15 @@ const SelectLanguage = (props: Iprops) => {
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView
+      style={{
+        ...styles.container,
+        backgroundColor: props.isDarkModeActive
+          ? AppColors.Black
+          : AppColors.White,
+      }}>
       <PrimaryHeader
+        isDarkMode={props.isDarkModeActive}
         onHeaderBackArrowPressed={props.onHeaderBackArrowPressed}
         showSearchIcon={false}
       />
@@ -101,7 +132,10 @@ const SelectLanguage = (props: Iprops) => {
         />
       </View>
       <View style={styles.titleView}>
-        <SecondaryTitle text="Select Language" />
+        <SecondaryTitle
+          text="Select Language"
+          isDarkMode={props.isDarkModeActive}
+        />
       </View>
       <View style={styles.flatlistView}>
         <FlatList

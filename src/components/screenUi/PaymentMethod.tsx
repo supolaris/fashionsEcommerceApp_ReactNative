@@ -23,9 +23,9 @@ import {PaymentMethodsData} from '../../constants/FlatlistData';
 import {ProductHistoryData} from '../../constants/FlatlistData';
 
 import {InterfacePaymentMethodsData} from '../../@types/AppTyping';
-import {InterfaceProductTyping} from '../../@types/AppTyping';
 
 interface Iprops {
+  isDarkModeActive: boolean;
   selectedPaymentMethod: number;
   onPaymentMethodPressed: (item: InterfacePaymentMethodsData) => void;
   onHeaderBackArrowPressed: () => void;
@@ -37,9 +37,22 @@ const PaymentMethod = (props: Iprops) => {
     return (
       <TouchableOpacity
         style={[
-          styles.renderPaymentMethodContainer,
+          {
+            ...styles.renderPaymentMethodContainer,
+            backgroundColor: props.isDarkModeActive
+              ? AppColors.Black
+              : AppColors.White,
+            shadowColor: props.isDarkModeActive
+              ? AppColors.White
+              : AppColors.Black,
+          },
           props.selectedPaymentMethod === item.id
-            ? styles.renderSelectedPaymentMethodContainer
+            ? {
+                ...styles.renderSelectedPaymentMethodContainer,
+                backgroundColor: props.isDarkModeActive
+                  ? AppColors.White
+                  : AppColors.Black,
+              }
             : null,
         ]}
         onPress={() => props.onPaymentMethodPressed(item)}>
@@ -53,9 +66,19 @@ const PaymentMethod = (props: Iprops) => {
           </View>
           <Text
             style={[
-              styles.paymentMethodNameText,
+              {
+                ...styles.paymentMethodNameText,
+                color: props.isDarkModeActive
+                  ? AppColors.White
+                  : AppColors.Black,
+              },
               props.selectedPaymentMethod === item.id
-                ? styles.selectedPaymentMethodNameText
+                ? {
+                    ...styles.selectedPaymentMethodNameText,
+                    color: props.isDarkModeActive
+                      ? AppColors.Black
+                      : AppColors.White,
+                  }
                 : null,
             ]}>
             {item.PaymentTypeName}
@@ -68,8 +91,8 @@ const PaymentMethod = (props: Iprops) => {
             size={20}
             color={
               props.selectedPaymentMethod === item.id
-                ? AppColors.White
-                : AppColors.Black
+                ? AppColors.Black
+                : AppColors.White
             }
           />
         </View>
@@ -79,7 +102,16 @@ const PaymentMethod = (props: Iprops) => {
 
   const renderProductHistory = ({item}: {item: any}) => {
     return (
-      <View style={styles.renderProductHistoryView}>
+      <View
+        style={{
+          ...styles.renderProductHistoryView,
+          backgroundColor: props.isDarkModeActive
+            ? AppColors.Black
+            : AppColors.White,
+          shadowColor: props.isDarkModeActive
+            ? AppColors.White
+            : AppColors.Black,
+        }}>
         <View style={styles.renderImageNameDescriptionButtonView}>
           <View style={styles.renderProductImageHistoryView}>
             <Image
@@ -88,7 +120,10 @@ const PaymentMethod = (props: Iprops) => {
             />
           </View>
           <View style={styles.renderNameDescriptionButtonView}>
-            <SecondaryTitle text={item.ProductName} />
+            <SecondaryTitle
+              text={item.ProductName}
+              isDarkMode={props.isDarkModeActive}
+            />
 
             <Text style={styles.descriptionText}>
               {item.ProductDescription}
@@ -100,22 +135,32 @@ const PaymentMethod = (props: Iprops) => {
         </View>
         <View style={styles.priceView}>
           <Text style={styles.dollarSign}>$</Text>
-          <SecondaryTitle text={item.ProductPrice} />
+          <SecondaryTitle
+            text={item.ProductPrice}
+            isDarkMode={props.isDarkModeActive}
+          />
         </View>
       </View>
     );
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView
+      style={{
+        ...styles.container,
+        backgroundColor: props.isDarkModeActive
+          ? AppColors.Black
+          : AppColors.White,
+      }}>
       <View style={styles.headerView}>
         <PrimaryHeader
+          isDarkMode={props.isDarkModeActive}
           showSearchIcon={false}
           onHeaderBackArrowPressed={props.onHeaderBackArrowPressed}
         />
       </View>
       <View style={styles.headingView}>
-        <SecondaryTitle text="Payment" />
+        <SecondaryTitle text="Payment" isDarkMode={props.isDarkModeActive} />
       </View>
       <View style={styles.paymentFlatlistView}>
         <FlatList
@@ -129,7 +174,7 @@ const PaymentMethod = (props: Iprops) => {
       </View>
       <View style={styles.historyView}>
         <View style={styles.historyTitleView}>
-          <SecondaryTitle text="History" />
+          <SecondaryTitle text="History" isDarkMode={props.isDarkModeActive} />
         </View>
         <View style={styles.historyFlatlistView}>
           <FlatList

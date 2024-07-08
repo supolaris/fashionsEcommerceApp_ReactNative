@@ -19,20 +19,31 @@ import SecondaryTitle from '../common/Titles/SecondaryTitle';
 import SendIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 interface Iprops {
+  isDarkModeActive: boolean;
   onHeaderBackArrowPressed: () => void;
 }
 
 const ProductTracking = (props: Iprops) => {
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView
+      style={{
+        ...styles.container,
+        backgroundColor: props.isDarkModeActive
+          ? AppColors.Black
+          : AppColors.White,
+      }}>
       <View style={styles.headerView}>
         <PrimaryHeader
+          isDarkMode={props.isDarkModeActive}
           onHeaderBackArrowPressed={props.onHeaderBackArrowPressed}
           showSearchIcon={false}
         />
       </View>
       <View style={styles.productCodeTitleView}>
-        <PrimaryTitle text="US 2343445668" />
+        <PrimaryTitle
+          text="US 2343445668"
+          isDarkMode={props.isDarkModeActive}
+        />
         <View style={styles.descriptonView}>
           <PrimaryDescription text="Washington - Georgia" />
         </View>
@@ -45,9 +56,18 @@ const ProductTracking = (props: Iprops) => {
       </View>
       <View style={styles.colloctionPointView}>
         <View style={styles.collectionPointTitleView}>
-          <SecondaryTitle text="Collection Point" />
+          <SecondaryTitle
+            text="Collection Point"
+            isDarkMode={props.isDarkModeActive}
+          />
         </View>
-        <View style={styles.timeLocationIconView}>
+        <View
+          style={{
+            ...styles.timeLocationIconView,
+            borderBottomColor: props.isDarkModeActive
+              ? AppColors.White
+              : AppColors.Black,
+          }}>
           <View style={styles.timeLocationView}>
             <PrimaryDescription text="10:00 - 11:00 - 25 June, 2024" />
             <PrimaryDescription text="3512 Nagercoil, India" />
@@ -62,8 +82,22 @@ const ProductTracking = (props: Iprops) => {
           <View style={styles.pickupMessageView}>
             <PrimaryDescription text="You can change pickup time for your order by 10:00, 24 June" />
           </View>
-          <TouchableOpacity style={styles.pickupButtonTouchable}>
-            <Text style={styles.picktupButtonText}>Change</Text>
+          <TouchableOpacity
+            style={{
+              ...styles.pickupButtonTouchable,
+              backgroundColor: props.isDarkModeActive
+                ? AppColors.White
+                : AppColors.Black,
+            }}>
+            <Text
+              style={{
+                ...styles.picktupButtonText,
+                color: props.isDarkModeActive
+                  ? AppColors.Black
+                  : AppColors.White,
+              }}>
+              Change
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -71,45 +105,69 @@ const ProductTracking = (props: Iprops) => {
       {/* History */}
       <View style={styles.historyView}>
         <View style={styles.historyTitleView}>
-          <SecondaryTitle text="History" />
+          <SecondaryTitle text="History" isDarkMode={props.isDarkModeActive} />
         </View>
         <View style={styles.dateHistoryView}>
           <View style={styles.dateDescriptionView}>
-            <SecondaryTitle text="June 26" />
+            <SecondaryTitle
+              text="June 26"
+              isDarkMode={props.isDarkModeActive}
+            />
             <PrimaryDescription text="11:00" />
           </View>
           <View style={styles.messageDescriptionView}>
-            <SecondaryTitle text="Package has been received" />
+            <SecondaryTitle
+              text="Package has been received"
+              isDarkMode={props.isDarkModeActive}
+            />
             <PrimaryDescription text="Tamil Nadu" />
           </View>
         </View>
         <View style={styles.dateHistoryView}>
           <View style={styles.dateDescriptionView}>
-            <SecondaryTitle text="June 25" />
+            <SecondaryTitle
+              text="June 25"
+              isDarkMode={props.isDarkModeActive}
+            />
             <PrimaryDescription text="20:30" />
           </View>
           <View style={styles.messageDescriptionView}>
-            <SecondaryTitle text="Arrived at destination area" />
+            <SecondaryTitle
+              text="Arrived at destination area"
+              isDarkMode={props.isDarkModeActive}
+            />
             <PrimaryDescription text="End of tracking delivery tomorrow" />
           </View>
         </View>
         <View style={styles.dateHistoryView}>
           <View style={styles.dateDescriptionView}>
-            <SecondaryTitle text="June 24" />
+            <SecondaryTitle
+              text="June 24"
+              isDarkMode={props.isDarkModeActive}
+            />
             <PrimaryDescription text="9:45" />
           </View>
           <View style={styles.messageDescriptionView}>
-            <SecondaryTitle text="Accepted by GHL" />
+            <SecondaryTitle
+              text="Accepted by GHL"
+              isDarkMode={props.isDarkModeActive}
+            />
             <PrimaryDescription text="Delhi - India" />
           </View>
         </View>
         <View style={styles.dateHistoryView}>
           <View style={styles.dateDescriptionView}>
-            <SecondaryTitle text="June 22" />
+            <SecondaryTitle
+              text="June 22"
+              isDarkMode={props.isDarkModeActive}
+            />
             <PrimaryDescription text="13:5" />
           </View>
           <View style={styles.messageDescriptionView}>
-            <SecondaryTitle text="Arrived at destination" />
+            <SecondaryTitle
+              text="Arrived at destination"
+              isDarkMode={props.isDarkModeActive}
+            />
             <PrimaryDescription text="Washington - llinois" />
           </View>
         </View>

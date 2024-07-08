@@ -19,9 +19,10 @@ import {ProductCatagoriesData} from '../../constants/FlatlistData';
 import {InterfaceProductCatagoriesData} from '../../@types/AppTyping';
 
 interface Iprops {
+  isDarkModeActive: boolean;
+  onSearchValue: string;
   onCatagoryPressed: (item: any) => void;
   onHeaderBackArrowPressed: () => void;
-  onSearchValue: string;
   onSearchChangeText: (val: any) => void;
 }
 
@@ -47,9 +48,16 @@ const Catagories = (props: Iprops) => {
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView
+      style={{
+        ...styles.container,
+        backgroundColor: props.isDarkModeActive
+          ? AppColors.Black
+          : AppColors.White,
+      }}>
       <View style={styles.headerView}>
         <PrimaryHeader
+          isDarkMode={props.isDarkModeActive}
           showSearchIcon={false}
           onHeaderBackArrowPressed={props.onHeaderBackArrowPressed}
         />

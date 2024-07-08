@@ -21,6 +21,7 @@ import {InterfaceProductTyping} from '../../@types/AppTyping';
 const width = Dimensions.get('window').width;
 
 interface Iprops {
+  isDarkModeActive: boolean;
   onProductPressed: (item: InterfaceProductTyping) => void;
   onHeaderBackArrowPressed: () => void;
   categoryName: string;
@@ -45,24 +46,53 @@ const Products = (props: Iprops) => {
           />
         </View>
         <View style={styles.renderProductDetailView}>
-          <Text style={styles.renderProductName}>{item.ProductName}</Text>
-          <Text numberOfLines={1} style={styles.renderProductDescription}>
+          <Text
+            style={{
+              ...styles.renderProductName,
+              color: props.isDarkModeActive ? AppColors.White : AppColors.Black,
+            }}>
+            {item.ProductName}
+          </Text>
+          <Text
+            numberOfLines={1}
+            style={{
+              ...styles.renderProductDescription,
+              color: props.isDarkModeActive
+                ? AppColors.GrayDescriptonText
+                : AppColors.GrayDescriptonText,
+            }}>
             {item.ProductDescription}
           </Text>
-          <Text style={styles.renderProductPrice}>${item.ProductPrice}</Text>
+          <Text
+            style={{
+              ...styles.renderProductPrice,
+              color: props.isDarkModeActive ? AppColors.White : AppColors.Black,
+            }}>
+            ${item.ProductPrice}
+          </Text>
         </View>
       </TouchableOpacity>
     );
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView
+      style={{
+        ...styles.container,
+        backgroundColor: props.isDarkModeActive
+          ? AppColors.Black
+          : AppColors.White,
+      }}>
       <PrimaryHeader
+        isDarkMode={props.isDarkModeActive}
         showSearchIcon={true}
         onHeaderBackArrowPressed={props.onHeaderBackArrowPressed}
       />
       <View style={styles.titleView}>
-        <SecondaryTitle text={props.categoryName} />
+        <SecondaryTitle
+          text={props.categoryName}
+          isDarkMode={props.isDarkModeActive}
+        />
       </View>
       <View style={styles.flatlistView}>
         <FlatList

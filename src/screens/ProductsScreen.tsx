@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useState, useContext} from 'react';
 
 import Products from '../components/screenUi/Products';
 
@@ -10,7 +10,11 @@ import {ShirtsData} from '../constants/FlatlistData';
 import {ShoesData} from '../constants/FlatlistData';
 import {ElectronicsData} from '../constants/FlatlistData';
 
+import {AppContext} from '../utilities/AppContext';
+
 const ProductsScreen = ({route}: {route: any}) => {
+  const AppCtx = useContext(AppContext);
+  const isDarkMode = AppCtx.isDarkMode;
   const [flatlistProductArray, setFlatlistProductArray] = useState<any>([]);
   const {item} = route.params;
   // Alert.alert('Warning', item.CatagoryApiName);
@@ -43,6 +47,7 @@ const ProductsScreen = ({route}: {route: any}) => {
 
   return (
     <Products
+      isDarkModeActive={isDarkMode}
       onProductPressed={onProductPressed}
       onHeaderBackArrowPressed={onHeaderBackArrowPressed}
       categoryName={item.CatagoryName}

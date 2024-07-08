@@ -8,12 +8,19 @@ import LoginButton1 from '../common/Buttons/LoginButton1';
 import PrimaryTitle from '../common/Titles/PrimaryTitle';
 
 interface Iprops {
+  isDarkModeActive: boolean;
   onStartShoppingPressed: () => void;
 }
 
 const RegisterSuccess = (props: Iprops) => {
   return (
-    <View style={styles.container}>
+    <View
+      style={{
+        ...styles.container,
+        backgroundColor: props.isDarkModeActive
+          ? AppColors.Black
+          : AppColors.White,
+      }}>
       <StatusBar
         translucent
         barStyle="dark-content"

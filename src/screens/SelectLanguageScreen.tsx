@@ -1,10 +1,15 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 
 import SelectLanguage from '../components/screenUi/SelectLanguage';
 
 import {useAppNavigation} from '../@types/AppNavigation';
 
+import {AppContext} from '../utilities/AppContext';
+
 const SelectLanguageScreen = () => {
+  const AppCtx = useContext(AppContext);
+  const isDarkMode = AppCtx.isDarkMode;
+
   const navigaiton = useAppNavigation();
   const [selectedLanguage, setSelectedLanguage] = useState('');
   const [languageValue, setLanguageValue] = useState<string>('');
@@ -23,6 +28,7 @@ const SelectLanguageScreen = () => {
 
   return (
     <SelectLanguage
+      isDarkModeActive={isDarkMode}
       selectedLanguage={selectedLanguage}
       onLanguagePressed={onLanguagePressed}
       onHeaderBackArrowPressed={onHeaderBackArrowPressed}
