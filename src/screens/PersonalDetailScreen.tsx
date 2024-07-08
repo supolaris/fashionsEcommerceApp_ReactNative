@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 
 import PersonalDetail from '../components/screenUi/PersonalDetail';
 
@@ -10,6 +10,8 @@ import {
 
 import {useAppNavigation} from '../@types/AppNavigation';
 
+import {AppContext} from '../utilities/AppContext';
+
 const PersonalDetailScreen = () => {
   const navigation = useAppNavigation();
   //notification variable
@@ -19,6 +21,11 @@ const PersonalDetailScreen = () => {
   const [darkModeOnOff, setDarkModeOnOff] = useState('Off');
 
   const [modalVisible, setModalVisible] = useState(false);
+
+  //useContext api
+  const AppCtx = useContext(AppContext);
+  AppCtx.themeModeHandler(darkModeValue);
+  const isDarkModeActive = AppCtx.isDarkMode;
 
   const [selectedUserImage, setSelectedUserImage] =
     useState<ImagePickerResponse>();
@@ -74,6 +81,7 @@ const PersonalDetailScreen = () => {
 
   return (
     <PersonalDetail
+      isDarkModeActive={isDarkModeActive}
       //modal
       animationType="slide"
       transparent={true}

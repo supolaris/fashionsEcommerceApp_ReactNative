@@ -2,24 +2,23 @@ import {createContext, useState} from 'react';
 
 export const AppContext = createContext({
   themeModeHandler: () => {},
-  cartProductsArray: [],
+  isDarkMode: false,
 });
 
 export const AppContextProvider = ({children}: {children: any}) => {
-  const [lightDarkTheme, setLightDarkTheme] = useState('Light');
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const themeModeHandler = (themeMode: any) => {
-    setLightDarkTheme(themeMode);
-    return lightDarkTheme;
+  const themeModeHandlerFunction = (themeMode: boolean) => {
+    setIsDarkMode(themeMode);
+    //return lightDarkTheme;
   };
 
   const valuesLinking = {
-    themeModeHandler: themeModeHandler,
+    themeModeHandler: themeModeHandlerFunction,
+    isDarkMode: isDarkMode,
   };
 
   return (
-    <AppContextProvider.Provider value={valuesLinking}>
-      {children}
-    </AppContextProvider.Provider>
+    <AppContext.Provider value={valuesLinking}>{children}</AppContext.Provider>
   );
 };

@@ -8,8 +8,9 @@ import {useFocusEffect} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {InterfaceProductTyping} from '../@types/AppTyping';
+import {StackParmList} from '../@types/ParamsList';
 
-const CartScreen = () => {
+const CartScreen: StackParmList['CartScreen'] = () => {
   const navigation = useAppNavigation();
   const [cartProducts, setCartProducts] = useState<InterfaceProductTyping[]>(
     [],

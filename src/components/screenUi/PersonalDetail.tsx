@@ -8,7 +8,6 @@ import {
   StatusBar,
   Switch,
   TouchableOpacity,
-  TouchableWithoutFeedback,
   Text,
 } from 'react-native';
 
@@ -49,13 +48,15 @@ interface Iprops {
   darkModevalue: boolean;
   onHelpCenterPressed: () => void;
   onLogOutPressed: () => void;
+  isDarkModeActive: boolean;
 }
 
 const PersonalDetail = (props: Iprops) => {
   return (
     <>
       <StatusBar barStyle="dark-content" backgroundColor={AppColors.White} />
-      <ScrollView style={styles.container}>
+      <ScrollView
+        style={props.isDarkMode ? styles.Darkcontainer : styles.container}>
         {/* Image picker modal start*/}
         <Modal
           animationType={props.animationType}
@@ -100,7 +101,10 @@ const PersonalDetail = (props: Iprops) => {
             />
           </TouchableOpacity>
           <View style={styles.uploadTextView}>
-            <SecondaryTitle text="Upload Image" />
+            <SecondaryTitle
+              text="Upload Image"
+              isDarkMode={props.isDarkModeActive}
+            />
           </View>
         </View>
         <View style={styles.userDetailView}>
@@ -162,7 +166,10 @@ const PersonalDetail = (props: Iprops) => {
                   size={25}
                   color={AppColors.Black}
                 />
-                <SecondaryTitle text="Language" />
+                <SecondaryTitle
+                  text="Language"
+                  isDarkMode={props.isDarkModeActive}
+                />
               </View>
               <View style={styles.optionsView}>
                 <PrimaryDescription text="English" />
@@ -182,7 +189,10 @@ const PersonalDetail = (props: Iprops) => {
                   size={25}
                   color={AppColors.Black}
                 />
-                <SecondaryTitle text="Notification" />
+                <SecondaryTitle
+                  text="Notification"
+                  isDarkMode={props.isDarkModeActive}
+                />
               </View>
               <View style={styles.optionsView}>
                 <Switch
@@ -204,7 +214,10 @@ const PersonalDetail = (props: Iprops) => {
                   size={25}
                   color={AppColors.Black}
                 />
-                <SecondaryTitle text="Dark Mode" />
+                <SecondaryTitle
+                  text="Dark Mode"
+                  isDarkMode={props.isDarkModeActive}
+                />
               </View>
               <View style={styles.optionsView}>
                 <PrimaryDescription text={props.darkModeOnOffText} />
@@ -227,7 +240,10 @@ const PersonalDetail = (props: Iprops) => {
                   size={25}
                   color={AppColors.Black}
                 />
-                <SecondaryTitle text="Help Center" />
+                <SecondaryTitle
+                  text="Help Center"
+                  isDarkMode={props.isDarkModeActive}
+                />
               </View>
               <View style={styles.optionsView}>
                 <ArrowRightIcon
@@ -239,7 +255,11 @@ const PersonalDetail = (props: Iprops) => {
             </TouchableOpacity>
           </View>
           <View style={styles.buttonView}>
-            <PrimaryButton onPress={props.onLogOutPressed} text="Log Out" />
+            <PrimaryButton
+              onPress={props.onLogOutPressed}
+              text="Log Out"
+              isDarkMode={props.isDarkModeActive}
+            />
           </View>
         </View>
       </ScrollView>
@@ -281,6 +301,11 @@ const styles = StyleSheet.create({
   },
 
   //main
+  Darkcontainer: {
+    flex: 1,
+    backgroundColor: AppColors.Black,
+    padding: 15,
+  },
   container: {
     flex: 1,
     backgroundColor: AppColors.White,

@@ -3,8 +3,9 @@ import React, {useState} from 'react';
 import CardDetail from '../components/screenUi/CardDetail';
 
 import {useAppNavigation} from '../@types/AppNavigation';
+import {StackParmList} from '../@types/ParamsList';
 
-const CardDetailScreen = () => {
+const CardDetailScreen: StackParmList['CardDetail_Screen'] = () => {
   const navigation = useAppNavigation();
 
   const [modalVisible, setModalVisible] = useState(false);
