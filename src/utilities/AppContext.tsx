@@ -10,7 +10,6 @@ export const AppContextProvider = ({children}: {children: any}) => {
 
   const themeModeHandlerFunction = (themeMode: boolean) => {
     setIsDarkMode(themeMode);
-    //return lightDarkTheme;
   };
 
   const valuesLinking = {

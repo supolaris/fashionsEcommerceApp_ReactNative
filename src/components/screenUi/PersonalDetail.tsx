@@ -39,9 +39,9 @@ interface Iprops {
   //
   onEditImagePressed: () => void;
   onSelectLanguagePressed: () => void;
-  isNotificatonEnabled: boolean;
+  isNotificatonEnabled: boolean | undefined;
   onNotificationValueChange: () => void;
-  notificatonValue: boolean;
+  notificatonValue: boolean | undefined;
   darkModeOnOffText: string;
   isDarkMode: boolean;
   onDarkModeValueChange: () => void;
@@ -60,7 +60,10 @@ const PersonalDetail = (props: Iprops) => {
         <StatusBar barStyle="dark-content" />
       )}
       <ScrollView
-        style={props.isDarkMode ? styles.Darkcontainer : styles.container}>
+        style={{
+          ...styles.Darkcontainer,
+          backgroundColor: props.isDarkMode ? 'black' : 'white',
+        }}>
         {/* Image picker modal start*/}
         <Modal
           animationType={props.animationType}
