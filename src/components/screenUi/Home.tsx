@@ -139,7 +139,12 @@ const Home = (props: Iprops) => {
           />
         </View>
       </View>
-      <View style={styles.hotProductView}>
+      <View
+        style={
+          props.isDarkModeActive
+            ? styles.darkModeHotProductView
+            : styles.hotProductView
+        }>
         <View style={styles.imageView}>
           <Image
             style={styles.image}
@@ -147,7 +152,12 @@ const Home = (props: Iprops) => {
           />
         </View>
         <View style={styles.detailView}>
-          <View style={styles.hotProductTitleDescriptionPriceView}>
+          <View
+            style={
+              props.isDarkModeActive
+                ? styles.darkModeHotProductTitleDescriptionPriceView
+                : styles.hotProductTitleDescriptionPriceView
+            }>
             <ProductNameText
               text="Alex Arigato"
               isDarkMode={props.isDarkModeActive}
@@ -158,12 +168,17 @@ const Home = (props: Iprops) => {
               isDarkMode={props.isDarkModeActive}
             />
           </View>
-          <TouchableOpacity style={styles.arrowRrightButton}>
+          <TouchableOpacity
+            style={
+              props.isDarkModeActive
+                ? styles.darkModeArrowRrightButton
+                : styles.arrowRrightButton
+            }>
             <ArrowIcon
               style={styles.icon}
               name="keyboard-arrow-right"
               size={25}
-              color={AppColors.White}
+              color={props.isDarkModeActive ? AppColors.Black : AppColors.White}
             />
           </TouchableOpacity>
         </View>
@@ -289,6 +304,16 @@ const styles = StyleSheet.create({
     width: '84%',
   },
   filterButtonView: {},
+  darkModeHotProductView: {
+    marginHorizontal: 5,
+    flexDirection: 'row',
+    padding: 10,
+    backgroundColor: AppColors.Black,
+    elevation: 10,
+    shadowColor: AppColors.White,
+    borderRadius: 10,
+    marginVertical: 20,
+  },
   hotProductView: {
     marginHorizontal: 5,
     flexDirection: 'row',
@@ -311,7 +336,21 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingLeft: 10,
   },
-  hotProductTitleDescriptionPriceView: {},
+  darkModeHotProductTitleDescriptionPriceView: {
+    padding: 3,
+    backgroundColor: AppColors.Black,
+    borderRadius: 5,
+  },
+  hotProductTitleDescriptionPriceView: {
+    padding: 3,
+    backgroundColor: AppColors.Black,
+    borderRadius: 5,
+  },
+  darkModeArrowRrightButton: {
+    padding: 3,
+    backgroundColor: AppColors.White,
+    borderRadius: 5,
+  },
   arrowRrightButton: {
     padding: 3,
     backgroundColor: AppColors.Black,

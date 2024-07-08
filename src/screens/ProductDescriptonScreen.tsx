@@ -9,8 +9,13 @@ import {useAppNavigation} from '../@types/AppNavigation';
 import {InterfaceProductTyping} from '../@types/AppTyping';
 
 import {AppContext} from '../utilities/AppContext';
+import {StackParmList} from '../@types/ParamsList';
 
-const ProductDescriptonScreen = ({route}: {route: any}) => {
+const ProductDescriptonScreen: StackParmList['ProductDescripton_Screen'] = ({
+  route,
+}: {
+  route: any;
+}) => {
   const AppCtx = useContext(AppContext);
   const isDarkMode = AppCtx.isDarkMode;
 
