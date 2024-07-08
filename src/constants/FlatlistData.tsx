@@ -117,6 +117,7 @@ export const ShirtsData = [
     ProductName: 'White Shirt',
     ProductDescription: 'Timeless, classic',
     ProductPrice: 185.25,
+    ProductInTheCart: false,
     ProductImage: require('../assets/images/Products/Shirts/shirt2.jpg'),
   },
   {
@@ -125,6 +126,7 @@ export const ShirtsData = [
     ProductName: 'Oxford Shirt',
     ProductDescription: 'Elegant, versatile',
     ProductPrice: 200.54,
+    ProductInTheCart: false,
     ProductImage: require('../assets/images/Products/Shirts/shirt4.jpg'),
   },
   {
@@ -133,6 +135,7 @@ export const ShirtsData = [
     ProductName: 'Dress Shirt',
     ProductDescription: 'Stylish, formal',
     ProductPrice: 220.45,
+    ProductInTheCart: false,
     ProductImage: require('../assets/images/Products/Shirts/shirt1.jpg'),
   },
   {
@@ -141,6 +144,7 @@ export const ShirtsData = [
     ProductName: 'Casual Shirt',
     ProductDescription: 'Comfortable, relaxed',
     ProductPrice: 175.35,
+    ProductInTheCart: false,
     ProductImage: require('../assets/images/Products/Shirts/shirt3.jpg'),
   },
   {
@@ -149,6 +153,7 @@ export const ShirtsData = [
     ProductName: 'Formal Shirt',
     ProductDescription: 'Sleek, evening',
     ProductPrice: 210.9,
+    ProductInTheCart: false,
     ProductImage: require('../assets/images/Products/Shirts/shirt5.jpg'),
   },
   {
@@ -157,6 +162,7 @@ export const ShirtsData = [
     ProductName: 'Denim Shirt',
     ProductDescription: 'Trendy, versatile',
     ProductPrice: 195.42,
+    ProductInTheCart: false,
     ProductImage: require('../assets/images/Products/Shirts/shirt5.jpg'),
   },
 ];
@@ -169,6 +175,7 @@ export const BagsData = [
     ProductName: 'Leather Bag',
     ProductDescription: 'Durable, stylish',
     ProductPrice: 150.75,
+    ProductInTheCart: false,
     ProductImage: require('../assets/images/Products/Bags/bag1.jpg'),
   },
   {
@@ -177,6 +184,7 @@ export const BagsData = [
     ProductName: 'Canvas Tote',
     ProductDescription: 'Spacious, casual',
     ProductPrice: 90.5,
+    ProductInTheCart: false,
     ProductImage: require('../assets/images/Products/Bags/bag2.jpg'),
   },
   {
@@ -185,6 +193,7 @@ export const BagsData = [
     ProductName: 'Backpack',
     ProductDescription: 'Practical, versatile',
     ProductPrice: 120.0,
+    ProductInTheCart: false,
     ProductImage: require('../assets/images/Products/Bags/bag3.jpg'),
   },
   {
@@ -193,6 +202,7 @@ export const BagsData = [
     ProductName: 'Clutch',
     ProductDescription: 'Elegant, compact',
     ProductPrice: 80.25,
+    ProductInTheCart: false,
     ProductImage: require('../assets/images/Products/Bags/bag4.jpg'),
   },
   {
@@ -201,6 +211,7 @@ export const BagsData = [
     ProductName: 'Messenger Bag',
     ProductDescription: 'Functional, trendy',
     ProductPrice: 135.95,
+    ProductInTheCart: false,
     ProductImage: require('../assets/images/Products/Bags/bag5.jpg'),
   },
   {
@@ -209,6 +220,7 @@ export const BagsData = [
     ProductName: 'Duffel Bag',
     ProductDescription: 'Spacious, durable',
     ProductPrice: 110.6,
+    ProductInTheCart: false,
     ProductImage: require('../assets/images/Products/Bags/bag6.jpg'),
   },
 ];
@@ -221,6 +233,7 @@ export const ShoesData = [
     ProductName: 'Running Shoes',
     ProductDescription: 'Comfortable, durable',
     ProductPrice: 120.75,
+    ProductInTheCart: false,
     ProductImage: require('../assets/images/Products/Shoes/shoes1.jpg'),
   },
   {
@@ -229,6 +242,7 @@ export const ShoesData = [
     ProductName: 'Dress Shoes',
     ProductDescription: 'Elegant, formal',
     ProductPrice: 145.5,
+    ProductInTheCart: false,
     ProductImage: require('../assets/images/Products/Shoes/shoes2.jpg'),
   },
   {
@@ -237,6 +251,7 @@ export const ShoesData = [
     ProductName: 'Sneakers',
     ProductDescription: 'Casual, trendy',
     ProductPrice: 95.0,
+    ProductInTheCart: false,
     ProductImage: require('../assets/images/Products/Shoes/shoes3.jpg'),
   },
   {
@@ -245,6 +260,7 @@ export const ShoesData = [
     ProductName: 'Sandals',
     ProductDescription: 'Lightweight, airy',
     ProductPrice: 70.25,
+    ProductInTheCart: false,
     ProductImage: require('../assets/images/Products/Shoes/shoes4.jpg'),
   },
   {
@@ -253,6 +269,7 @@ export const ShoesData = [
     ProductName: 'Boots',
     ProductDescription: 'Sturdy, fashionable',
     ProductPrice: 160.95,
+    ProductInTheCart: false,
     ProductImage: require('../assets/images/Products/Shoes/shoes5.jpg'),
   },
   {
@@ -261,6 +278,7 @@ export const ShoesData = [
     ProductName: 'Loafers',
     ProductDescription: 'Comfortable, stylish',
     ProductPrice: 130.6,
+    ProductInTheCart: false,
     ProductImage: require('../assets/images/Products/Shoes/shoes6.jpg'),
   },
 ];

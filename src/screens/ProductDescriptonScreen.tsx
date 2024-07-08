@@ -11,18 +11,18 @@ import {InterfaceProductTyping} from '../@types/AppTyping';
 import {AppContext} from '../utilities/AppContext';
 import {StackParmList} from '../@types/ParamsList';
 
-const ProductDescriptonScreen: StackParmList['ProductDescripton_Screen'] = ({
-  route,
-}: {
-  route: any;
-}) => {
+const ProductDescriptonScreen = ({route}: {route: any}) => {
   const AppCtx = useContext(AppContext);
   const isDarkMode = AppCtx.isDarkMode;
+
+  let itemInMyCart;
 
   const {item} = route.params;
   const navigation = useAppNavigation();
   const [productNumber, setProductNumber] = useState<number>();
   const [productSelectedSize, setProductSelectedSize] = useState();
+
+  const [iteminCart, setIteminCart] = useState();
 
   const onMinusIconPressed = (item: InterfaceProductTyping) => {
     if (item.NoOfProducts >= 1) {
@@ -39,6 +39,12 @@ const ProductDescriptonScreen: StackParmList['ProductDescripton_Screen'] = ({
   };
 
   const onAddToCartPressed = async () => {
+    console.log(item);
+    item.ProductInTheCart = true;
+    itemInMyCart = item.ProductInTheCart;
+    setIteminCart(itemInMyCart);
+
+    console.log('isItemInCart', itemInMyCart);
     const PreviousProducts = await AsyncStorage.getItem('CartProducts');
 
     if (PreviousProducts !== null && PreviousProducts !== '') {
@@ -79,6 +85,7 @@ const ProductDescriptonScreen: StackParmList['ProductDescripton_Screen'] = ({
 
   return (
     <ProductDescription
+      isItemInCart={iteminCart}
       isDarkModeActive={isDarkMode}
       item={item}
       onMinusIconPressed={onMinusIconPressed}

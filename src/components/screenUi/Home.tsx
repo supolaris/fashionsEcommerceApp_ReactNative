@@ -25,7 +25,7 @@ import PrimaryDescription from '../common/Descriptions/PrimaryDescription';
 
 import ArrowIcon from 'react-native-vector-icons/MaterialIcons';
 
-import {BagsData, ProductCatagories} from '../../constants/FlatlistData';
+import {ProductCatagories} from '../../constants/FlatlistData';
 
 import {InterfaceProductTyping} from '../../@types/AppTyping';
 import {InterfaceProductCatagories} from '../../@types/AppTyping';
@@ -39,7 +39,6 @@ interface Iprops {
   onUserImagePressed: () => void;
   onFilterIconPressed: () => void;
   onViewAllPresses: () => void;
-  //searchOnChangeText: (text: string) => void;
   onSearchChangeText: (text: any) => void;
   onHeaderBackArrowPressed: () => void;
   categoryPressed: (item: InterfaceProductCatagories) => void;
@@ -51,7 +50,9 @@ const Home = (props: Iprops) => {
     return (
       <TouchableOpacity
         style={[
-          styles.renderCategoriesContainer,
+          props.isDarkModeActive
+            ? styles.darkModeRenderCategoriesContainer
+            : styles.renderCategoriesContainer,
 
           props.isDarkModeActive
             ? props.selectedCategory === item.id
@@ -230,7 +231,15 @@ export default Home;
 
 const styles = StyleSheet.create({
   //categories flatlist
-  darkModeRenderCategoriesContainer: {},
+  darkModeRenderCategoriesContainer: {
+    borderWidth: 0.5,
+    borderRadius: 20,
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    margin: 4,
+    justifyContent: 'center',
+    borderColor: AppColors.White,
+  },
   renderCategoriesContainer: {
     borderWidth: 0.5,
     borderRadius: 20,
@@ -343,7 +352,7 @@ const styles = StyleSheet.create({
   },
   hotProductTitleDescriptionPriceView: {
     padding: 3,
-    backgroundColor: AppColors.Black,
+    backgroundColor: AppColors.White,
     borderRadius: 5,
   },
   darkModeArrowRrightButton: {

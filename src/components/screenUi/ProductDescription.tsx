@@ -32,6 +32,7 @@ import {InterfaceProductTyping} from '../../@types/AppTyping';
 const height = Dimensions.get('window').height;
 
 interface Iprops {
+  isItemInCart: boolean | undefined;
   isDarkModeActive: boolean;
   item: InterfaceProductTyping;
   selectedProductSize: number | undefined;
@@ -208,24 +209,48 @@ const ProductDescription = (props: Iprops) => {
               isDarkMode={props.isDarkModeActive}
             />
           </View>
-          <TouchableOpacity
-            onPress={props.onAddToCartPressed}
-            style={
-              props.isDarkModeActive
-                ? styles.darkModeAddToCartView
-                : styles.addToCartView
-            }>
-            <CartIcon
-              style={styles.cartIcon}
-              name="cart-outline"
-              size={30}
-              color={props.isDarkModeActive ? AppColors.White : AppColors.Black}
-            />
-            <SecondaryTitle
-              text="Add to cart"
-              isDarkMode={props.isDarkModeActive}
-            />
-          </TouchableOpacity>
+          {props.isItemInCart ? (
+            <View
+              style={
+                props.isDarkModeActive
+                  ? {...styles.darkModeAddToCartView, opacity: 0.6}
+                  : {...styles.addToCartView, opacity: 0.6}
+              }>
+              <CartIcon
+                style={styles.cartIcon}
+                name="cart-outline"
+                size={30}
+                color={
+                  props.isDarkModeActive ? AppColors.White : AppColors.Black
+                }
+              />
+              <SecondaryTitle
+                text="Add to cart"
+                isDarkMode={props.isDarkModeActive}
+              />
+            </View>
+          ) : (
+            <TouchableOpacity
+              onPress={props.onAddToCartPressed}
+              style={
+                props.isDarkModeActive
+                  ? styles.darkModeAddToCartView
+                  : styles.addToCartView
+              }>
+              <CartIcon
+                style={styles.cartIcon}
+                name="cart-outline"
+                size={30}
+                color={
+                  props.isDarkModeActive ? AppColors.White : AppColors.Black
+                }
+              />
+              <SecondaryTitle
+                text="Add to cart"
+                isDarkMode={props.isDarkModeActive}
+              />
+            </TouchableOpacity>
+          )}
         </View>
       </View>
     </ScrollView>
@@ -440,6 +465,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   addToCartView: {
+    opacity: 10,
     width: '50%',
     flexDirection: 'row',
     justifyContent: 'center',
