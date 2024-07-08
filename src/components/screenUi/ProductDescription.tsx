@@ -54,7 +54,7 @@ const ProductDescription = (props: Iprops) => {
           styles.renderProductSizeContainer,
           props.isDarkModeActive
             ? props.selectedProductSize === item.id
-              ? styles.selectedRenderProductSizeContainer
+              ? styles.darkModeSelectedRenderProductSizeContainer
               : null
             : props.selectedProductSize === item.id
             ? styles.selectedRenderProductSizeContainer
@@ -62,9 +62,13 @@ const ProductDescription = (props: Iprops) => {
         ]}>
         <Text
           style={[
-            styles.renderProductSizeText,
+            props.isDarkModeActive
+              ? styles.darkModeRenderProductSizeText
+              : styles.renderProductSizeText,
             props.selectedProductSize === item.id
-              ? styles.selectedRenderProductSizeText
+              ? props.isDarkModeActive
+                ? styles.darkModeSelectedRenderProductSizeText
+                : styles.selectedRenderProductSizeText
               : null,
           ]}>
           {item.SizeName}
@@ -241,10 +245,25 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  darkModeSelectedRenderProductSizeContainer: {
+    backgroundColor: AppColors.White,
+  },
   selectedRenderProductSizeContainer: {
     backgroundColor: AppColors.Black,
   },
+  darkModeRenderProductSizeText: {
+    textAlign: 'center',
+    fontSize: 18,
+    color: AppColors.White,
+    fontFamily: AppFonts.SemiBold,
+  },
   renderProductSizeText: {
+    textAlign: 'center',
+    fontSize: 18,
+    color: AppColors.Black,
+    fontFamily: AppFonts.SemiBold,
+  },
+  darkModeSelectedRenderProductSizeText: {
     textAlign: 'center',
     fontSize: 18,
     color: AppColors.Black,
