@@ -14,6 +14,7 @@ interface Iprops {
   ot2: any;
   ot3: any;
   ot4: any;
+  inputs: any;
   input1: string;
   input2: string;
   input3: string;
@@ -34,13 +35,13 @@ const Otp = (props: Iprops) => {
         <TextInput
           ref={props.ot1}
           maxLength={1}
-          value={props.input1}
+          value={props.inputs[0]}
           style={[
             styles.otpTextInput,
             {borderColor: props.input1.length >= 1 ? 'green' : 'black'},
           ]}
           keyboardType="number-pad"
-          onChangeText={(val: any) => props.onChangeText1(val)}
+          onChangeText={(val: any) => props.onChangeText1(val, 1)}
           onKeyPress={({nativeEvent}) => {
             if (nativeEvent.key === 'Backspace' && props.input1.length == 0) {
               props.ot1.current.focus();
@@ -55,13 +56,13 @@ const Otp = (props: Iprops) => {
         <TextInput
           ref={props.ot2}
           maxLength={1}
-          value={props.input2}
+          value={props.inputs[1]}
           style={[
             styles.otpTextInput,
             {borderColor: props.input2.length >= 1 ? 'green' : 'black'},
           ]}
           keyboardType="number-pad"
-          onChangeText={(val: any) => props.onChangeText2(val)}
+          onChangeText={(val: any) => props.onChangeText2(val, 2)}
           onKeyPress={({nativeEvent}) => {
             if (nativeEvent.key === 'Backspace' && props.input2.length == 0) {
               props.ot1.current.focus();
@@ -76,13 +77,13 @@ const Otp = (props: Iprops) => {
         <TextInput
           ref={props.ot3}
           maxLength={1}
-          value={props.input3}
+          value={props.inputs[2]}
           style={[
             styles.otpTextInput,
             {borderColor: props.input3.length >= 1 ? 'green' : 'black'},
           ]}
           keyboardType="number-pad"
-          onChangeText={(val: any) => props.onChangeText3(val)}
+          onChangeText={(val: any) => props.onChangeText3(val, 3)}
           onKeyPress={({nativeEvent}) => {
             if (nativeEvent.key === 'Backspace' && props.input3.length == 0) {
               props.ot2.current.focus();
@@ -97,13 +98,13 @@ const Otp = (props: Iprops) => {
         <TextInput
           ref={props.ot4}
           maxLength={1}
-          value={props.input4}
+          value={props.inputs[3]}
           style={[
             styles.otpTextInput,
             {borderColor: props.input4.length >= 1 ? 'green' : 'black'},
           ]}
           keyboardType="number-pad"
-          onChangeText={(val: any) => props.onChangeText4(val)}
+          onChangeText={(val: any) => props.onChangeText4(val, 4)}
           onKeyPress={({nativeEvent}) => {
             if (nativeEvent.key === 'Backspace' && props.input4.length == 0) {
               props.ot3.current.focus();

@@ -9,6 +9,8 @@ const OtpScreen = () => {
   const ot3 = useRef();
   const ot4 = useRef();
 
+  const [inputs, setInputs] = useState(['', '', '', '']);
+
   const [input1, setInput1] = useState('');
   const [input2, setInput2] = useState('');
   const [input3, setInput3] = useState('');
@@ -44,30 +46,39 @@ const OtpScreen = () => {
     setTimer(60);
   };
 
-  const onChangeText1 = (input: any) => {
-    setInput1(input);
+  const onChangeText1 = (input: any, index: any) => {
+    let updateOtp = [...inputs];
+    updateOtp[index] = input;
+    setInputs(updateOtp);
     if (input.length >= 1) {
       ot2.current.focus();
     }
   };
-  const onChangeText2 = (input: any) => {
-    setInput2(input);
+  const onChangeText2 = (input: any, index: any) => {
+    let updateOtp = [...inputs];
+    updateOtp[index] = input;
+    setInputs(updateOtp);
     if (input.length >= 1) {
       ot3.current.focus();
     }
   };
-  const onChangeText3 = (input: any) => {
-    setInput3(input);
+  const onChangeText3 = (input: any, index: any) => {
+    let updateOtp = [...inputs];
+    updateOtp[index] = input;
+    setInputs(updateOtp);
     if (input.length >= 1) {
       ot4.current.focus();
     }
   };
-  const onChangeText4 = (input: any) => {
-    setInput4(input);
+  const onChangeText4 = (input: any, index: any) => {
+    let updateOtp = [...inputs];
+    updateOtp[index] = input;
+    setInputs(updateOtp);
   };
 
   return (
     <Otp
+      inputs={inputs}
       ot1={ot1}
       ot2={ot2}
       ot3={ot3}
