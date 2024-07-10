@@ -41,6 +41,16 @@ const Otp = (props: Iprops) => {
           ]}
           keyboardType="number-pad"
           onChangeText={(val: any) => props.onChangeText1(val)}
+          onKeyPress={({nativeEvent}) => {
+            if (nativeEvent.key === 'Backspace' && props.input1.length == 0) {
+              props.ot1.current.focus();
+            } else if (
+              props.input2.length == 1 &&
+              nativeEvent.key !== 'Backspace'
+            ) {
+              props.ot1.current.focus();
+            }
+          }}
         />
         <TextInput
           ref={props.ot2}
@@ -52,6 +62,16 @@ const Otp = (props: Iprops) => {
           ]}
           keyboardType="number-pad"
           onChangeText={(val: any) => props.onChangeText2(val)}
+          onKeyPress={({nativeEvent}) => {
+            if (nativeEvent.key === 'Backspace' && props.input2.length == 0) {
+              props.ot1.current.focus();
+            } else if (
+              props.input2.length == 1 &&
+              nativeEvent.key == 'Backspace'
+            ) {
+              props.ot2.current.focus();
+            }
+          }}
         />
         <TextInput
           ref={props.ot3}
@@ -63,6 +83,16 @@ const Otp = (props: Iprops) => {
           ]}
           keyboardType="number-pad"
           onChangeText={(val: any) => props.onChangeText3(val)}
+          onKeyPress={({nativeEvent}) => {
+            if (nativeEvent.key === 'Backspace' && props.input3.length == 0) {
+              props.ot2.current.focus();
+            } else if (
+              props.input3.length == 1 &&
+              nativeEvent.key == 'Backspace'
+            ) {
+              props.ot3.current.focus();
+            }
+          }}
         />
         <TextInput
           ref={props.ot4}
@@ -74,6 +104,16 @@ const Otp = (props: Iprops) => {
           ]}
           keyboardType="number-pad"
           onChangeText={(val: any) => props.onChangeText4(val)}
+          onKeyPress={({nativeEvent}) => {
+            if (nativeEvent.key === 'Backspace' && props.input4.length == 0) {
+              props.ot3.current.focus();
+            } else if (
+              props.input4.length == 1 &&
+              nativeEvent.key == 'Backspace'
+            ) {
+              props.ot4.current.focus();
+            }
+          }}
         />
       </View>
 

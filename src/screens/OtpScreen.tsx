@@ -54,23 +54,16 @@ const OtpScreen = () => {
     setInput2(input);
     if (input.length >= 1) {
       ot3.current.focus();
-    } else if (input.length < 1) {
-      ot1.current.focus();
     }
   };
   const onChangeText3 = (input: any) => {
     setInput3(input);
     if (input.length >= 1) {
       ot4.current.focus();
-    } else if (input.length < 1) {
-      ot2.current.focus();
     }
   };
   const onChangeText4 = (input: any) => {
     setInput4(input);
-    if (input.length < 1) {
-      ot3.current.focus();
-    }
   };
 
   return (
