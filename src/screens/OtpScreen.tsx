@@ -6,15 +6,10 @@ import Otp from '../components/screenUi/Otp';
 const OtpScreen = () => {
   const ot1 = useRef();
   const ot2 = useRef();
-  const ot3 = useRef();
+  const ot3 = useRef(null);
   const ot4 = useRef();
 
   const [inputs, setInputs] = useState(['', '', '', '']);
-
-  const [input1, setInput1] = useState('');
-  const [input2, setInput2] = useState('');
-  const [input3, setInput3] = useState('');
-  const [input4, setInput4] = useState('');
 
   const [timer, setTimer] = useState(60);
 
@@ -34,7 +29,7 @@ const OtpScreen = () => {
 
   const verifyOtpPressed = () => {
     let otp = '1234';
-    let enteredOtp = input1 + input2 + input3 + input4;
+    let enteredOtp = inputs[0] + inputs[1] + inputs[2] + inputs[3];
     if (enteredOtp === otp) {
       Alert.alert('OTP verified', 'You entered right OTP');
     } else {
@@ -51,7 +46,7 @@ const OtpScreen = () => {
     updateOtp[index] = input;
     setInputs(updateOtp);
     if (input.length >= 1) {
-      ot2.current.focus();
+      ot2.current?.focus();
     }
   };
   const onChangeText2 = (input: any, index: any) => {
@@ -59,7 +54,7 @@ const OtpScreen = () => {
     updateOtp[index] = input;
     setInputs(updateOtp);
     if (input.length >= 1) {
-      ot3.current.focus();
+      ot3.current?.focus();
     }
   };
   const onChangeText3 = (input: any, index: any) => {
@@ -67,7 +62,7 @@ const OtpScreen = () => {
     updateOtp[index] = input;
     setInputs(updateOtp);
     if (input.length >= 1) {
-      ot4.current.focus();
+      ot4.current?.focus();
     }
   };
   const onChangeText4 = (input: any, index: any) => {
@@ -83,10 +78,10 @@ const OtpScreen = () => {
       ot2={ot2}
       ot3={ot3}
       ot4={ot4}
-      input1={input1}
-      input2={input2}
-      input3={input3}
-      input4={input4}
+      // input1={input1}
+      // input2={input2}
+      // input3={input3}
+      // input4={input4}
       timer={timer}
       verifyOtpPressed={verifyOtpPressed}
       onResendTimer={onResendTimer}
