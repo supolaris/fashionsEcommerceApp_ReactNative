@@ -30,6 +30,8 @@ import CartScreen from '../screens/CartScreen';
 import HomeScreen from '../screens/HomeScreen';
 import CatagoriesScreen from '../screens/CatagoriesScreen';
 
+import OtpScreen from '../screens/OtpScreen';
+
 const Stack = createStackNavigator();
 
 function StackNav() {
@@ -39,6 +41,7 @@ function StackNav() {
         screenOptions={{
           headerShown: false,
         }}>
+        <Stack.Screen name="Otp_Screen" component={OtpScreen} />
         <Stack.Screen name="First_Screen" component={FirstScreen} />
         <Stack.Screen name="Second_Screen" component={SecondScreen} />
 
