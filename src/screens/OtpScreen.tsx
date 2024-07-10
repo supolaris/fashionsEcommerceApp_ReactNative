@@ -6,7 +6,7 @@ import Otp from '../components/screenUi/Otp';
 const OtpScreen = () => {
   const ot1 = useRef();
   const ot2 = useRef();
-  const ot3 = useRef(null);
+  const ot3 = useRef();
   const ot4 = useRef();
 
   const [inputs, setInputs] = useState(['', '', '', '']);
@@ -78,10 +78,6 @@ const OtpScreen = () => {
       ot2={ot2}
       ot3={ot3}
       ot4={ot4}
-      // input1={input1}
-      // input2={input2}
-      // input3={input3}
-      // input4={input4}
       timer={timer}
       verifyOtpPressed={verifyOtpPressed}
       onResendTimer={onResendTimer}
