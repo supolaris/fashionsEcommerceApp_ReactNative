@@ -45,10 +45,10 @@ const Otp = (props: Iprops) => {
             ) {
               props.ot1.current.focus();
             } else if (
-              props.inputs[1].length == 1 &&
+              props.inputs[0].length == 1 &&
               nativeEvent.key !== 'Backspace'
             ) {
-              props.ot1.current.focus();
+              props.ot2.current.focus();
             }
           }}
         />
@@ -70,9 +70,9 @@ const Otp = (props: Iprops) => {
               props.ot1.current.focus();
             } else if (
               props.inputs[1].length == 1 &&
-              nativeEvent.key == 'Backspace'
+              nativeEvent.key !== 'Backspace'
             ) {
-              props.ot2.current.focus();
+              props.ot3.current.focus();
             }
           }}
         />
@@ -94,9 +94,9 @@ const Otp = (props: Iprops) => {
               props.ot2.current.focus();
             } else if (
               props.inputs[2].length == 1 &&
-              nativeEvent.key == 'Backspace'
+              nativeEvent.key !== 'Backspace'
             ) {
-              props.ot3.current.focus();
+              props.ot4.current.focus();
             }
           }}
         />
@@ -116,11 +116,6 @@ const Otp = (props: Iprops) => {
               props.inputs[3].length == 0
             ) {
               props.ot3.current.focus();
-            } else if (
-              props.inputs[3].length == 1 &&
-              nativeEvent.key == 'Backspace'
-            ) {
-              props.ot4.current.focus();
             }
           }}
         />
